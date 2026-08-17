@@ -1,1 +1,2 @@
 id,date,start,end,status,workstream
+WS-001,2026-08-17,00:00,,in-progress,"Continued from Internal WS-001: split Internal client into named tooling projects (Timesheet-Logging, New-Project-Scaffold), then built stale-row + idle-gap detection hooks for the timesheet system"
