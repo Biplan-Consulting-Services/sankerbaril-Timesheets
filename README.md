@@ -106,28 +106,38 @@ to get it right.
 
 ```mermaid
 flowchart TD
-    A["New session opens"] --> B["SessionStart hook scans every project log"]
-    B --> C{"Stale row found?<br/>(owning session ended, or dated before today)"}
-    C -- "Yes" --> D["Claude asks for a completion time<br/>before addressing anything else"]
-    D --> E["Row closed with the time given"]
-    C -- "No" --> F["Work begins"]
-    E --> F
+    subgraph S1["1 - Session start"]
+        A["New session opens"] --> B["SessionStart hook scans<br/>every project log"]
+        B --> C{"Stale row found?<br/>(owning session ended,<br/>or dated before today)"}
+        C -- "Yes" --> D["Claude asks for a<br/>completion time"]
+        D --> E["Row closed with<br/>the time given"]
+        C -- "No" --> F["Ready to work"]
+        E --> F
+    end
 
-    F --> G["New row logged:<br/>project, start time, session ID, in-progress"]
-    G --> H["Work continues / messages sent"]
-    H --> I{"Gap since last message"}
-    I -- "under 20 min, same day" --> H
-    I -- "under 20 min, crossed midnight" --> J["Row silently split at the day boundary"]
-    J --> H
-    I -- "20+ minutes" --> K["Claude asks: did you stop? When? Resuming when?"]
-    K --> L["Row closed / reopened using the times given"]
-    L --> H
+    F --> G["Workstream starts:<br/>row logged with start time + session ID"]
 
-    H --> M["Workstream finishes"]
-    M --> N["Row closed: real end time, status = done"]
-    N --> O["End of day: open rows confirmed -<br/>closed, or intentionally carried over"]
-    O --> P["Shift Console regenerated and republished"]
-    P --> Q["Reviewed anytime: Today / Week / Range -<br/>Timeline or Table - Client &rarr; Project filters"]
+    subgraph S2["2 - While the workstream is open"]
+        G --> H["Message sent"]
+        H --> I{"Gap since the<br/>previous message"}
+        I -- "Small, same day" --> H
+        I -- "Small, crossed midnight" --> J["Row split silently<br/>at the day boundary"]
+        J --> H
+        I -- "20+ minutes" --> K["Claude asks:<br/>did you stop? when? resuming when?"]
+        K --> L["Row closed + reopened<br/>using the times given"]
+        L --> H
+    end
+
+    H -- "Work is done" --> M["Row closed:<br/>real end time, status = done"]
+
+    subgraph S3["3 - Wrapping up"]
+        M --> O{"Done for<br/>the day?"}
+        O -- "No, more work" --> G
+        O -- "Yes" --> P["Open rows confirmed:<br/>closed, or carried over on purpose"]
+        P --> Q["Shift Console<br/>regenerated and republished"]
+    end
+
+    Q -.->|"reviewed anytime, not just here"| R["Today / Week / Range<br/>Timeline or Table<br/>Client &rarr; Project filters"]
 ```
 
 ### File layout
