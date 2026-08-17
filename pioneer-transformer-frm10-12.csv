@@ -1,1 +1,5 @@
 id,date,start,end,status,workstream
+WS-001,2026-08-10,08:00,12:30,done,"Scaffolded FRM10-12 staging repo; added workbook, Power Query source, SharePoint list exports [reconstructed from git history]"
+WS-002,2026-08-10,14:00,18:30,done,"Started Model Revisions migration: repointed model-spec fields (JS #, kVA, oil/core type, phases, cable/form/coil, description) off Models onto Model Revisions [reconstructed from git history]"
+WS-003,2026-08-11,09:00,17:00,done,"Finished Model Revisions migration (GUID-based lookup); built Sync-PowerQuery.ps1; added ColumnMap.pq + reorganized power-query/; removed dead hyperlink code/orphaned queries; fixed Office Script refresh hang; code review fixes on TableOrders.pq; repointed Navigation Model hyperlinks; merged live TableOrders data into staging [reconstructed from git history]"
+WS-004,2026-08-12,09:00,11:00,done,"Removed legacy ProductSTD sheet/table and its orphaned connection; removed 5 orphaned connection objects left behind by earlier deleted queries [reconstructed from git history; project split estimated from commit timing]"
