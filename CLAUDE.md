@@ -26,14 +26,20 @@ full logging procedure.
   `_internal.csv` for non-billable/meta work (tooling, this workspace itself, etc.).
 - `_session-log.md` - coarse session-open/session-close timestamps, written
   automatically by a SessionStart/SessionEnd hook (see `~/.claude/settings.json`).
-  A backstop for reconstructing a day's envelope if a workstream row was missed, not
-  the primary record - don't treat it as billable data on its own.
+  A backstop for reconstructing a day's envelope if a workstream row was missed, and
+  the source of truth for which sessions have confirmed-ended (used by the stale-row
+  detection below) - don't treat it as billable data on its own.
 
 ## Row schema (per-project CSVs)
-`id,date,start,end,status,workstream` - quote `workstream` if it contains a comma.
+`id,date,start,end,status,session_id,workstream` - quote `workstream` if it contains
+a comma.
 - `id` - sequential per file, e.g. `WS-014`. Multiple rows can be `in-progress` at
   once in the same file - always reference by id, never assume "the" open row.
 - `status` - `in-progress` or `done`.
+- `session_id` - the Claude Code session that opened the row; blank for
+  historical/reconstructed rows. Lets a later session tell "still open in a
+  currently-running sibling session" apart from "genuinely orphaned" - see the
+  `timesheet-logging` skill's "Automatic stale-row and idle detection" section.
 - `workstream` - short description; edited in place if scope shifts but it's still
   the same unit of work, or closed + a new row opened if the user pivots to something
   genuinely different.

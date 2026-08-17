@@ -1,4 +1,4 @@
-id,date,start,end,status,workstream
-WS-001,2026-08-11,17:00,19:00,done,"Scaffolded FRM09 staging repo: folder structure, LFS, CLAUDE.md [reconstructed from git history; project split estimated from commit timing]"
-WS-002,2026-08-12,14:00,14:45,done,"Replaced legacy external-link references to FRM10-12 with a Power Query; marked the issue resolved in CLAUDE.md [reconstructed from git history; project split estimated from commit timing]"
-WS-003,2026-08-13,14:30,16:15,done,"Added Panneau de controle sheet, mirroring FRM10-12's control-panel pattern; stripped a corrupted empty Data Model from the workbook [reconstructed from git history; project split estimated from commit timing]"
+id,date,start,end,status,session_id,workstream
+WS-001,2026-08-11,17:00,19:00,done,,"Scaffolded FRM09 staging repo: folder structure, LFS, CLAUDE.md [reconstructed from git history; project split estimated from commit timing]"
+WS-002,2026-08-12,14:00,14:45,done,,Replaced legacy external-link references to FRM10-12 with a Power Query; marked the issue resolved in CLAUDE.md [reconstructed from git history; project split estimated from commit timing]
+WS-003,2026-08-13,14:30,16:15,done,,"Added Panneau de controle sheet, mirroring FRM10-12's control-panel pattern; stripped a corrupted empty Data Model from the workbook [reconstructed from git history; project split estimated from commit timing]"
