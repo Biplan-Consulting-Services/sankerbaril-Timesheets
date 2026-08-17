@@ -74,16 +74,20 @@ and is refreshed on request or automatically at the end of a work day.
 
 ## Screenshots
 
-_Screenshots to be added — see the placeholders below._
+**Today view** — opens by default to the current day only; filters automatically
+narrow to just the clients/projects with entries in view.
 
-**Today view**
-_(placeholder — timeline view showing a single day's logged work)_
+![Today view](docs/screenshots/Today_View.png)
 
-**This Week view with client/project filters**
-_(placeholder — filters panel expanded, multiple projects visible)_
+**This Week view, Timeline mode** — client → project drill-down filters, an
+hours-by-project summary, and a per-day breakdown with proportional time bars.
 
-**Table view**
-_(placeholder — plain-table display, ready to copy into another timesheet app)_
+![This Week view, timeline mode](docs/screenshots/This_Week_View.png)
+
+**This Week view, Table mode** — the same range, displayed as per-day data tables
+built for selecting and pasting rows straight into another timesheet system.
+
+![Table view](docs/screenshots/Table_View.png)
 
 ## Status
 
