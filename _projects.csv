@@ -1,0 +1,5 @@
+file,project,client,color_light,color_dark
+pioneer-transformer-frm10-12.csv,FRM10-12,true,#1568A8,#3D82C4
+pioneer-transformer-frm09.csv,FRM09,true,#1F8A72,#2AA184
+pioneer-transformer-workflow-automation.csv,Workflow-Automation,true,#7A4FA3,#A671C9
+_internal.csv,Internal,false,,

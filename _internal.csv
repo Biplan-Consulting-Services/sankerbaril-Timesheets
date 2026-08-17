@@ -1,0 +1,2 @@
+id,date,start,end,status,workstream
+WS-001,2026-08-16,21:30,,in-progress,"Claude Code feature tour: built FRM10-12 PQ-workflow skill, weekly time-log artifact, timesheet-logging skill + Timesheets repo, SessionStart/SessionEnd hooks, and this Shift Console artifact"
