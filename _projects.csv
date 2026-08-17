@@ -3,3 +3,4 @@ pioneer-transformer-frm10-12.csv,Pioneer Transformer,FRM10-12,true,#1568A8,#3D82
 pioneer-transformer-frm09.csv,Pioneer Transformer,FRM09,true,#1F8A72,#2AA184
 pioneer-transformer-workflow-automation.csv,Pioneer Transformer,Workflow-Automation,true,#7A4FA3,#A671C9
 _internal.csv,Internal,Internal,false,,
+claude-tooling.csv,Internal,Claude-Tooling,false,,
