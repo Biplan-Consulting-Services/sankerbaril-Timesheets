@@ -1,2 +1,2 @@
 id,date,start,end,status,session_id,workstream
-WS-001,2026-08-17,00:00,,in-progress,254d01f7-9d26-4993-81f2-db2ebe2ea671,"Continued from Internal WS-001: split Internal client into named tooling projects (Timesheet-Logging, New-Project-Scaffold), then built stale-row + idle-gap detection hooks for the timesheet system"
+WS-001,2026-08-17,00:00,01:29,done,254d01f7-9d26-4993-81f2-db2ebe2ea671,"Continued from Internal WS-001: split Internal client into named tooling projects (Timesheet-Logging, New-Project-Scaffold); built and tested session-aware stale-row + idle-gap detection hooks (session_id column added to every CSV); documented logging/validation flow + Mermaid diagram in the README; trimmed TASKS.md (dropped archiving/clipboard, logged the Personal-space idea)"
