@@ -1,2 +1,3 @@
 id,date,start,end,status,workstream
-WS-001,2026-08-16,21:30,,in-progress,"Claude Code feature tour: built FRM10-12 PQ-workflow skill, weekly time-log artifact, timesheet-logging skill + Timesheets repo, SessionStart/SessionEnd hooks, and this Shift Console artifact"
+WS-001,2026-08-16,21:30,23:59,done,"Claude Code feature tour: built FRM10-12 PQ-workflow skill, weekly time-log artifact, timesheet-logging skill + Timesheets repo, SessionStart/SessionEnd hooks, and this Shift Console artifact [split at midnight, continued as WS-002]"
+WS-002,2026-08-17,00:00,,in-progress,"Continued from WS-001: split Internal client into named tooling projects (Timesheet-Logging, New-Project-Scaffold), then built stale-row + idle-gap detection hooks for the timesheet system"
