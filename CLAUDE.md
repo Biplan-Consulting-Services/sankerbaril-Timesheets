@@ -15,10 +15,12 @@ the `timesheet-logging` skill (`~/.claude/skills/timesheet-logging/SKILL.md`) fo
 full logging procedure.
 
 ## Files
-- `_projects.csv` - the project registry: `file,project,client,color_light,color_dark`.
+- `_projects.csv` - the project registry: `file,client,project,billable,color_light,color_dark`.
   A project only exists to the skill/console because it has a row here. `client` is
-  `true`/`false`; non-client rows leave the color columns blank and render neutral,
-  outside the categorical color system on purpose.
+  the actual client name (`Internal` for non-billable buckets) - the console's client
+  filter drills down from this into individual projects. `billable` is `true`/`false`;
+  non-billable rows leave the color columns blank and render neutral, outside the
+  categorical color system on purpose.
 - One CSV per project, named after its repo (`pioneer-transformer-frm10-12.csv`,
   `pioneer-transformer-frm09.csv`, `pioneer-transformer-workflow-automation.csv`), plus
   `_internal.csv` for non-billable/meta work (tooling, this workspace itself, etc.).
@@ -39,8 +41,10 @@ full logging procedure.
 ## Reporting - the Shift Console
 On request (or automatically at end-of-day, per the skill), an interactive artifact is
 built from `_projects.csv` + all project CSVs and republished to the URL below. It
-opens to today's entries, with a "This Week" view, a "Search a range" view, and project
-filters (client projects and non-client buckets each get their own select-all/none
-group). All data is embedded at publish time - it's a snapshot, not a live feed.
+opens to today's entries, with a "This Week" view and a "Search a range" view; a
+two-level Clients → Projects filter (each level with its own select-all/none); and a
+Timeline/Table display toggle - Table is a plain HTML table meant for copy-pasting rows
+directly into an external timesheet app. All data is embedded at publish time - it's a
+snapshot, not a live feed.
 
 **Current artifact URL:** https://claude.ai/code/artifact/41688985-c12f-4f44-a4fe-c4c9d4a83123
