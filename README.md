@@ -58,14 +58,87 @@ application:
 All data lives in version-controlled, plain-text files — nothing proprietary, nothing
 that requires this tool specifically to read. Every change has full git history.
 
-## How it works
+## How logging and validation work
+
+Shift Console isn't just a place hours get displayed — it's an active system that
+watches for the moments hours could otherwise get lost, and closes them
+automatically or with a single, precise confirmation.
+
+**Logging as work happens.** Every distinct unit of work becomes a row the moment it
+starts: a project, a real timestamp, a plain-language description — no timer to
+remember to start, no reconstructing from memory at the end of the day. The row
+stays open for as long as the work is in progress and closes the moment it's
+finished, with real elapsed time, never an estimate.
+
+**A three-layer safety net.** Because "just log it as you go" still depends on
+nobody forgetting, three independent checks run quietly underneath every session:
+
+1. **Session-start scan** — the instant a new session opens, every project's log is
+   checked for work genuinely left behind: a session that ended without closing its
+   row, or one that crashed outright. Anything found is surfaced immediately, before
+   anything else, with a request for a real completion time.
+2. **Idle-gap detection** — every message is measured against the last one. A gap of
+   twenty minutes or more triggers a direct question: did work actually stop, and if
+   so, when did it stop and when did it resume? The answer — never a guess — becomes
+   the row's real closing and reopening time.
+3. **Midnight-crossing** — a short gap that happens to cross into a new calendar day
+   (working straight through midnight, for instance) needs no interruption at all:
+   the entry is split cleanly at the boundary and carries on into the new day as
+   what it actually was — one continuous stretch of work.
+
+**Session-aware, not just date-aware.** The harder problem this system solves isn't
+detecting a gap — it's not mistaking someone else's *live* work for something
+abandoned. Parallel engagements are the normal case here, not the exception: one
+console can be actively tracking one client's project while a second is open for
+another. A check based on dates alone would see the first console's still-open row
+the moment the second one starts and flag it as forgotten - simply wrong. Shift
+Console avoids that by tagging every row with the session that opened it, and only
+ever treating a row as stale once its *owning* session has actually confirmed it
+ended - never merely because another session exists. Two engagements can run side by
+side all day without either ever second-guessing the other.
+
+**The result:** hours are never manually reconstructed, never double-counted across
+parallel work, and never silently lost to a closed laptop lid - the system either
+closes the gap on its own or asks exactly once, with exactly the information needed
+to get it right.
+
+### The flow
+
+```mermaid
+flowchart TD
+    A["New session opens"] --> B["SessionStart hook scans every project log"]
+    B --> C{"Stale row found?<br/>(owning session ended, or dated before today)"}
+    C -- "Yes" --> D["Claude asks for a completion time<br/>before addressing anything else"]
+    D --> E["Row closed with the time given"]
+    C -- "No" --> F["Work begins"]
+    E --> F
+
+    F --> G["New row logged:<br/>project, start time, session ID, in-progress"]
+    G --> H["Work continues / messages sent"]
+    H --> I{"Gap since last message"}
+    I -- "under 20 min, same day" --> H
+    I -- "under 20 min, crossed midnight" --> J["Row silently split at the day boundary"]
+    J --> H
+    I -- "20+ minutes" --> K["Claude asks: did you stop? When? Resuming when?"]
+    K --> L["Row closed / reopened using the times given"]
+    L --> H
+
+    H --> M["Workstream finishes"]
+    M --> N["Row closed: real end time, status = done"]
+    N --> O["End of day: open rows confirmed -<br/>closed, or intentionally carried over"]
+    O --> P["Shift Console regenerated and republished"]
+    P --> Q["Reviewed anytime: Today / Week / Range -<br/>Timeline or Table - Client &rarr; Project filters"]
+```
+
+### File layout
 
 ```
 _projects.csv              registry: every client + project, billing status, color
 <project>.csv              one append-only log per project (id, date, start, end,
-                            status, description)
+                            status, session_id, description)
 _internal.csv               non-billable/internal work, tracked the same way
-_session-log.md              automatic session-boundary backstop
+_session-log.md              session-boundary record - also what the stale-row
+                              check uses to confirm a session has actually ended
 ```
 
 The Shift Console itself is a self-contained interactive page: all data is compiled
