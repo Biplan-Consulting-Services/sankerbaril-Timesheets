@@ -1,0 +1,628 @@
+<title>Shift Console</title>
+<style>
+  :root{
+    --bg: #EFF1F2;
+    --surface: #FFFFFF;
+    --surface-alt: #E6E9EB;
+    --ink: #16202B;
+    --ink-soft: #4B5A66;
+    --ink-faint: #7C8991;
+    --line: #D7DEE2;
+    --line-strong: #C1CAD0;
+    --accent: #B5652D;
+    --accent-ink: #8A4A1E;
+    --accent-soft: #F1DFCB;
+    --neutral-chip: #E6E9EB;
+    --neutral-chip-ink: #5C6870;
+    --focus: #1568A8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: #10161B; --surface: #18212A; --surface-alt: #1E2830;
+      --ink: #E7ECEF; --ink-soft: #A8B4BC; --ink-faint: #66747D;
+      --line: #2A3640; --line-strong: #3A4750;
+      --accent: #E08A4E; --accent-ink: #F3B27E; --accent-soft: #3A2A1C;
+      --neutral-chip: #232E37; --neutral-chip-ink: #9BA8B0;
+      --focus: #6BAEE0;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: #10161B; --surface: #18212A; --surface-alt: #1E2830;
+    --ink: #E7ECEF; --ink-soft: #A8B4BC; --ink-faint: #66747D;
+    --line: #2A3640; --line-strong: #3A4750;
+    --accent: #E08A4E; --accent-ink: #F3B27E; --accent-soft: #3A2A1C;
+    --neutral-chip: #232E37; --neutral-chip-ink: #9BA8B0;
+    --focus: #6BAEE0;
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    margin:0; background: var(--bg); color: var(--ink);
+    font-family: Charter, "Iowan Old Style", Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page{ max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 4rem; display: flex; flex-direction: column; gap: 1.75rem; }
+  h1,h2,h3, .eyebrow, .figure, .tag, .axis-tick, .navbtn, .modebtn, .grouplabel, th{
+    font-family: "Bahnschrift SemiCondensed", "Bahnschrift", "Yu Gothic UI Semibold", "Arial Narrow", sans-serif;
+  }
+  .mono{ font-family: "Cascadia Mono", "Cascadia Code", Consolas, "SF Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+  button, input{ font: inherit; color: inherit; }
+  :focus-visible{ outline: 2px solid var(--focus); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce){ *{ transition: none !important; animation: none !important; } }
+
+  .titleblock{
+    border: 1px solid var(--line-strong); border-radius: 6px; background: var(--surface);
+    padding: 1.5rem 1.75rem; display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 1rem; flex-wrap: wrap;
+  }
+  .eyebrow{ font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 0.35rem; }
+  h1{ font-size: 1.9rem; letter-spacing: 0.01em; margin: 0; text-wrap: balance; font-weight: 600; }
+  .titleblock .range-label{ text-align: right; }
+  .titleblock .range-label .mono{ font-size: 1.05rem; color: var(--ink-soft); }
+
+  .tabs{ display: flex; gap: 0.4rem; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 6px; padding: 0.35rem; }
+  .navbtn{
+    flex: 1; border: none; background: transparent; color: var(--ink-soft); font-size: 0.85rem;
+    letter-spacing: 0.03em; padding: 0.55rem 0.75rem; border-radius: 4px; cursor: pointer; text-transform: uppercase;
+  }
+  .navbtn:hover{ background: var(--surface-alt); color: var(--ink); }
+  .navbtn.active{ background: var(--accent); color: #fff; }
+
+  .rangepicker{
+    display: none; gap: 0.75rem; align-items: center; background: var(--surface);
+    border: 1px solid var(--line-strong); border-radius: 6px; padding: 0.85rem 1.1rem; flex-wrap: wrap;
+  }
+  .rangepicker.show{ display: flex; }
+  .rangepicker label{ font-size: 0.75rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+  .rangepicker input[type="date"]{ background: var(--surface-alt); border: 1px solid var(--line-strong); border-radius: 4px; padding: 0.35rem 0.5rem; color: var(--ink); }
+  .rangepicker button{ background: var(--accent); color: #fff; border: none; border-radius: 4px; padding: 0.4rem 0.9rem; cursor: pointer; font-size: 0.85rem; }
+  .rangepicker button:hover{ filter: brightness(1.08); }
+
+  .filters{ display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .filtergroup{ background: var(--surface); padding: 0.9rem 1.1rem; }
+  .filtergroup-head{ display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.6rem; }
+  .grouplabel{ font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+  .grouplinks{ display: flex; gap: 0.5rem; }
+  .grouplinks button{ background: none; border: none; color: var(--focus); font-size: 0.72rem; cursor: pointer; text-decoration: underline; padding: 0; }
+  .checkrow-list{ display: flex; flex-wrap: wrap; gap: 0.3rem 1.25rem; }
+  .checkrow{ display: flex; align-items: center; gap: 0.5rem; padding: 0.2rem 0; font-size: 0.9rem; cursor: pointer; }
+  .checkrow input{ cursor: pointer; }
+  .swatch{ display: inline-block; width: 9px; height: 9px; border-radius: 2px; flex: none; }
+  .swatch.neutral{ background: var(--neutral-chip-ink); }
+  .empty-hint{ font-size: 0.82rem; color: var(--ink-faint); font-style: italic; }
+
+  .summary{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .stat{ background: var(--surface); padding: 1.1rem 1.25rem; display: flex; flex-direction: column; gap: 0.3rem; }
+  .stat .label{ font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+  .stat .figure{ font-size: 1.9rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .stat.total .figure{ color: var(--accent-ink); }
+  .stat .figure .unit{ font-size: 1rem; color: var(--ink-faint); font-weight: 500; margin-left: 0.2rem; }
+
+  .split{ background: var(--surface); border: 1px solid var(--line-strong); border-radius: 6px; padding: 1.1rem 1.25rem 1.25rem; }
+  .split .label{ font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.7rem; }
+  .split-bar{ display: flex; height: 14px; border-radius: 7px; overflow: hidden; background: var(--surface-alt); }
+  .split-bar .seg{ height: 100%; }
+  .split-bar .seg + .seg{ margin-left: 2px; }
+  .split-bar .seg:first-child{ border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+  .split-bar .seg:last-child{ border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
+  .split-legend{ display: flex; gap: 1.25rem; margin-top: 0.85rem; flex-wrap: wrap; }
+  .split-legend .item{ display: flex; align-items: baseline; gap: 0.4rem; font-size: 0.82rem; }
+  .split-legend .proj{ color: var(--ink-soft); }
+  .split-legend .hrs{ color: var(--ink); font-weight: 600; }
+  .empty-note{ font-size: 0.85rem; color: var(--ink-faint); font-style: italic; padding: 0.2rem 0; }
+
+  .modebar{ display: flex; justify-content: flex-end; gap: 0.4rem; }
+  .modebtn{
+    border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-soft);
+    font-size: 0.78rem; padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; letter-spacing: 0.03em; text-transform: uppercase;
+  }
+  .modebtn:hover{ background: var(--surface-alt); }
+  .modebtn.active{ background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+  .log{ display: flex; flex-direction: column; gap: 1rem; }
+  .day{ background: var(--surface); border: 1px solid var(--line-strong); border-radius: 6px; padding: 1.25rem 1.5rem 1.4rem; }
+  .day-head{ display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.9rem; }
+  .day-head h2{ font-size: 1.1rem; margin: 0; font-weight: 600; }
+  .day-head .hours{ font-size: 1.05rem; font-weight: 600; }
+
+  .timeline{ margin-bottom: 1.1rem; }
+  .track{ position: relative; height: 20px; background: var(--surface-alt); border-radius: 4px; overflow: hidden; }
+  .block{ position: absolute; top: 0; bottom: 0; border-radius: 3px; }
+  .block.live{ background-image: linear-gradient(90deg, transparent 0%, transparent 70%, rgba(255,255,255,0.35) 100%); }
+  .ticks{ display: flex; justify-content: space-between; margin-top: 0.35rem; }
+  .axis-tick{ font-size: 0.62rem; color: var(--ink-faint); }
+
+  .work{ display: flex; flex-direction: column; gap: 0.6rem; }
+  .proj-block{ display: flex; gap: 0.7rem; }
+  .proj-block .tag{
+    flex: none; align-self: flex-start; font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase;
+    font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap; margin-top: 0.1rem;
+  }
+  .proj-block .body{ flex: 1; }
+  .ws-row{ display: flex; justify-content: space-between; gap: 0.75rem; font-size: 0.9rem; padding: 0.15rem 0; }
+  .ws-row .desc{ flex: 1; }
+  .ws-row .meta{ flex: none; display: flex; align-items: baseline; gap: 0.5rem; color: var(--ink-faint); font-size: 0.82rem; }
+  .pill{ font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.05rem 0.4rem; border-radius: 3px; font-weight: 600; }
+  .pill.live{ background: var(--accent-soft); color: var(--accent-ink); }
+  .pill.done{ background: var(--surface-alt); color: var(--ink-faint); }
+  .unclosed-note{ color: var(--accent-ink); font-size: 0.75rem; }
+
+  .table-wrap{ overflow-x: auto; }
+  table.ws-table{ width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  table.ws-table th{
+    text-align: left; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint);
+    padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--line-strong); white-space: nowrap;
+  }
+  table.ws-table td{ padding: 0.55rem 0.9rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.ws-table tr:last-child td{ border-bottom: none; }
+  table.ws-table td.desc-cell{ min-width: 22em; }
+  table.ws-table td.num{ font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .table-foot-note{ font-size: 0.75rem; color: var(--ink-faint); padding: 0.6rem 0.9rem; }
+
+  footer.notes{ font-size: 0.85rem; color: var(--ink-soft); line-height: 1.6; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+
+  @media (max-width: 640px){
+    .summary{ grid-template-columns: 1fr; }
+    .day-head{ flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+    .tabs{ flex-direction: column; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="titleblock">
+    <div>
+      <p class="eyebrow">Time log</p>
+      <h1>Shift Console</h1>
+    </div>
+    <div class="range-label">
+      <p class="eyebrow" id="viewLabel">Today</p>
+      <p class="mono" id="viewRange">-</p>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="navbtn active" data-view="today">Today</button>
+    <button class="navbtn" data-view="week">This week</button>
+    <button class="navbtn" data-view="range">Search a range</button>
+  </nav>
+
+  <div class="rangepicker" id="rangepicker">
+    <label>From <input type="date" id="rangeStart"></label>
+    <label>To <input type="date" id="rangeEnd"></label>
+    <button id="applyRange">Apply</button>
+  </div>
+
+  <div class="filters">
+    <div class="filtergroup">
+      <div class="filtergroup-head">
+        <span class="grouplabel">Clients</span>
+        <span class="grouplinks"><button data-scope="client" data-action="all">All</button><button data-scope="client" data-action="none">None</button></span>
+      </div>
+      <div class="checkrow-list" id="clientChecks"></div>
+    </div>
+    <div class="filtergroup">
+      <div class="filtergroup-head">
+        <span class="grouplabel">Projects</span>
+        <span class="grouplinks"><button data-scope="project" data-action="all">All</button><button data-scope="project" data-action="none">None</button></span>
+      </div>
+      <div class="checkrow-list" id="projectChecks"></div>
+    </div>
+  </div>
+
+  <section class="summary">
+    <div class="stat total"><span class="label">Total hours</span><span class="figure mono" id="statTotal">0.0<span class="unit">h</span></span></div>
+    <div class="stat"><span class="label">Days with entries</span><span class="figure mono" id="statDays">0</span></div>
+    <div class="stat"><span class="label">Avg / active day</span><span class="figure mono" id="statAvg">0.0<span class="unit">h</span></span></div>
+  </section>
+
+  <section class="split" id="splitSection">
+    <p class="label">Hours by project</p>
+    <div class="split-bar" id="splitBar"></div>
+    <div class="split-legend" id="splitLegend"></div>
+  </section>
+
+  <div class="modebar">
+    <button class="modebtn active" data-mode="timeline">Timeline</button>
+    <button class="modebtn" data-mode="table">Table</button>
+  </div>
+
+  <section id="content"></section>
+
+  <footer class="notes">
+    <p>Data embedded at publish time from <code>_projects.csv</code> and each project's CSV
+    in the Timesheets repo - this page is a snapshot, not a live feed. Regenerate via the
+    <code>timesheet-logging</code> skill to refresh it. Table view is a plain HTML table -
+    select rows and copy/paste directly into another app.</p>
+  </footer>
+
+</div>
+
+<script>
+  const DATA = {
+    projects: [
+      {file:"pioneer-transformer-frm10-12.csv", client:"Pioneer Transformer", project:"FRM10-12", billable:true, colorLight:"#1568A8", colorDark:"#3D82C4"},
+      {file:"pioneer-transformer-frm09.csv", client:"Pioneer Transformer", project:"FRM09", billable:true, colorLight:"#1F8A72", colorDark:"#2AA184"},
+      {file:"pioneer-transformer-workflow-automation.csv", client:"Pioneer Transformer", project:"Workflow-Automation", billable:true, colorLight:"#7A4FA3", colorDark:"#A671C9"},
+      {file:"_internal.csv", client:"Internal", project:"Internal", billable:false, colorLight:null, colorDark:null},
+      {file:"timesheet-logging.csv", client:"Internal", project:"Timesheet-Logging", billable:false, colorLight:null, colorDark:null},
+      {file:"new-project-scaffold.csv", client:"Internal", project:"New-Project-Scaffold", billable:false, colorLight:null, colorDark:null}
+    ],
+    rows: [
+      {project:"FRM10-12", id:"WS-001", date:"2026-08-10", start:"08:00", end:"12:30", status:"done",
+       workstream:"Scaffolded FRM10-12 staging repo; added workbook, Power Query source, SharePoint list exports [reconstructed from git history]"},
+      {project:"FRM10-12", id:"WS-002", date:"2026-08-10", start:"14:00", end:"18:30", status:"done",
+       workstream:"Started Model Revisions migration: repointed model-spec fields off Models onto Model Revisions [reconstructed from git history]"},
+      {project:"FRM10-12", id:"WS-003", date:"2026-08-11", start:"09:00", end:"17:00", status:"done",
+       workstream:"Finished Model Revisions migration; built Sync-PowerQuery.ps1; added ColumnMap.pq + reorganized power-query/; removed dead hyperlink code/orphaned queries; fixed Office Script refresh hang; code review fixes on TableOrders.pq; repointed Navigation Model hyperlinks; merged live TableOrders data into staging [reconstructed from git history]"},
+      {project:"FRM10-12", id:"WS-004", date:"2026-08-12", start:"09:00", end:"11:00", status:"done",
+       workstream:"Removed legacy ProductSTD sheet/table and its orphaned connection; removed 5 orphaned connection objects [reconstructed from git history; project split estimated from commit timing]"},
+
+      {project:"FRM09", id:"WS-001", date:"2026-08-11", start:"17:00", end:"19:00", status:"done",
+       workstream:"Scaffolded FRM09 staging repo: folder structure, LFS, CLAUDE.md [reconstructed from git history; project split estimated from commit timing]"},
+      {project:"FRM09", id:"WS-002", date:"2026-08-12", start:"14:00", end:"14:45", status:"done",
+       workstream:"Replaced legacy external-link references to FRM10-12 with a Power Query; marked the issue resolved [reconstructed from git history; project split estimated from commit timing]"},
+      {project:"FRM09", id:"WS-003", date:"2026-08-13", start:"14:30", end:"16:15", status:"done",
+       workstream:"Added Panneau de controle sheet, mirroring FRM10-12's control-panel pattern; stripped a corrupted empty Data Model from the workbook [reconstructed from git history; project split estimated from commit timing]"},
+
+      {project:"Workflow-Automation", id:"WS-001", date:"2026-08-12", start:"11:00", end:"13:30", status:"done",
+       workstream:"Scaffolded Workflow-Automation repo; resolved Order Items column audit (42 columns); drafted Order Items list schema v1 [reconstructed from git history; project split estimated from commit timing]"},
+      {project:"Workflow-Automation", id:"WS-002", date:"2026-08-12", start:"14:45", end:"18:00", status:"done",
+       workstream:"Field-design decisions (Trimestrial Customer, Yes/No typing, cancellation code, Location vs Item Status, completion/archiving); added workflow diagram + Phase 1 implementation plan; added archiving plan + roadmap doc [reconstructed from git history; project split estimated from commit timing]"},
+      {project:"Workflow-Automation", id:"WS-003", date:"2026-08-13", start:"09:00", end:"14:00", status:"done",
+       workstream:"Closed out Order Items manual build checklist (step 8, lookups); built/confirmed TextField auto-sync flows; built production-sequence auto-stamp flow (step 2c, Eastern time) [reconstructed from git history]"},
+      {project:"Workflow-Automation", id:"WS-004", date:"2026-08-13", start:"16:15", end:"20:00", status:"done",
+       workstream:"Ran the Models SA migration end to end (fusion design, checklist, 15 live rows resolved, data fixes); repointed FRM10-12's ColumnMap.pq/TableOrders.pq off the retired Models SA entity - billed here per this migration's call [reconstructed from git history; project split estimated from commit timing]"},
+      {project:"Workflow-Automation", id:"WS-005", date:"2026-08-13", start:"21:00", end:"22:00", status:"done",
+       workstream:"Found/logged the Latest Model Revision data-entry bug; stopped FRM10-12 from preserving stale model spec data on existing orders - billed here per the Models SA migration [reconstructed from git history; project split estimated from commit timing]"},
+      {project:"Workflow-Automation", id:"WS-006", date:"2026-08-14", start:"09:30", end:"16:30", status:"done",
+       workstream:"Marked Order Items step 8 lookups + step 2c fully built/tested; logged two open Phase 1 notification design questions and a proposed Phase 1 reordering as unconfirmed [reconstructed from git history]"},
+      {project:"Workflow-Automation", id:"WS-007", date:"2026-08-17", start:"10:02", end:"12:59", status:"done",
+       workstream:"Building workstream 1 step 3: Order Items transfer flow (Excel -> SharePoint, re-runnable upsert) - drafted full spec, then built/tested identity fields + Order Number lookup resolution + upsert check + Create item in Power Automate"},
+      {project:"Workflow-Automation", id:"WS-009", date:"2026-08-17", start:"13:36", end:"13:57", status:"done",
+       workstream:"Fixed cross-project SharePoint list data duplication - removed FRM10-12's duplicate Models/Model Revisions/Models SA/Order/EngineeringChangeOrders/ModelChanges/Clients CSV exports, cross-linked FRM10-12/Workflow-Automation/FRM09 CLAUDE.md files (Workflow-Automation as canonical export home), and updated Claude-Tooling's new-project-scaffold skill to require a cross-project reference check on future project creation"},
+      {project:"Workflow-Automation", id:"WS-010", date:"2026-08-17", start:"13:57", end:"14:19", status:"done",
+       workstream:"Model duplicate cleanup - investigated duplicate model code 6643202 (M-TOHY-0002 vs M-TOHY-0035/-22 suffix), checked Order/Order Items/ModelChanges/EngineeringChangeOrders/Models SA lists for references before deletion, confirmed Order Items has no model reference at all, identified 2 Order rows (21040W2, 22078) referencing the -22 model that needed repointing, guided user through repointing them to M-TOHY-0002/MR-TOHY-0002-V1 in live SharePoint - deletion of M-TOHY-0035/MR-TOHY-0035-V1 pending user's live-list verification"},
+      {project:"Workflow-Automation", id:"WS-011", date:"2026-08-17", start:"14:19", end:"15:18", status:"done",
+       workstream:"Model duplicate cleanup continued - scanned full Models list for the -22-suffix duplicate pattern beyond the TOHY case, found 16 more Hydro Quebec pairs (one a 3-way) plus a Models/Models-SA exact code collision (4276269/M-HYQU-0071 vs MSA-HYQU-0071), cross-checked each against Order/ModelChanges/EngineeringChangeOrders/Models SA for live references, then found 9 duplicate (Model, ECO) pairs in ModelChanges all on M-TOHY-0002 (stale Not-Assigned stubs vs completed real records) - user completed all deletions/corrections live in SharePoint"},
+      {project:"Workflow-Automation", id:"WS-008", date:"2026-08-17", start:"15:18", end:"19:58", status:"done",
+       workstream:"Continuing Order Items transfer flow build in Power Automate - built Update item branch, Location/Item Status mapping, test/QA + production tracking fields (found Tank/ISO Stack/ISO Coil/Lead Assembly/Frame are live Yes/No not Text as documented, corrected docs). Production-sequence date fields (8 stages) still not added - discussed the always-overwrite-on-rerun design decision but didn't actually build the fields"},
+
+      {project:"Internal", id:"WS-001", date:"2026-08-16", start:"21:30", end:"23:59", status:"done",
+       workstream:"Claude Code feature tour: built FRM10-12 PQ-workflow skill, weekly time-log artifact, timesheet-logging skill + Timesheets repo, SessionStart/SessionEnd hooks, and this Shift Console artifact [split at midnight, continued as Timesheet-Logging WS-001]"},
+      {project:"Timesheet-Logging", id:"WS-001", date:"2026-08-17", start:"00:00", end:"01:29", status:"done",
+       workstream:"Continued from Internal WS-001: split Internal client into named tooling projects (Timesheet-Logging, New-Project-Scaffold); built and tested session-aware stale-row + idle-gap detection hooks (session_id column added to every CSV); documented logging/validation flow + Mermaid diagram in the README; trimmed TASKS.md (dropped archiving/clipboard, logged the Personal-space idea)"},
+      {project:"Timesheet-Logging", id:"WS-002", date:"2026-08-17", start:"01:30", end:"01:34", status:"done",
+       workstream:"Logged Personal-space + weekly routine planner idea to TASKS.md; reorganized the README's Mermaid flow diagram into three labeled phases (Session start / While the workstream is open / Wrapping up) to fix a convoluted hub node"}
+    ]
+  };
+
+  const AXIS_START = 6 * 60, AXIS_END = 24 * 60, AXIS_SPAN = AXIS_END - AXIS_START;
+  const TICKS = [6,8,10,12,14,16,18,20,22,24];
+
+  function isDark(){
+    const root = document.documentElement;
+    if (root.getAttribute('data-theme') === 'dark') return true;
+    if (root.getAttribute('data-theme') === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function projectOf(name){ return DATA.projects.find(p => p.project === name); }
+  function colorFor(project){
+    const p = projectOf(project);
+    if (!p || !p.billable) return null;
+    return isDark() ? p.colorDark : p.colorLight;
+  }
+  function toMinutes(hhmm){ if (!hhmm) return null; const [h,m] = hhmm.split(':').map(Number); return h*60+m; }
+  function pad(n){ return n < 10 ? '0'+n : ''+n; }
+  function fmtDateStr(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+  function todayDate(){ return new Date(); }
+  function todayStr(){ return fmtDateStr(todayDate()); }
+  function parseDateStr(s){ const [y,m,d] = s.split('-').map(Number); return new Date(y,m-1,d); }
+  function addDays(d,n){ const r = new Date(d); r.setDate(r.getDate()+n); return r; }
+  function weekRange(dateStr){
+    const d = parseDateStr(dateStr);
+    const dow = (d.getDay()+6)%7;
+    const monday = addDays(d,-dow), sunday = addDays(monday,6);
+    return [fmtDateStr(monday), fmtDateStr(sunday)];
+  }
+  function fmtHours(mins){ return (mins/60).toFixed(1); }
+  function dayLabel(dateStr){ return parseDateStr(dateStr).toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}).toUpperCase(); }
+  function durationFor(r){
+    const start = toMinutes(r.start);
+    const end = r.end ? toMinutes(r.end) : (r.date === todayStr() ? (todayDate().getHours()*60+todayDate().getMinutes()) : AXIS_END);
+    return Math.max(0, end-start);
+  }
+
+  const CLIENTS = [...new Set(DATA.projects.map(p => p.client))];
+
+  const state = {
+    view: 'today', mode: 'timeline',
+    rangeStart: todayStr(), rangeEnd: todayStr(),
+    visibleClients: [], visibleProjects: [],
+    selectedClients: new Set(), selectedProjects: new Set()
+  };
+
+  function rowsInBounds(from, to){
+    return DATA.rows.filter(r => r.date >= from && r.date <= to);
+  }
+
+  // Scopes the Clients/Projects filter options to whatever actually has entries in
+  // the current date view, and defaults them all to checked - re-run every time the
+  // date scope changes so the filters never show more than what's in view.
+  function recomputeVisibility(){
+    const [from, to] = currentBounds();
+    const inScope = rowsInBounds(from, to);
+    const projSet = new Set(inScope.map(r => r.project));
+    const visibleProjectsOrdered = DATA.projects.filter(p => projSet.has(p.project));
+    const clientSet = new Set(visibleProjectsOrdered.map(p => p.client));
+    state.visibleClients = CLIENTS.filter(c => clientSet.has(c));
+    state.visibleProjects = visibleProjectsOrdered.map(p => p.project);
+    state.selectedClients = new Set(state.visibleClients);
+    state.selectedProjects = new Set(state.visibleProjects);
+  }
+
+  function currentBounds(){
+    if (state.view === 'today'){ const t = todayStr(); return [t,t]; }
+    if (state.view === 'week') return weekRange(todayStr());
+    return [state.rangeStart, state.rangeEnd];
+  }
+
+  function buildClientFilterUI(){
+    const box = document.getElementById('clientChecks');
+    box.innerHTML = '';
+    if (!state.visibleClients.length){ box.innerHTML = '<span class="empty-hint">No entries in this view yet.</span>'; return; }
+    state.visibleClients.forEach(c => {
+      const row = document.createElement('label');
+      row.className = 'checkrow';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = state.selectedClients.has(c);
+      cb.addEventListener('change', () => {
+        if (cb.checked) state.selectedClients.add(c); else state.selectedClients.delete(c);
+        buildProjectFilterUI();
+        render();
+      });
+      row.appendChild(cb);
+      row.appendChild(document.createTextNode(c));
+      box.appendChild(row);
+    });
+  }
+  function buildProjectFilterUI(){
+    const box = document.getElementById('projectChecks');
+    box.innerHTML = '';
+    const visible = DATA.projects.filter(p => state.visibleProjects.includes(p.project) && state.selectedClients.has(p.client));
+    if (!visible.length){ box.innerHTML = '<span class="empty-hint">No client selected above.</span>'; return; }
+    visible.forEach(p => {
+      const row = document.createElement('label');
+      row.className = 'checkrow';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = state.selectedProjects.has(p.project);
+      cb.addEventListener('change', () => {
+        if (cb.checked) state.selectedProjects.add(p.project); else state.selectedProjects.delete(p.project);
+        render();
+      });
+      const sw = document.createElement('span');
+      sw.className = 'swatch' + (p.billable ? '' : ' neutral');
+      if (p.billable) sw.style.background = colorFor(p.project);
+      row.appendChild(cb); row.appendChild(sw); row.appendChild(document.createTextNode(p.project));
+      box.appendChild(row);
+    });
+  }
+
+  document.querySelectorAll('.grouplinks button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const wantAll = btn.dataset.action === 'all';
+      if (btn.dataset.scope === 'client'){
+        state.visibleClients.forEach(c => wantAll ? state.selectedClients.add(c) : state.selectedClients.delete(c));
+        buildClientFilterUI(); buildProjectFilterUI();
+      } else {
+        DATA.projects.filter(p => state.visibleProjects.includes(p.project) && state.selectedClients.has(p.client)).forEach(p => {
+          wantAll ? state.selectedProjects.add(p.project) : state.selectedProjects.delete(p.project);
+        });
+        buildProjectFilterUI();
+      }
+      render();
+    });
+  });
+
+  function refreshForScopeChange(){
+    recomputeVisibility();
+    buildClientFilterUI();
+    buildProjectFilterUI();
+    render();
+  }
+
+  document.querySelectorAll('.navbtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.navbtn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.view = btn.dataset.view;
+      document.getElementById('rangepicker').classList.toggle('show', state.view === 'range');
+      refreshForScopeChange();
+    });
+  });
+  document.querySelectorAll('.modebtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.modebtn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.mode = btn.dataset.mode;
+      render();
+    });
+  });
+  document.getElementById('applyRange').addEventListener('click', () => {
+    state.rangeStart = document.getElementById('rangeStart').value || state.rangeStart;
+    state.rangeEnd = document.getElementById('rangeEnd').value || state.rangeEnd;
+    refreshForScopeChange();
+  });
+  document.getElementById('rangeStart').value = todayStr();
+  document.getElementById('rangeEnd').value = todayStr();
+
+  function filteredRows(){
+    const [from,to] = currentBounds();
+    return DATA.rows.filter(r => {
+      const p = projectOf(r.project);
+      return r.date >= from && r.date <= to &&
+        state.selectedClients.has(p.client) &&
+        state.selectedProjects.has(r.project);
+    });
+  }
+
+  function renderSummary(rows){
+    const totalMin = rows.reduce((s,r) => s+durationFor(r), 0);
+    const activeDays = new Set(rows.map(r => r.date));
+    document.getElementById('statTotal').innerHTML = fmtHours(totalMin)+'<span class="unit">h</span>';
+    document.getElementById('statDays').textContent = activeDays.size;
+    document.getElementById('statAvg').innerHTML = (activeDays.size ? fmtHours(totalMin/activeDays.size) : '0.0')+'<span class="unit">h</span>';
+
+    const perProject = {};
+    rows.forEach(r => { perProject[r.project] = (perProject[r.project]||0) + durationFor(r); });
+    const withTime = DATA.projects.filter(p => perProject[p.project] > 0);
+    const section = document.getElementById('splitSection');
+    if (!withTime.length){
+      section.innerHTML = '<p class="label">Hours by project</p><p class="empty-note">No hours in this view yet.</p>';
+      return;
+    }
+    section.innerHTML = '<p class="label">Hours by project</p><div class="split-bar" id="splitBar"></div><div class="split-legend" id="splitLegend"></div>';
+    const bar = document.getElementById('splitBar'), legend = document.getElementById('splitLegend');
+    withTime.forEach(p => {
+      const mins = perProject[p.project];
+      const pct = (mins/totalMin*100).toFixed(1);
+      const color = p.billable ? colorFor(p.project) : 'var(--neutral-chip-ink)';
+      const seg = document.createElement('div');
+      seg.className = 'seg'; seg.style.width = pct+'%'; seg.style.background = color;
+      seg.title = p.project+' — '+fmtHours(mins)+'h';
+      bar.appendChild(seg);
+      const item = document.createElement('span');
+      item.className = 'item';
+      item.innerHTML = '<span class="swatch" style="background:'+color+'"></span><span class="proj">'+p.project+'</span> <span class="hrs mono">'+fmtHours(mins)+'h</span>';
+      legend.appendChild(item);
+    });
+  }
+
+  function renderTimeline(rows){
+    const content = document.getElementById('content');
+    if (!rows.length){ content.innerHTML = '<p class="empty-note">No entries logged for this view yet.</p>'; return; }
+    const log = document.createElement('div');
+    log.className = 'log';
+    const byDate = {};
+    rows.forEach(r => (byDate[r.date] = byDate[r.date]||[]).push(r));
+    Object.keys(byDate).sort().forEach(date => {
+      const dayRows = byDate[date];
+      const dayTotal = dayRows.reduce((s,r)=>s+durationFor(r),0);
+      const card = document.createElement('article'); card.className = 'day';
+      const head = document.createElement('div'); head.className = 'day-head';
+      head.innerHTML = '<h2 class="mono">'+dayLabel(date)+'</h2><span class="hours mono">'+fmtHours(dayTotal)+' h</span>';
+      card.appendChild(head);
+
+      const timeline = document.createElement('div'); timeline.className = 'timeline';
+      const track = document.createElement('div'); track.className = 'track';
+      dayRows.forEach(r => {
+        const start = toMinutes(r.start);
+        const end = r.end ? toMinutes(r.end) : (date===todayStr() ? (todayDate().getHours()*60+todayDate().getMinutes()) : AXIS_END);
+        const left = (start-AXIS_START)/AXIS_SPAN*100;
+        const width = Math.max(0.5,(end-start)/AXIS_SPAN*100);
+        const block = document.createElement('div');
+        block.className = 'block'+(!r.end?' live':'');
+        block.style.left = left+'%'; block.style.width = width+'%';
+        block.style.background = colorFor(r.project) || 'var(--neutral-chip-ink)';
+        block.title = r.project+': '+r.workstream;
+        track.appendChild(block);
+      });
+      timeline.appendChild(track);
+      const ticks = document.createElement('div'); ticks.className = 'ticks';
+      TICKS.forEach(t => { const s=document.createElement('span'); s.className='axis-tick mono'; s.textContent=t; ticks.appendChild(s); });
+      timeline.appendChild(ticks);
+      card.appendChild(timeline);
+
+      const work = document.createElement('div'); work.className = 'work';
+      const byProject = {};
+      dayRows.forEach(r => (byProject[r.project]=byProject[r.project]||[]).push(r));
+      DATA.projects.forEach(p => {
+        if (!byProject[p.project]) return;
+        const block = document.createElement('div'); block.className = 'proj-block';
+        const tag = document.createElement('span'); tag.className = 'tag'; tag.textContent = p.project;
+        if (p.billable){ tag.style.background = 'color-mix(in srgb, '+colorFor(p.project)+' 18%, var(--surface))'; tag.style.color = colorFor(p.project); }
+        else { tag.style.background = 'var(--neutral-chip)'; tag.style.color = 'var(--neutral-chip-ink)'; }
+        block.appendChild(tag);
+        const body = document.createElement('div'); body.className = 'body';
+        byProject[p.project].forEach(r => {
+          const stale = !r.end && r.date !== todayStr();
+          const row = document.createElement('div'); row.className = 'ws-row';
+          row.innerHTML = '<span class="desc">'+r.workstream+(stale?' <span class="unclosed-note">(not closed — check this row)</span>':'')+'</span>'+
+            '<span class="meta"><span class="mono">'+fmtHours(durationFor(r))+'h</span>'+
+            '<span class="pill '+(r.end?'done':'live')+'">'+(r.end?'done':'live')+'</span></span>';
+          body.appendChild(row);
+        });
+        block.appendChild(body); work.appendChild(block);
+      });
+      card.appendChild(work);
+      log.appendChild(card);
+    });
+    content.innerHTML = ''; content.appendChild(log);
+  }
+
+  function renderTable(rows){
+    const content = document.getElementById('content');
+    if (!rows.length){ content.innerHTML = '<p class="empty-note">No entries logged for this view yet.</p>'; return; }
+    const log = document.createElement('div');
+    log.className = 'log';
+    const byDate = {};
+    rows.forEach(r => (byDate[r.date] = byDate[r.date]||[]).push(r));
+    let anyOpen = false;
+    Object.keys(byDate).sort().forEach(date => {
+      const dayRows = [...byDate[date]].sort((a,b) => a.start.localeCompare(b.start));
+      const dayTotal = dayRows.reduce((s,r) => s+durationFor(r), 0);
+
+      const card = document.createElement('article'); card.className = 'day';
+      const head = document.createElement('div'); head.className = 'day-head';
+      head.innerHTML = '<h2 class="mono">'+dayLabel(date)+'</h2><span class="hours mono">'+fmtHours(dayTotal)+' h</span>';
+      card.appendChild(head);
+
+      const wrap = document.createElement('div'); wrap.className = 'table-wrap';
+      const table = document.createElement('table'); table.className = 'ws-table';
+      table.innerHTML = '<thead><tr><th>Client</th><th>Project</th><th>Start</th><th>End</th><th>Hours</th><th>Status</th><th>Description</th></tr></thead>';
+      const tbody = document.createElement('tbody');
+      dayRows.forEach(r => {
+        const p = projectOf(r.project);
+        const stale = !r.end && r.date !== todayStr();
+        if (!r.end) anyOpen = true;
+        const hrs = fmtHours(durationFor(r)) + (r.end ? '' : '*');
+        const statusText = r.end ? 'done' : (stale ? 'in-progress (unclosed)' : 'in-progress');
+        const tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>'+p.client+'</td>'+
+          '<td><span class="swatch'+(p.billable?'':' neutral')+'" style="'+(p.billable?'background:'+colorFor(r.project):'')+';display:inline-block;margin-right:0.4em;"></span>'+r.project+'</td>'+
+          '<td class="mono num">'+r.start+'</td>'+
+          '<td class="mono num">'+(r.end||'—')+'</td>'+
+          '<td class="mono num">'+hrs+'</td>'+
+          '<td>'+statusText+'</td>'+
+          '<td class="desc-cell">'+r.workstream+'</td>';
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      wrap.appendChild(table);
+      card.appendChild(wrap);
+      log.appendChild(card);
+    });
+    content.innerHTML = '';
+    content.appendChild(log);
+    if (anyOpen){
+      const note = document.createElement('p');
+      note.className = 'table-foot-note';
+      note.textContent = '* hours shown for open rows are elapsed so far, not a final total.';
+      content.appendChild(note);
+    }
+  }
+
+  function render(){
+    const [from,to] = currentBounds();
+    document.getElementById('viewLabel').textContent = state.view==='today'?'Today':state.view==='week'?'This week':'Custom range';
+    document.getElementById('viewRange').textContent = from===to ? from : (from+' → '+to);
+    const rows = filteredRows();
+    renderSummary(rows);
+    if (state.mode === 'timeline') renderTimeline(rows); else renderTable(rows);
+  }
+
+  refreshForScopeChange();
+</script>

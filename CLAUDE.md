@@ -45,12 +45,23 @@ a comma.
   genuinely different.
 
 ## Reporting - the Shift Console
-On request (or automatically at end-of-day, per the skill), an interactive artifact is
-built from `_projects.csv` + all project CSVs and republished to the URL below. It
-opens to today's entries, with a "This Week" view and a "Search a range" view; a
-two-level Clients → Projects filter (each level with its own select-all/none); and a
-Timeline/Table display toggle - Table is a plain HTML table meant for copy-pasting rows
-directly into an external timesheet app. All data is embedded at publish time - it's a
-snapshot, not a live feed.
+On request (or automatically at end-of-day, per the skill), the console's data gets
+refreshed and republished to the URL below. It opens to today's entries, with a "This
+Week" view and a "Search a range" view; a two-level Clients → Projects filter (each
+level with its own select-all/none); and a Timeline/Table display toggle - Table is a
+plain HTML table meant for copy-pasting rows directly into an external timesheet app.
+All data is embedded at publish time - it's a snapshot, not a live feed.
+
+**Source file: `shift-console.html`** (this repo, tracked in git). This is the actual
+page - its own considered design (serif ledger aesthetic, horizontal time-of-day
+timeline bars, stacked hours-by-project split bar), built once and refined since.
+**Regenerating means editing this file's embedded `DATA` object only** (add/update rows
+in `DATA.rows`, add project entries to `DATA.projects` if a new project was
+scaffolded) **and republishing it as-is - never rebuild the page from scratch** from
+this doc's description or the skill's behavioral notes. The design already exists;
+treat it the same as any other piece of source code in this repo - read it, patch it,
+don't rewrite it. If this file and the live published artifact ever disagree (e.g. this
+file wasn't updated after some past redeploy), the file is authoritative - overwrite
+the live artifact from it, not the other way around.
 
 **Current artifact URL:** https://claude.ai/code/artifact/41688985-c12f-4f44-a4fe-c4c9d4a83123
