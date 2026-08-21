@@ -1,0 +1,2 @@
+id,date,start,end,status,session_id,workstream
+WS-001,2026-08-19,09:32,11:50,done,595a3ec7-995e-4adf-b6bf-9fd321bab3dc,"Fixed formulas in FRM11 - timesheet bucket only for now, no project repo scaffolded yet"

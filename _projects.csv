@@ -2,6 +2,7 @@ file,client,project,billable,color_light,color_dark
 pioneer-transformer-frm10-12.csv,Pioneer Transformer,FRM10-12,true,#1568A8,#3D82C4
 pioneer-transformer-frm09.csv,Pioneer Transformer,FRM09,true,#1F8A72,#2AA184
 pioneer-transformer-workflow-automation.csv,Pioneer Transformer,Workflow-Automation,true,#7A4FA3,#A671C9
+pioneer-transformer-frm11.csv,Pioneer Transformer,FRM11,true,#B0521F,#C4703A
 _internal.csv,Internal,Internal,false,,
 timesheet-logging.csv,Internal,Timesheet-Logging,false,,
 new-project-scaffold.csv,Internal,New-Project-Scaffold,false,,
