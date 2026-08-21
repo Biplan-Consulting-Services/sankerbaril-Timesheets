@@ -21,3 +21,5 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-08-18 12:58:46 | 72a7e79f-1767-49ca-a362-fa5dac6ce1ef | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer\Workflow-Automation | session-start
 2026-08-20 00:29:16 | c74602a6-7add-4d16-9007-4d79f7925caa | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer/Workflow-Automation | session-end
 2026-08-20 12:21:25 | d8038354-0302-4e04-ac29-2704395dbba9 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-08-21 03:40:09 | d8038354-0302-4e04-ac29-2704395dbba9 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-08-21 12:22:48 | f3bce78d-ee06-4226-aa99-7cce80d7b0ef | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
