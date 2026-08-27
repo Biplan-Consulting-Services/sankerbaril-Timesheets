@@ -258,6 +258,8 @@
        workstream:"Finished Model Revisions migration; built Sync-PowerQuery.ps1; added ColumnMap.pq + reorganized power-query/; removed dead hyperlink code/orphaned queries; fixed Office Script refresh hang; code review fixes on TableOrders.pq; repointed Navigation Model hyperlinks; merged live TableOrders data into staging [reconstructed from git history]"},
       {project:"FRM10-12", id:"WS-004", date:"2026-08-12", start:"09:00", end:"11:00", status:"done",
        workstream:"Removed legacy ProductSTD sheet/table and its orphaned connection; removed 5 orphaned connection objects [reconstructed from git history; project split estimated from commit timing]"},
+      {project:"FRM10-12", id:"WS-005", date:"2026-08-27", start:"00:42", end:"02:57", status:"done",
+       workstream:"Data-loss investigation + recovery tooling: grilled/domain-modeled the problem, root-caused TableOrders.pq's job-line-granularity bug (Filtered New Orders keys on Order Number+Qty+SA, not the job-line); built Compare-ArchiveToLive.ps1 (dry-run Excel-Table report) + Apply-ArchiveRecovery.ps1 (COM-based apply, snapshots first); iterated Conflicts-tab benign-signal heuristics (Location sequence, Status month/day parsing, EC date-placeholder, justification-text extension) per client-domain corrections; fixed a GitHub auth mixup blocking push. No Apply run yet - user reviewing report with client before further recovery."},
 
       {project:"FRM09", id:"WS-001", date:"2026-08-11", start:"17:00", end:"19:00", status:"done",
        workstream:"Scaffolded FRM09 staging repo: folder structure, LFS, CLAUDE.md [reconstructed from git history; project split estimated from commit timing]"},

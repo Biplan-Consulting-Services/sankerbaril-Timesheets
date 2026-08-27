@@ -23,3 +23,12 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-08-20 12:21:25 | d8038354-0302-4e04-ac29-2704395dbba9 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
 2026-08-21 03:40:09 | d8038354-0302-4e04-ac29-2704395dbba9 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
 2026-08-21 12:22:48 | f3bce78d-ee06-4226-aa99-7cce80d7b0ef | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-08-21 17:44:21 | f3bce78d-ee06-4226-aa99-7cce80d7b0ef | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-08-22 13:13:03 | f1c655b3-08b4-4ce6-b719-da4d52dbffbd | C:\Programming\Claude | session-start
+2026-08-22 15:21:37 | dd75857f-38fa-4b18-a36b-59cbb6835886 | /c/Programming/Claude | session-end
+2026-08-23 01:12:41 | f1c655b3-08b4-4ce6-b719-da4d52dbffbd | /c/Programming/Claude | session-end
+2026-08-24 14:36:52 | 4a04861d-bf77-4dea-81bd-ec0b8344aacd | C:\Programming\Claude | session-start
+2026-08-25 00:33:14 | 4a04861d-bf77-4dea-81bd-ec0b8344aacd | /c/Programming/Claude/Timesheets | session-end
+2026-08-27 00:41:55 | 3ce694b1-a8e4-4047-8557-db9af92a179c | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-08-27 02:08:22 | 16aa66e2-09a0-44c7-80c2-4ac2df6c3082 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-08-27 02:08:22 | 2305642c-5fa5-4149-aba4-c773b22f9d41 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer\FRM10-12 | session-start
