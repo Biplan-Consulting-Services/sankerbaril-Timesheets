@@ -32,3 +32,17 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-08-27 00:41:55 | 3ce694b1-a8e4-4047-8557-db9af92a179c | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
 2026-08-27 02:08:22 | 16aa66e2-09a0-44c7-80c2-4ac2df6c3082 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
 2026-08-27 02:08:22 | 2305642c-5fa5-4149-aba4-c773b22f9d41 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer\FRM10-12 | session-start
+2026-08-28 17:12:15 | 16aa66e2-09a0-44c7-80c2-4ac2df6c3082 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer\FRM10-12 | session-start
+2026-08-31 11:15:52 | 603b77c3-44b1-497b-934b-dac8dcdd3149 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-08-31 11:16:48 | 603b77c3-44b1-497b-934b-dac8dcdd3149 | /c/Users/solei/OneDrive/Documents/Biplan/claude | session-end
+2026-08-31 12:08:34 | ba32a133-e060-4e1a-8efb-70f7d56e85fd | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-08-31 14:43:24 | ba32a133-e060-4e1a-8efb-70f7d56e85fd | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer/FRM10-12/viewer/scripts | session-end
+2026-08-31 14:44:13 | 451c262c-1055-49bc-ae76-f74162400f0a | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-08-31 18:56:26 | c8943a02-9d02-4ce1-a0b7-eea9feaae43d | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-08-31 19:03:41 | c8943a02-9d02-4ce1-a0b7-eea9feaae43d | /c/Users/solei/OneDrive/Documents/Biplan/claude | session-end
+2026-08-31 19:03:52 | 3a91e883-4998-4df9-b7bb-e6c84d3e092f | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-08-31 19:08:13 | 3a91e883-4998-4df9-b7bb-e6c84d3e092f | /c/Users/solei/OneDrive/Documents/Biplan/claude | session-end
+2026-08-31 19:08:19 | 00e5e873-e77a-484e-9390-e4d9d4e26a5e | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-08-31 19:14:45 | 00e5e873-e77a-484e-9390-e4d9d4e26a5e | /c/Users/solei/OneDrive/Documents/Biplan/claude | session-end
+2026-08-31 19:15:15 | 03dd0777-7b49-4091-b819-07874aebd2dd | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-08-31 21:21:58 | 451c262c-1055-49bc-ae76-f74162400f0a | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer/Workflow-Automation | session-end
