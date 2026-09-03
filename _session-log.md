@@ -46,3 +46,23 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-08-31 19:14:45 | 00e5e873-e77a-484e-9390-e4d9d4e26a5e | /c/Users/solei/OneDrive/Documents/Biplan/claude | session-end
 2026-08-31 19:15:15 | 03dd0777-7b49-4091-b819-07874aebd2dd | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
 2026-08-31 21:21:58 | 451c262c-1055-49bc-ae76-f74162400f0a | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer/Workflow-Automation | session-end
+2026-08-31 21:28:05 | 03dd0777-7b49-4091-b819-07874aebd2dd | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-09-01 00:05:10 | aeff5c26-9ec5-43f3-9aea-d24457751591 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-01 01:32:53 | 2926de4d-f68b-4e46-a82a-616552b3d7df | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-01 01:46:42 | 1aaadc10-98eb-4df4-b592-45b442f1ee83 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-01 01:59:27 | 531261c4-30d2-4bd4-8273-c7d164aa2b9f | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-01 02:07:37 | fbcc6dea-b466-4dec-a5f4-d1d770bc6447 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-01 02:08:03 | 2926de4d-f68b-4e46-a82a-616552b3d7df | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer/Workflow-Automation/docs | session-end
+2026-09-01 02:14:40 | 2213ef55-7137-4978-856e-c6f5dad0d4fe | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-01 06:57:48 | aeff5c26-9ec5-43f3-9aea-d24457751591 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-09-01 06:57:52 | 1aaadc10-98eb-4df4-b592-45b442f1ee83 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-09-01 06:58:00 | 531261c4-30d2-4bd4-8273-c7d164aa2b9f | /c/Users/solei/OneDrive/Documents/Biplan/claude | session-end
+2026-09-01 06:58:02 | fbcc6dea-b466-4dec-a5f4-d1d770bc6447 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-09-01 06:58:04 | 2213ef55-7137-4978-856e-c6f5dad0d4fe | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-09-01 13:00:18 | 05856a84-3b1f-4553-a94b-9e7b779ddbb4 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-01 13:49:24 | 8a320c87-11ef-408f-ab9b-cffe0f0e0f4c | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-01 17:07:00 | 05856a84-3b1f-4553-a94b-9e7b779ddbb4 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer/FRM10-12/office-scripts | session-end
+2026-09-01 17:07:03 | 8a320c87-11ef-408f-ab9b-cffe0f0e0f4c | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-09-03 16:39:14 | 7b3bf600-c1fc-45bf-8a1f-aad6460e7866 | C:\Programming\Claude | session-start
+2026-09-03 19:12:59 | 7b3bf600-c1fc-45bf-8a1f-aad6460e7866 | /c/Programming/Claude/d-lightfull-pantheon | session-end
+2026-09-03 19:13:15 | cabf5ade-d6bd-4fe1-8496-abbdced13c13 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start

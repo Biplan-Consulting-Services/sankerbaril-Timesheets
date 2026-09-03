@@ -1,2 +1,3 @@
 id,date,start,end,status,session_id,workstream
 WS-001,2026-08-16,21:30,23:59,done,,"Claude Code feature tour: built FRM10-12 PQ-workflow skill, weekly time-log artifact, timesheet-logging skill + Timesheets repo, SessionStart/SessionEnd hooks, and this Shift Console artifact [split at midnight, continued as Timesheet-Logging WS-001]"
+WS-002,2026-09-01,00:05,00:17,done,aeff5c26-9ec5-43f3-9aea-d24457751591,"Claude-in-Chrome browser automation demo at the user's request: DOM-physics gravity on a live page, Wikipedia turned into a playable Breakout game, and a word-level page melt effect (~1050 particles). Throwaway, nothing committed."
