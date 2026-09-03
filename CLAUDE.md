@@ -64,4 +64,13 @@ don't rewrite it. If this file and the live published artifact ever disagree (e.
 file wasn't updated after some past redeploy), the file is authoritative - overwrite
 the live artifact from it, not the other way around.
 
+**Hours are a union, not a sum.** Parallel sessions are normal here, so rows in the
+same file routinely overlap in time. Every total the console shows - the Total hours
+tile, Avg / active day, and each day header in both views - merges overlapping spans
+rather than adding them, because that time was only worked once. Row-level hours in
+Table view stay each row's own span, since that view is meant for pasting into an
+external timesheet app. Anything computing hours outside the console (an ad-hoc
+range breakdown, an invoice figure) has to do the same merge, or it will overcount -
+2026-09-01's rows sum to 13.1h against 9.9h actually worked.
+
 **Current artifact URL:** https://claude.ai/code/artifact/41688985-c12f-4f44-a4fe-c4c9d4a83123
