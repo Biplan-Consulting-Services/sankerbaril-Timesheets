@@ -110,6 +110,7 @@
   .split-legend .proj{ color: var(--ink-soft); }
   .split-legend .hrs{ color: var(--ink); font-weight: 600; }
   .empty-note{ font-size: 0.85rem; color: var(--ink-faint); font-style: italic; padding: 0.2rem 0; }
+  .overlap-note{ font-size: 0.82rem; color: var(--ink-faint); font-style: italic; margin: -1.35rem 0 0; padding: 0 0.2rem; line-height: 1.5; max-width: 68ch; }
 
   .modebar{ display: flex; justify-content: flex-end; gap: 0.4rem; }
   .modebtn{
@@ -211,10 +212,11 @@
   </div>
 
   <section class="summary">
-    <div class="stat total"><span class="label">Total hours</span><span class="figure mono" id="statTotal">0.0<span class="unit">h</span></span></div>
+    <div class="stat total"><span class="label">Total hours worked</span><span class="figure mono" id="statTotal">0.0<span class="unit">h</span></span></div>
     <div class="stat"><span class="label">Days with entries</span><span class="figure mono" id="statDays">0</span></div>
     <div class="stat"><span class="label">Avg / active day</span><span class="figure mono" id="statAvg">0.0<span class="unit">h</span></span></div>
   </section>
+  <p class="overlap-note" id="overlapNote" hidden></p>
 
   <section class="split" id="splitSection">
     <p class="label">Hours by project</p>
@@ -355,7 +357,33 @@
       {project:"Workflow-Automation", id:"WS-029", date:"2026-08-31", start:"16:57", end:"19:00", status:"done",
        workstream:"Designed workstream 1 step 3's reconciliation pass (missing-unit detection against Excel Archive, corrected the Excel-connector filter/file-picker mechanics); redesigned per user's call to delete Order Items rows outright instead of updating Item Status (Excel Archive is the sole permanent record); redesigned archiving-plan.md's workstream 3 to match (monthly grace period + Archive reconfirmation + delete, no separate SharePoint archive list); updated roadmap.md; committed b114968, pushed to main. Still to do: user to build the reconciliation pass live in Power Automate"},
       {project:"Workflow-Automation", id:"WS-030", date:"2026-08-31", start:"19:15", end:"21:21", status:"done",
-       workstream:"Ported FRM10-12's calculated columns to SharePoint. Built and verified 4 columns live on the Order list (Estimated Delivery Date (Projected), FX Rate, Price CAD, Price USD) with the province/conversion tables inlined - no cross-list lookups, no flow; recomputed all 441 rows independently, 0 mismatches, fixed 2 defects found in verification (chained-calc-column blank guard, $0.00 on unpriced orders); added them to the default view. Corrected 3 stale/wrong claims in calculated-columns-plan.md against the live workbook. Retracted my own wrong BO analysis (regex bug read Price Value as BO) - real values are blank/OK/BO, penalty hits 8 of 980 rows not 926. Read BO Manager.xlsx directly to spec the BO sync flow (TableBO structure, exact join key, pagination); spec'd the Estimated Delivery Date flow incl. the Coiling:Drying range spanning 4 stages; added the BO Manager retirement workstream to roadmap.md. 6 commits pushed to main"},
+       workstream:"Ported FRM10-12's calculated columns to SharePoint. Built and verified 4 columns live on the Order list (Estimated Delivery Date (Projected), FX Rate, Price CAD, Price USD) with the province/conversion tables inlined - no cross-list lookups, no flow; recomputed all 441 rows independently, 0 mismatches, fixed 2 defects found in verification (chained-calc-column blank guard, $0.00 on unpriced orders); added them to the default view. Corrected 3 stale/wrong claims in calculated-columns-plan.md against the live workbook. Retracted my own wrong BO analysis (regex bug read Price Value as BO) - real values are blank/OK/BO, penalty hits 8 of 980 rows not 926. Read BO Manager.xlsx directly to spec the BO sync flow (TableBO structure, exact join key, pagination); spec'd the Estimated Delivery Date flow incl. the Coiling:Drying range spanning 4 stages; added the BO Manager retirement workstream to roadmap.md. 6 commits pushed to main"},,
+      {project:"Internal", id:"WS-002", date:"2026-09-01", start:"00:05", end:"00:17", status:"done",
+       workstream:"Claude-in-Chrome browser automation demo at the user's request: DOM-physics gravity on a live page, Wikipedia turned into a playable Breakout game, and a word-level page melt effect (~1050 particles). Throwaway, nothing committed."},
+      {project:"Workflow-Automation", id:"WS-031", date:"2026-09-01", start:"00:17", end:"00:30", status:"done",
+       workstream:"Planned the 2026-09-02 hard cutover. Read both repos fresh (Workflow-Automation + FRM10-12/viewer) and wrote docs/cutover-plan-2026-09-02.md: gates, step order, acceptance checks, abort criteria, parallel-session split. Three findings shaped it - the user's 350-run ceiling reads as a Power Platform request quota (~17 actions/row x 350 = ~5950 vs a ~6000/24h seeded-licence cap), the 5 pending Models fields need no separate backfill (already populated in raw TableOrders, viewer renders them null via MissingField.UseNull), and Order Items.BO is off the critical path (viewer merges BO from BO Manager.xlsx via BackOrders.pq). Reconciliation pass moved from deferred to mandatory. Committed 7ed5a1d, pushed to main"},
+      {project:"Workflow-Automation", id:"WS-037", date:"2026-09-01", start:"00:30", end:"02:29", status:"done",
+       workstream:"Build night, Tracks D+B. Wrote and committed the cutover runbook (superseding the earlier plan, which had a mapping bug that silently writes blanks). D0: found the int() root cause by parsing sheet XML - 9 EC markers in Coiling Date, 3 lowercase, and equals() is case-sensitive. D1: proved the uncommitted viewer workbook was a successful refresh not a broken sync. B1: created all 7 Order Items columns live (5 parity + Planned Tanking/Delivery Date), unblocking A5 and D2. D2: remapped ColumnMap - 5 ex-Models columns plus re-sourcing Tanking/Delivery Date onto the Planned columns. D3: Sync-PowerQuery dry-run/apply/re-verify. D5b: named the refresh owners. Refreshed the Archive from the OneDrive-synced live copy (3 days stale) and archived the old one. Found FRM09+BO Manager resolve FRM10-12 via a single Index row - the biggest risk of the night, absent from every planning doc. Built the shared status board + coloured statusline so 5 sessions coordinate without relaying through the user. 8 commits pushed"},
+      {project:"Workflow-Automation", id:"WS-032", date:"2026-09-01", start:"01:34", end:"01:51", status:"done",
+       workstream:"Build-night cutover, Track C (Power Apps fan-out) as one of 5 parallel sessions. C1 resolved offline from the 2026-08-31 snapshot instead of a live query: Order.SA is per-unit (34/34 SA orders have main==SA==Qty, SA rows additive). Wrote docs/fanout-powerfx-c2.md - paste-ready Power Fx for both loops with 5 corrections to the runbook draft, a SubmitForm/OnSuccess variant, guards and the C3 test plan. Flagged a cross-track hazard: the fan-out fires the trigger flow, not the transfer flow, so Track A4/A3 must not break the TextField branch or every new order shows a blank Order Number in the Production Floor view. Also flagged Track B unowned (B1 gates A5+D2). Committed+pushed e108e5d. Row closed for a deliberate session restart (status line); work continues in the next session"},
+      {project:"Workflow-Automation", id:"WS-033", date:"2026-09-01", start:"02:03", end:"02:30", status:"done",
+       workstream:"Build-night cutover, Track B (SharePoint UI) as a parallel session. B0 Order Items CSV export to unblock Track D reconciliation; B2 views; B3 site home page + Quick Launch with both staff guides; B4 permissions check"},
+      {project:"Workflow-Automation", id:"WS-034", date:"2026-09-01", start:"02:08", end:"06:38", status:"done",
+       workstream:"Build-night cutover, Track C (Power Apps fan-out) resumed after a deliberate session restart. C2: walk the fan-out Power Fx from docs/fanout-powerfx-c2.md into Power Apps Studio with the user driving, reconciling control names and picking the Patch vs SubmitForm/OnSuccess variant off the live Save button. C3 run and closed. Shipped: fan-out creates n Order Items per order and 2n when SA is ticked, with the SA half resolved to the SA design via the Parent Model FK - a bug the user caught in testing, where SA rows pointed at the main model. Verified live at field level (4261870 SA / MRSA-HYQU-0068-V1). Reconciled the spec to the live app (4 deltas incl. the SubmitForm-decoy correction) and closed models-sa-fusion-plan.md step 5, open since 2026-08-13. Pushed 4af2b76. Also coordinated the Order Items cleanup gate that released Track A's A6 run, and caught a ~17min clock skew that would have given Track A a phantom margin on its 07:00 gate"},
+      {project:"Workflow-Automation", id:"WS-035", date:"2026-09-01", start:"02:12", end:"02:29", status:"done",
+       workstream:"Build-night cutover, Track E (docs/presentation) as a parallel session. E2, the visual companion for the 09:00 presentation: docs/visual-companion-2026-09-01.html, published as an Artifact. Before/after architecture as one SVG comparison (same skeleton both sides, so the change reads as the floor's write-arrows retracting one box short of FRM10-12), a day-to-day before/now table, and a live-now vs coming timeline (Workflow Tasks, Monday.com, document library, archiving). Content sourced from the runbook, roadmap.md, infrastructure-overview.md and the staff guides - no figures invented; reconciliation phrased as \"this week\" so the page holds whether or not A7 lands. Verified in-browser rather than read back, which caught a real layout bug (plates carried grid-column but sit inside <section>, not a grid child, so they never broke out to full width) plus an encoding bug; confirmed fonts load, no horizontal overflow, both themes resolve. Also flagged to Track D that Track B's Order Items CSV export already exists in the working tree. Commits d017d56 + 8e38d85 pushed to main. Open item for the user: fill in [NAME] in the closing block before 09:00"},
+      {project:"Workflow-Automation", id:"WS-036", date:"2026-09-01", start:"05:40", end:"07:00", status:"done",
+       workstream:"Build-night cutover, Track E resumed after a ~3h stop (account usage limit froze every parallel session at ~02:31). Resolved the [NAME] placeholder to Soleil Anker-Baril (Teams / soleil.anker@ermco-eci.com) across all three staff-facing docs - EN guide, FR guide and the visual companion - so the three agree; verified in-browser. Pushed 69acd10. Then audited the board against reality for the 09:00 demo: no repo or board activity anywhere since 02:31, so B3, C2/C3, A5/A6 and D5 did not land and three of the visual companion's six \"\"live now\"\" claims are not true"},
+      {project:"Workflow-Automation", id:"WS-040", date:"2026-09-01", start:"05:41", end:"05:55", status:"done",
+       workstream:"[Renumbered from WS-034 on 2026-09-03: two parallel build-night sessions each took the next free id without seeing the other, so this row and Track C's 02:08-06:38 row both landed on WS-034. Track C kept the original id.] Build-night Track B resumed after a ~3h claude.ai usage-limit freeze (all sessions frozen ~02:30-05:41). B3: rewrote and published the site home page (v2.0) with both staff guides in full, French first, plus a bilingual intro and a Where-to-go link block; backed up the 5-month-stale stock home canvas to the repo first. Quick Launch reordered to Home/Production Floor/Planning/Order Items - Order Items was not in the left nav at all before. Corrected one sentence in each staff guide (EN+FR) that B2 had made false. B4: verified Order Items inherits site permissions with ReadSecurity/WriteSecurity=1 and Members=Edit, so no blocker; flagged that the live staff-account edit test is still not done. Track B complete end to end"},
+      {project:"Workflow-Automation", id:"WS-038", date:"2026-09-01", start:"05:49", end:"05:55", status:"done",
+       workstream:"Post-usage-limit triage before the 09:00 presentation. Established that A6 never ran so the cutover did not happen and nothing needs undoing. Rewrote the demo cheat sheet against reality - 3 of its 6 demo steps described things never built, and its Q&A would have had the user assert to stakeholders that the viewer was deployed and stage-stamping switched off, neither true. Added a status header to the runbook so it stops reading like a completed plan, with the resume order and the one live landmine (do not refresh the viewer before A6 or Tanking/Delivery Date blank out). 2 commits pushed"},
+      {project:"Workflow-Automation", id:"WS-039", date:"2026-09-01", start:"06:06", end:"06:39", status:"done",
+       workstream:"Build-night Track B follow-ups: apply the Date Only display fix to the 17 mis-configured date columns on Order Items, and build SharePoint views matching FRM10-12's 3 column groupings. Root cause of the date display was the site timezone, not the 17 columns individually - set it to UTC and verified the dates render exactly as the workbook has them (1/7/2026, 2/4/2026, no times). Built the missing level-1 Overview view (thin by design, matching Excel's level 1). Aligned the site home page contact with the guides Track E had since expanded - a mailto: anchor triggered a 500 on save, plain text saved fine. Status board updated. All live SharePoint config, so no commits in this repo. Cut off hard at 06:38 by the org monthly spend limit, not by the work finishing; end time reconstructed from the session transcript."},
+      {project:"FRM10-12", id:"WS-014", date:"2026-09-01", start:"13:46", end:"16:00", status:"done",
+       workstream:"KPI price-integrity investigation. User reports the KPI shows ~$1.5M USD earned in August while more than half of August orders appear to have no price, though the same orders show a price in FRM10-12. Read-only forensic pass over the 9 timestamped live-workbook snapshots (openpyxl, no Excel/COM, no refresh) building a per-order x per-snapshot fill matrix for Price Value and every other field, to find where the data went and whether other fields lost data the same way."},
+      {project:"FRM10-12", id:"WS-015", date:"2026-09-01", start:"16:00", end:"16:45", status:"done",
+       workstream:"Office Script performance + hang. Step 8 sometimes runs forever and is implicated in the desync issues. Measured the real workload: on the archive it reads and writes back 885,819 cells across 9 tables, of which only 52,505 (5.9%) hold anything a type reevaluation could change - 4 of the 6 large tables contain no numeric-looking text at all. Retargeted both reevaluate paths to write only the affected columns, skipped the 164-round-trip filter dance when unfiltered, and bounded the step 7 refresh wait, which previously had no exit but success. Scope then grew past the performance fix: the narrowed filter was itself wrong - it only tested for numeric text, so it skipped the columns step 8 exists for (Client Desired Date, 10 date-strings among 483 real dates; BO, boolean text vs real booleans; Original Tanking Date). Widened it to numeric + date-like + boolean-like, cost 5.7% -> 10.1% of a full rewrite. Added Enforce Date Formats (restores yyyy-mm-dd on every date column) and a Step 8 test workbook with every mixed-type case injected as real cells. User ran the patched script live on the workbook at 16:38 and the diff verified clean: 5/5 EC/ec markers intact, all 7 protected columns untouched, already-correct Coiling Date skipped, date formats restored. 5 commits pushed (f317043, 466fb51, 4fccfaf, 1d02786, 3d3a1e3). End reconstructed from the session transcript (last message 16:41) - the verified run surfaced a further issue that was left unresolved when the session stopped."}
     ]
   };
 
@@ -389,10 +417,40 @@
   }
   function fmtHours(mins){ return (mins/60).toFixed(1); }
   function dayLabel(dateStr){ return parseDateStr(dateStr).toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}).toUpperCase(); }
+  function effectiveEnd(r){
+    return r.end ? toMinutes(r.end) : (r.date === todayStr() ? (todayDate().getHours()*60+todayDate().getMinutes()) : AXIS_END);
+  }
   function durationFor(r){
-    const start = toMinutes(r.start);
-    const end = r.end ? toMinutes(r.end) : (r.date === todayStr() ? (todayDate().getHours()*60+todayDate().getMinutes()) : AXIS_END);
-    return Math.max(0, end-start);
+    return Math.max(0, effectiveEnd(r)-toMinutes(r.start));
+  }
+
+  // Wall-clock minutes actually WORKED across a set of rows: rows that overlap
+  // in time on the same date are merged, not added.
+  //
+  // Parallel sessions are normal here (several agents at once, or a background
+  // agent alongside the foreground conversation - build night 2026-09-01 ran
+  // five), and each logs its own row. Those rows are all genuine work, but the
+  // hours were only *lived* once, so adding them inflates the figure - on
+  // 2026-09-01 the row sum is 13.1h against 9.9h actually worked. Every total
+  // the console shows is therefore a union, not a sum.
+  //
+  // Rows never cross midnight (the skill splits them at 23:59/00:00), so
+  // merging within each date is sufficient.
+  function unionMinutes(rows){
+    const byDate = {};
+    rows.forEach(r => { (byDate[r.date] = byDate[r.date] || []).push([toMinutes(r.start), Math.max(toMinutes(r.start), effectiveEnd(r))]); });
+    let total = 0;
+    Object.keys(byDate).forEach(d => {
+      const spans = byDate[d].sort((a,b) => a[0]-b[0]);
+      let curStart = null, curEnd = null;
+      spans.forEach(sp => {
+        if (curEnd === null){ curStart = sp[0]; curEnd = sp[1]; }
+        else if (sp[0] <= curEnd){ curEnd = Math.max(curEnd, sp[1]); }
+        else { total += curEnd-curStart; curStart = sp[0]; curEnd = sp[1]; }
+      });
+      if (curEnd !== null){ total += curEnd-curStart; }
+    });
+    return total;
   }
 
   const CLIENTS = [...new Set(DATA.projects.map(p => p.client))];
@@ -531,15 +589,37 @@
   }
 
   function renderSummary(rows){
-    const totalMin = rows.reduce((s,r) => s+durationFor(r), 0);
+    const totalMin = unionMinutes(rows);
+    const rawMin = rows.reduce((s,r) => s+durationFor(r), 0);
     const activeDays = new Set(rows.map(r => r.date));
     document.getElementById('statTotal').innerHTML = fmtHours(totalMin)+'<span class="unit">h</span>';
     document.getElementById('statDays').textContent = activeDays.size;
     document.getElementById('statAvg').innerHTML = (activeDays.size ? fmtHours(totalMin/activeDays.size) : '0.0')+'<span class="unit">h</span>';
 
+    // Only worth saying when parallel rows actually overlapped in this view.
+    const overlapNote = document.getElementById('overlapNote');
+    const overlapMin = rawMin - totalMin;
+    if (overlapMin >= 1){
+      overlapNote.textContent = 'Overlapping time counted once — the ' + rows.length + ' rows in this view add up to ' +
+        fmtHours(rawMin) + 'h, but ' + fmtHours(overlapMin) + 'h of that ran in parallel sessions.';
+      overlapNote.hidden = false;
+    } else {
+      overlapNote.textContent = '';
+      overlapNote.hidden = true;
+    }
+
+    // Per-project figures are each that project's own union, for the same
+    // reason. No two different projects have ever overlapped (all recorded
+    // overlap is parallel sessions within one project), so these still sum to
+    // the total; if that ever changes they'd sum slightly higher, hence the
+    // split bar normalising against their own sum rather than against total.
     const perProject = {};
-    rows.forEach(r => { perProject[r.project] = (perProject[r.project]||0) + durationFor(r); });
+    DATA.projects.forEach(p => {
+      const projRows = rows.filter(r => r.project === p.project);
+      if (projRows.length){ perProject[p.project] = unionMinutes(projRows); }
+    });
     const withTime = DATA.projects.filter(p => perProject[p.project] > 0);
+    const splitTotal = withTime.reduce((s,p) => s+perProject[p.project], 0) || 1;
     const section = document.getElementById('splitSection');
     if (!withTime.length){
       section.innerHTML = '<p class="label">Hours by project</p><p class="empty-note">No hours in this view yet.</p>';
@@ -549,7 +629,7 @@
     const bar = document.getElementById('splitBar'), legend = document.getElementById('splitLegend');
     withTime.forEach(p => {
       const mins = perProject[p.project];
-      const pct = (mins/totalMin*100).toFixed(1);
+      const pct = (mins/splitTotal*100).toFixed(1);
       const color = p.billable ? colorFor(p.project) : 'var(--neutral-chip-ink)';
       const seg = document.createElement('div');
       seg.className = 'seg'; seg.style.width = pct+'%'; seg.style.background = color;
@@ -571,7 +651,7 @@
     rows.forEach(r => (byDate[r.date] = byDate[r.date]||[]).push(r));
     Object.keys(byDate).sort().forEach(date => {
       const dayRows = byDate[date];
-      const dayTotal = dayRows.reduce((s,r)=>s+durationFor(r),0);
+      const dayTotal = unionMinutes(dayRows);
       const card = document.createElement('article'); card.className = 'day';
       const head = document.createElement('div'); head.className = 'day-head';
       head.innerHTML = '<h2 class="mono">'+dayLabel(date)+'</h2><span class="hours mono">'+fmtHours(dayTotal)+' h</span>';
@@ -634,7 +714,7 @@
     let anyOpen = false;
     Object.keys(byDate).sort().forEach(date => {
       const dayRows = [...byDate[date]].sort((a,b) => a.start.localeCompare(b.start));
-      const dayTotal = dayRows.reduce((s,r) => s+durationFor(r), 0);
+      const dayTotal = unionMinutes(dayRows);
 
       const card = document.createElement('article'); card.className = 'day';
       const head = document.createElement('div'); head.className = 'day-head';
