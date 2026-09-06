@@ -431,8 +431,14 @@
     ]
   };
 
-  const AXIS_START = 6 * 60, AXIS_END = 24 * 60, AXIS_SPAN = AXIS_END - AXIS_START;
-  const TICKS = [6,8,10,12,14,16,18,20,22,24];
+  // Full 24h. It used to start at 06:00, which silently clipped every row that
+  // began before then - 22 of them, including most of build night and the
+  // 02:00-03:00 sessions. Day totals were always right (they come from the row
+  // data, not the axis); the bars just rendered off the left edge.
+  const AXIS_START = 0, AXIS_END = 24 * 60, AXIS_SPAN = AXIS_END - AXIS_START;
+  // Evenly spaced across the span - the tick row is flex space-between, so
+  // uneven values would print in the wrong places.
+  const TICKS = [0,3,6,9,12,15,18,21,24];
 
   function isDark(){
     const root = document.documentElement;
