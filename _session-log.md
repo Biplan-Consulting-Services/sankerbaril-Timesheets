@@ -72,3 +72,7 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-09-05 01:26:35 | cabf5ade-d6bd-4fe1-8496-abbdced13c13 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
 2026-09-05 14:01:18 | e9121471-9854-4057-96e4-65e90b55cbe5 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Timesheets | session-start
 2026-09-06 02:17:30 | e9121471-9854-4057-96e4-65e90b55cbe5 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Timesheets | session-start
+2026-09-08 01:14:15 | 4b9447ef-95f6-415c-9f2b-677c2e89d341 | C:\Users\solei | session-start
+2026-09-08 01:14:15 | c01c7b1c-b996-46b6-9b69-1554e9ca4f66 | C:\Users\solei | session-start
+2026-09-08 01:14:15 | 4b9447ef-95f6-415c-9f2b-677c2e89d341 | /c/Users/solei | session-end
+2026-09-08 01:14:15 | c01c7b1c-b996-46b6-9b69-1554e9ca4f66 | /c/Users/solei | session-end
