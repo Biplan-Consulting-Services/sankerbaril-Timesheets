@@ -88,3 +88,16 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-09-10 20:15:23 | 74db616e-3cc2-44b0-b49a-4e80b8149730 | C:\Users\solei\OneDrive\Documents\Biplan\claude\clients\Pioneer Transformer\Workflow-Automation | session-start
 2026-09-11 07:05:58 | 74db616e-3cc2-44b0-b49a-4e80b8149730 | /c/Users/solei/OneDrive/Documents/Biplan/claude/clients/Pioneer Transformer/Workflow-Automation | session-end
 2026-09-11 11:27:02 | a7ba3a3d-f2f7-4315-a099-aed2df4cba09 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients | session-start
+2026-09-11 16:09:35 | a7ba3a3d-f2f7-4315-a099-aed2df4cba09 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients | session-end
+2026-09-14 09:26:57 | 38afb872-22c1-4d6f-9611-a8de9765cf4e | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-14 10:50:52 | e5e82983-3648-461a-b519-d3be010456ac | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-14 12:22:32 | 10e1696d-f684-4833-bfff-a60f415652be | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-14 12:25:13 | 10e1696d-f684-4833-bfff-a60f415652be | /c/Users/solei/OneDrive/Documents/Biplan/claude | session-end
+2026-09-14 15:00:36 | 38afb872-22c1-4d6f-9611-a8de9765cf4e | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-09-14 15:00:38 | e5e82983-3648-461a-b519-d3be010456ac | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-09-14 16:53:14 | 8fdc06b0-1b8d-4a08-9a1d-215746b8a00f | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-14 16:53:15 | 8fdc06b0-1b8d-4a08-9a1d-215746b8a00f | /c/Users/solei/OneDrive/Documents/Biplan/claude | session-end
+2026-09-14 22:09:40 | d7e2d4c4-8031-4186-a0e6-7de7ae48f407 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-15 00:00:00 | d7e2d4c4-8031-4186-a0e6-7de7ae48f407 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer/Workflow-Automation | session-end
+2026-09-16 09:38:18 | bb770c10-3fd9-4e5a-acc6-93c5867e7566 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-16 11:22:14 | e13ff6c7-87e3-4f51-a35a-5a5156b90b1d | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
