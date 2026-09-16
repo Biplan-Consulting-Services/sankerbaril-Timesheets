@@ -101,3 +101,4 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-09-15 00:00:00 | d7e2d4c4-8031-4186-a0e6-7de7ae48f407 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer/Workflow-Automation | session-end
 2026-09-16 09:38:18 | bb770c10-3fd9-4e5a-acc6-93c5867e7566 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
 2026-09-16 11:22:14 | e13ff6c7-87e3-4f51-a35a-5a5156b90b1d | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-16 16:52:21 | bb770c10-3fd9-4e5a-acc6-93c5867e7566 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
