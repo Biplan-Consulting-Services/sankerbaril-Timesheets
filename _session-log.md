@@ -110,3 +110,17 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-09-20 16:32:39 | bf46115d-eac4-4be2-b707-a0f32058471d | C:\Programming\Claude | session-start
 2026-09-20 20:10:05 | bf46115d-eac4-4be2-b707-a0f32058471d | /c/Programming/Claude/d-lightfull-streams | session-end
 2026-09-21 01:01:44 | 0c9c130e-9fc3-4e92-8b81-837ebabd08df | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-21 03:40:03 | 0c9c130e-9fc3-4e92-8b81-837ebabd08df | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-09-21 13:17:32 | f46bed5b-276c-4177-b4b8-cde8cb6b9ca1 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-21 13:40:47 | 5113dbb9-37b7-4c68-93ea-08c0b3648109 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Timesheets | session-start
+2026-09-21 13:40:47 | 18e31c7b-0cce-4a1b-940e-37cdd49271b1 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-21 21:00:13 | 3abd2e21-6248-4f66-9268-3f44440fa048 | C:\Programming\Claude | session-start
+2026-09-21 21:03:41 | 3abd2e21-6248-4f66-9268-3f44440fa048 | /c/Programming/Claude | session-end
+2026-09-22 20:47:37 | 245a07f6-db61-41e6-b10f-ca5e611234dd | C:\Programming\Claude | session-start
+2026-09-22 22:37:27 | 245a07f6-db61-41e6-b10f-ca5e611234dd | /c/Programming/Claude/d-lightfull-chronicles | session-end
+2026-09-22 22:38:25 | 6c53968c-d4ed-4f2c-8d20-f458ce934468 | C:\Programming\Claude\d-lightfull-chronicles\docs\systems\sombrelune V2 | session-start
+2026-09-22 22:48:47 | 6c53968c-d4ed-4f2c-8d20-f458ce934468 | /c/Programming/Claude/d-lightfull-chronicles/docs/systems/sombrelune V2 | session-end
+2026-09-22 22:49:24 | 118558b4-9c67-4540-ac30-5e1ab1b43f82 | C:\Users\solei\OneDrive\Documents\GN | session-start
+2026-09-23 02:40:20 | 118558b4-9c67-4540-ac30-5e1ab1b43f82 | /c/Users/solei/OneDrive/Documents/GN/SombreLune | session-end
+2026-09-24 19:59:39 | b4229a51-2465-4d31-8ccc-09fd97aab649 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-24 21:01:36 | 835d6861-6c28-4895-9a5d-6b501717610e | c:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
