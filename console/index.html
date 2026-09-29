@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Shift Console</title>
 <style>
   :root{
@@ -168,6 +173,8 @@
     .tabs{ flex-direction: column; }
   }
 </style>
+</head>
+<body>
 
 <div class="page">
 
@@ -239,18 +246,20 @@
   <section id="content"></section>
 
   <footer class="notes">
-    <p>Live view of the Timesheets repo: <code>_projects.csv</code> and each project's CSV, kept in this page's
-    database by Claude (one entry per project and month). The page itself does not change when hours are logged.
+    <p>Local view of the Timesheets repo: <code>_projects.csv</code>, <code>_epics.csv</code> and each project's CSV,
+    compiled into <code>console/data.js</code> whenever a CSV changes. Open this file straight from disk; it re-reads
+    the data every minute.
     Table view is a plain HTML table - select rows and copy/paste directly into another app.</p>
     <p class="empty-note" id="liveStatus"></p>
   </footer>
 
 </div>
 
+<script src="data.js"></script>
 <script>
-  // LIVE DATA. The page carries no rows: it reads this artifact's db, which Claude keeps in step with the
-  // Timesheets CSVs (tools/sync_console.py). Shape: meta/config {projects, epics}; months/<file-stem>__<YYYY-MM>
-  // {project, month, rows:[...]}. One doc per project-month keeps the store far below its 5,000-document cap.
+  // DATA comes from ./data.js (window.TIMESHEET_DATA), which tools/build_console_data.js compiles from the
+  // timesheet CSVs. The timesheet-logging hooks rebuild it whenever a CSV changes, and this page re-loads it
+  // every minute, so an open page follows the log without a manual refresh. The CSVs are the only source.
   const DATA = { projects: [], rows: [], epics: [] };
 
   // Full 24h. It used to start at 06:00, which silently clipped every row that
@@ -682,27 +691,28 @@
   }
 
   refreshForScopeChange();
-  showNotice('Loading the timesheet…');
-  (async () => {
-    if (!window.claude || !window.claude.use){ showNotice('Open this page on claude.ai to load the timesheet.'); return; }
-    const db = await window.claude.use('db');
-    if (!db){ showNotice('The timesheet could not be loaded in this view. Open it from claude.ai while signed in to your organization.'); return; }
-    let haveMeta = false, haveMonths = false;
-    const fail = () => { setStatus('The timesheet stopped updating. Reload the page to reconnect.'); };
-    db.doc('meta/config').onSnapshot(snap => {
-      const d = snap.exists ? snap.data() : {};
-      DATA.projects = (d.projects || []).slice().sort((a,b) => (a.order ?? 99) - (b.order ?? 99));
-      DATA.epics = (d.epics || []).slice().sort((a,b) => (a.order ?? 99) - (b.order ?? 99));
-      haveMeta = true; if (haveMonths) applyData();
-    }, fail);
-    db.collection('months').onSnapshot(snap => {
-      const rows = [];
-      let synced = '';
-      snap.docs.forEach(doc => { if (!doc.exists) return; const m = doc.data();
-        (m.rows || []).forEach(r => rows.push(r)); if ((m.syncedAt || '') > synced) synced = m.syncedAt; });
-      DATA.rows = rows.sort((a,b) => (a.date+a.start).localeCompare(b.date+b.start));
-      setStatus(synced ? 'Last synced from the CSVs: ' + synced.replace('T',' ') + '.' : '');
-      haveMonths = true; if (haveMeta) applyData();
-    }, fail);
-  })();
+  let lastGenerated = '';
+  function takeData(){
+    const d = window.TIMESHEET_DATA;
+    if (!d){ showNotice('No timesheet data yet. Run: node tools/build_console_data.js (from the Timesheets folder).'); return; }
+    if (d.generatedAt === lastGenerated) return;
+    lastGenerated = d.generatedAt;
+    DATA.projects = (d.projects || []).slice().sort((a,b) => (a.order ?? 99) - (b.order ?? 99));
+    DATA.epics = (d.epics || []).slice().sort((a,b) => (a.order ?? 99) - (b.order ?? 99));
+    DATA.rows = (d.rows || []).slice();
+    setStatus('Data built ' + new Date(d.generatedAt).toLocaleString() + ' from the timesheet CSVs.');
+    applyData();
+  }
+  // Re-load data.js on a timer: a script tag with a cache-busting query works from file://, where fetch() does not.
+  function reloadData(){
+    const s = document.createElement('script');
+    s.src = 'data.js?t=' + Date.now();
+    s.onload = () => { s.remove(); takeData(); };
+    s.onerror = () => { s.remove(); if (!lastGenerated) showNotice('Could not load data.js next to this page.'); };
+    document.head.appendChild(s);
+  }
+  takeData();
+  setInterval(reloadData, 60000);
 </script>
+</body>
+</html>

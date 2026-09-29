@@ -1,6 +1,5 @@
 Thumbs.db
 .DS_Store
 ~$*
-_sync/docs/
-_sync/batch-*.json
-_sync/pending.json
+console/data.js
+console/data.js.tmp

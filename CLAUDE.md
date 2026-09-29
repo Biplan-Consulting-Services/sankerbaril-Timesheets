@@ -47,29 +47,28 @@ in `Clients/Pioneer Transformer/Workflow-Automation/docs/organisation-plan.md`.
   the same unit of work, or closed + a new row opened if the user pivots to something
   genuinely different.
 
-## Reporting - the Shift Console
-A **live** page (since 2026-09-29): it opens to today's entries, with a "This Week" view
-and a "Search a range" view; a three-level Clients → Projects → Epics filter (each level
-with its own select-all/none; Epics only appears when rows in view carry an epic); and a
-Timeline/Table display toggle - Table is a plain HTML table meant for copy-pasting rows
-directly into an external timesheet app.
+## Reporting - the Shift Console (local page)
+**`console/index.html`, opened straight from disk** (shortcut: `Shift Console.url` at the
+workspace root). No hosting, no sign-in, works offline. Since 2026-09-29; the earlier
+claude.ai artifact version was retired at the user's request. It opens to today's entries,
+with a "This Week" view and a "Search a range" view; a three-level Clients → Projects →
+Epics filter (each level with its own select-all/none; Epics only appears when rows in
+view carry an epic); and a Timeline/Table display toggle - Table is a plain HTML table
+meant for copy-pasting rows directly into an external timesheet app.
 
-**The page holds no data.** It reads its artifact database: `meta/config`
-(`{projects, epics}` from `_projects.csv` + `_epics.csv`) and `months/<csv-stem>__<YYYY-MM>`
-(`{project, month, syncedAt, rows}`, one document per project-month to stay far below
-the store's 5,000-document cap). **Keeping it current = syncing, never republishing:**
-`python tools/sync_console.py plan` → send each `_sync/batch-N.json` with ArtifactData
-`batch` → `python tools/sync_console.py commit "<doc>=<version>,..."`. `_sync/state.json`
-remembers the content hash and version of every document, so unchanged months are never
-rewritten and every update is pinned with `if_version`. `_sync/docs/` and the batch files
-are regenerated each plan (not needed in git beyond the state file).
+**The page holds no data.** It loads `console/data.js` (`window.TIMESHEET_DATA`), which
+`tools/build_console_data.js` compiles from `_projects.csv`, `_epics.csv` and every project
+CSV (a `file://` page may load a script but not read the CSVs). **Nothing to sync by hand:**
+the UserPromptSubmit hook and a Stop hook rebuild `data.js` whenever a CSV is newer than it,
+and the page re-loads `data.js` every minute. `data.js` is git-ignored; after a fresh clone
+run `node tools/build_console_data.js`. The builder copes with the historical rows that
+have an unquoted comma in `workstream` (an extra trailing field is only an `epic` when it
+is a real key in `_epics.csv`).
 
-**Source file: `shift-console.html`** (this repo, tracked in git) - its own considered
-design (serif ledger aesthetic, horizontal time-of-day timeline bars, stacked
-hours-by-project split bar). Republish it only for a layout/behaviour change the user
-asked for, by reading and patching it - **never rebuild the page from scratch** from this
-doc's description or the skill's behavioural notes. If this file and the live artifact
-ever disagree, the file is authoritative.
+**`console/index.html` is source** - its own considered design (serif ledger aesthetic,
+horizontal time-of-day timeline bars, stacked hours-by-project split bar). Change it only
+for a layout/behaviour change the user asked for, by reading and patching it - **never
+rebuild the page from scratch** from this doc's description or the skill's notes.
 
 **Hours are a union, not a sum.** Parallel sessions are normal here, so rows in the
 same file routinely overlap in time. Every total the console shows - the Total hours
@@ -80,6 +79,5 @@ external timesheet app. Anything computing hours outside the console (an ad-hoc
 range breakdown, an invoice figure) has to do the same merge, or it will overcount -
 2026-09-01's rows sum to 13.1h against 9.9h actually worked.
 
-**Current artifact URL:** https://claude.ai/artifact/95ThSwkwxQBowAno3XwtVG (same artifact as
-the older link https://claude.ai/code/artifact/41688985-c12f-4f44-a4fe-c4c9d4a83123; version 27
-is the first live, db-backed one).
+**Open it:** `file:///C:/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets/console/index.html`
+(the retired artifact, `41688985-…` / `95ThSwkwxQBowAno3XwtVG`, is no longer maintained).
