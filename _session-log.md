@@ -124,3 +124,21 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-09-23 02:40:20 | 118558b4-9c67-4540-ac30-5e1ab1b43f82 | /c/Users/solei/OneDrive/Documents/GN/SombreLune | session-end
 2026-09-24 19:59:39 | b4229a51-2465-4d31-8ccc-09fd97aab649 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
 2026-09-24 21:01:36 | 835d6861-6c28-4895-9a5d-6b501717610e | c:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-25 13:48:27 | 16c2939a-fc64-437c-9c1a-b0bb13cc53f6 | C:\Users\solei\OneDrive\Documents\GN | session-start
+2026-09-25 15:32:31 | 835d6861-6c28-4895-9a5d-6b501717610e | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-09-25 21:30:57 | 16c2939a-fc64-437c-9c1a-b0bb13cc53f6 | /c/Users/solei/OneDrive/Documents/GN/Ascension Vault/10 - Économie et artisanat/Laboratoire/Combinaisons | session-end
+2026-09-25 22:07:03 | b4229a51-2465-4d31-8ccc-09fd97aab649 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-09-26 18:57:52 | 72bf451e-f474-465d-81e4-db2f59b59fc5 | C:\Users\solei\OneDrive\Documents\GN\SombreLune | session-start
+2026-09-26 23:19:43 | 72bf451e-f474-465d-81e4-db2f59b59fc5 | /c/Users/solei/OneDrive/Documents/GN/SombreLune | session-end
+2026-09-27 17:24:39 | 573adf1a-c46f-41dd-9932-bb19548bf9fa | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-27 17:31:06 | cc74594a-949c-4141-91a0-76e395993f13 | c:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-27 17:31:06 | 979a067b-1861-4cca-88b2-7700bc77971f | c:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-27 17:31:07 | 979a067b-1861-4cca-88b2-7700bc77971f | /c/Users/solei/OneDrive/Documents/Biplan/claude | session-end
+2026-09-27 21:53:49 | cc74594a-949c-4141-91a0-76e395993f13 | /c/Users/solei/OneDrive/Documents/Biplan/claude | session-end
+2026-09-28 13:14:27 | 573adf1a-c46f-41dd-9932-bb19548bf9fa | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer\Workflow-Automation | session-start
+2026-09-28 14:22:22 | 573adf1a-c46f-41dd-9932-bb19548bf9fa | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer/Workflow-Automation | session-end
+2026-09-29 01:05:46 | d14bd31c-e524-4265-aa27-c6cc418a32be | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-29 01:54:41 | b59d771b-127f-40fb-b85c-f335ffd50c95 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients | session-start
+2026-09-29 02:25:23 | b59d771b-127f-40fb-b85c-f335ffd50c95 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer/Workflow-Automation | session-end
+2026-09-29 02:39:43 | 7e86a611-a77d-4699-9427-4dadfdc58c2a | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-09-29 02:52:41 | 7e86a611-a77d-4699-9427-4dadfdc58c2a | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end

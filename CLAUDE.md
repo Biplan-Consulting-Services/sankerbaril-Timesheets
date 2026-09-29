@@ -32,7 +32,10 @@ full logging procedure.
 
 ## Row schema (per-project CSVs)
 `id,date,start,end,status,session_id,workstream` - quote `workstream` if it contains
-a comma.
+a comma. Projects that use epics add a trailing **`epic`** column (since 2026-09-29, only
+`pioneer-transformer-workflow-automation.csv`); the allowed keys and labels live in
+**`_epics.csv`** (`project,key,label,order`), which mirrors the Pioneer Punch List epics
+in `Clients/Pioneer Transformer/Workflow-Automation/docs/organisation-plan.md`.
 - `id` - sequential per file, e.g. `WS-014`. Multiple rows can be `in-progress` at
   once in the same file - always reference by id, never assume "the" open row.
 - `status` - `in-progress` or `done`.
@@ -45,24 +48,28 @@ a comma.
   genuinely different.
 
 ## Reporting - the Shift Console
-On request (or automatically at end-of-day, per the skill), the console's data gets
-refreshed and republished to the URL below. It opens to today's entries, with a "This
-Week" view and a "Search a range" view; a two-level Clients → Projects filter (each
-level with its own select-all/none); and a Timeline/Table display toggle - Table is a
-plain HTML table meant for copy-pasting rows directly into an external timesheet app.
-All data is embedded at publish time - it's a snapshot, not a live feed.
+A **live** page (since 2026-09-29): it opens to today's entries, with a "This Week" view
+and a "Search a range" view; a three-level Clients → Projects → Epics filter (each level
+with its own select-all/none; Epics only appears when rows in view carry an epic); and a
+Timeline/Table display toggle - Table is a plain HTML table meant for copy-pasting rows
+directly into an external timesheet app.
 
-**Source file: `shift-console.html`** (this repo, tracked in git). This is the actual
-page - its own considered design (serif ledger aesthetic, horizontal time-of-day
-timeline bars, stacked hours-by-project split bar), built once and refined since.
-**Regenerating means editing this file's embedded `DATA` object only** (add/update rows
-in `DATA.rows`, add project entries to `DATA.projects` if a new project was
-scaffolded) **and republishing it as-is - never rebuild the page from scratch** from
-this doc's description or the skill's behavioral notes. The design already exists;
-treat it the same as any other piece of source code in this repo - read it, patch it,
-don't rewrite it. If this file and the live published artifact ever disagree (e.g. this
-file wasn't updated after some past redeploy), the file is authoritative - overwrite
-the live artifact from it, not the other way around.
+**The page holds no data.** It reads its artifact database: `meta/config`
+(`{projects, epics}` from `_projects.csv` + `_epics.csv`) and `months/<csv-stem>__<YYYY-MM>`
+(`{project, month, syncedAt, rows}`, one document per project-month to stay far below
+the store's 5,000-document cap). **Keeping it current = syncing, never republishing:**
+`python tools/sync_console.py plan` → send each `_sync/batch-N.json` with ArtifactData
+`batch` → `python tools/sync_console.py commit "<doc>=<version>,..."`. `_sync/state.json`
+remembers the content hash and version of every document, so unchanged months are never
+rewritten and every update is pinned with `if_version`. `_sync/docs/` and the batch files
+are regenerated each plan (not needed in git beyond the state file).
+
+**Source file: `shift-console.html`** (this repo, tracked in git) - its own considered
+design (serif ledger aesthetic, horizontal time-of-day timeline bars, stacked
+hours-by-project split bar). Republish it only for a layout/behaviour change the user
+asked for, by reading and patching it - **never rebuild the page from scratch** from this
+doc's description or the skill's behavioural notes. If this file and the live artifact
+ever disagree, the file is authoritative.
 
 **Hours are a union, not a sum.** Parallel sessions are normal here, so rows in the
 same file routinely overlap in time. Every total the console shows - the Total hours
@@ -73,4 +80,6 @@ external timesheet app. Anything computing hours outside the console (an ad-hoc
 range breakdown, an invoice figure) has to do the same merge, or it will overcount -
 2026-09-01's rows sum to 13.1h against 9.9h actually worked.
 
-**Current artifact URL:** https://claude.ai/code/artifact/41688985-c12f-4f44-a4fe-c4c9d4a83123
+**Current artifact URL:** https://claude.ai/artifact/95ThSwkwxQBowAno3XwtVG (same artifact as
+the older link https://claude.ai/code/artifact/41688985-c12f-4f44-a4fe-c4c9d4a83123; version 27
+is the first live, db-backed one).

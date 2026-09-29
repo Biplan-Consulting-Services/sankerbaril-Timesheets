@@ -1,0 +1,50 @@
+{
+ "meta/config": {
+  "hash": "ae57d3494f6cba8d15d04f8b476cbb2daefbd4c1ab24dd21481e563fbfe1c9a4",
+  "version": 1
+ },
+ "months/_internal__2026-08": {
+  "hash": "a2430fe0ce6b42e7b3106bce910efc73ba72b728567d115a6e99e8df36aeb4e0",
+  "version": 1
+ },
+ "months/_internal__2026-09": {
+  "hash": "7acce8b7e02c144dbf9911bcc7ad5c4c4f221e966b661b491b66f9b7c6bf0c04",
+  "version": 1
+ },
+ "months/new-project-scaffold__2026-09": {
+  "hash": "8c2474961471e1cbfc402e080935f87cc824b7b5438619486752f956cf0fd0db",
+  "version": 1
+ },
+ "months/pioneer-transformer-frm09__2026-08": {
+  "hash": "2732af7b3ff30272a79c8ba82ee54ad5f71fbdd51f9fb81ced9f2774a039b05f",
+  "version": 1
+ },
+ "months/pioneer-transformer-frm10-12__2026-08": {
+  "hash": "16a0ce4c465800e326f71b952eaaf243002948c90d74ee2c353880ac0a6c895a",
+  "version": 1
+ },
+ "months/pioneer-transformer-frm10-12__2026-09": {
+  "hash": "876fc202a5cea8cd92154fe0c3fc54674cc610f73405942e6e4d7eb281e6a25e",
+  "version": 1
+ },
+ "months/pioneer-transformer-frm11__2026-08": {
+  "hash": "bd757ea182f0f08bf2d2bfbf8a57aebfb4698654de2d3cdb34fc98efe358ce6d",
+  "version": 1
+ },
+ "months/pioneer-transformer-workflow-automation__2026-08": {
+  "hash": "e61d637f243309bd14c5d623df7aaf34e81579f183f84a6ce7d49977ad1d454e",
+  "version": 1
+ },
+ "months/pioneer-transformer-workflow-automation__2026-09": {
+  "hash": "1a5beb311596bdfb9f7116f70d8e8018cdfd8ceefc93b46e52ce6d88430a6f1a",
+  "version": 1
+ },
+ "months/timesheet-logging__2026-08": {
+  "hash": "73e961afd38277aaba420f78a898d3793d39adb5dcb5888785b39b32cb1d5747",
+  "version": 1
+ },
+ "months/timesheet-logging__2026-09": {
+  "hash": "63baf4e82a15ca2a87e9a756056a267b00f003ec0d79b83a362c446da5badcc2",
+  "version": 1
+ }
+}

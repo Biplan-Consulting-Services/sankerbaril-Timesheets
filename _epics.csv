@@ -1,0 +1,13 @@
+project,key,label,order
+Workflow-Automation,order-items-sync,Order Items & parent sync,1
+Workflow-Automation,nightly-sync-archive,Nightly Sync & archive,2
+Workflow-Automation,data-quality,Data quality,3
+Workflow-Automation,mirror-health,Mirror & health,4
+Workflow-Automation,power-app,Power App,5
+Workflow-Automation,workbook-phaseout,Workbook phase-out,6
+Workflow-Automation,reporting-kpis,Reporting & KPIs,7
+Workflow-Automation,monday,monday.com,8
+Workflow-Automation,engineering-docs,Engineering document control,9
+Workflow-Automation,workflow-tasks,Workflow tasks (Phase 1),10
+Workflow-Automation,staff-enablement,Staff enablement,11
+Workflow-Automation,workspace-tooling,Workspace & tooling,12

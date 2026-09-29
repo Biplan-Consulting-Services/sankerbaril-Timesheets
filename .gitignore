@@ -1,3 +1,6 @@
 Thumbs.db
 .DS_Store
 ~$*
+_sync/docs/
+_sync/batch-*.json
+_sync/pending.json
