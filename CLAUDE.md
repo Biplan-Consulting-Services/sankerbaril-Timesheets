@@ -35,7 +35,7 @@ full logging procedure.
 a comma. Projects that use epics add a trailing **`epic`** column (since 2026-09-29, only
 `pioneer-transformer-workflow-automation.csv`); the allowed keys and labels live in
 **`_epics.csv`** (`project,key,label,order`), which mirrors the Pioneer Punch List epics
-in `Clients/Pioneer Transformer/Workflow-Automation/docs/organisation-plan.md`.
+in `Clients/Pioneer Transformer/projects/workflow-automation/docs/organisation-plan.md`.
 - `id` - sequential per file, e.g. `WS-014`. Multiple rows can be `in-progress` at
   once in the same file - always reference by id, never assume "the" open row.
 - `status` - `in-progress` or `done`.
