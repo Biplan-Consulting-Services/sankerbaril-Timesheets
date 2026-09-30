@@ -1,0 +1,16 @@
+scope,key,ticket,note
+epic,order-items-sync,AFDS-176,Support pour les Table Sharepoint (N3 / trigger flow / lookups) - proposed; confirm
+epic,nightly-sync-archive,,no fitting ticket yet - AFDS-62 (recouvrement de données) is the closest; decide or create one
+epic,data-quality,AFDS-176,proposed; confirm
+epic,mirror-health,AFDS-176,proposed; confirm
+epic,power-app,AFDS-156,Application de Création de commande - proposed; confirm
+epic,workbook-phaseout,AFDS-76,Support FRM10-12 - proposed; confirm
+epic,reporting-kpis,AFDS-208,Support formule KPI - proposed; confirm
+epic,monday,AFDS-213,implementation monday.com avec sharepoint
+epic,engineering-docs,AFDS-92,Dossier de production (dossiers bleus)
+epic,workflow-tasks,AFDS-148,Avoir 2 département qui se transfère des tache - proposed; confirm
+epic,staff-enablement,AFDS-133,Process Mapping Workshop Meetings (includes site visits) - proposed; confirm
+epic,workspace-tooling,,billable to AFDS? decide
+project,FRM10-12,AFDS-76,rows of the FRM10-12 timesheet
+project,FRM09,AFDS-211,rows of the FRM09 timesheet
+project,FRM11,AFDS-76,rows of the FRM11 timesheet - proposed; confirm

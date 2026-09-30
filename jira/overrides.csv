@@ -1,0 +1,12 @@
+file,id,ticket,suggested,note
+pioneer-transformer-workflow-automation.csv,WS-096,,AFDS-176,Order Items missing parent data (order-items-sync)
+pioneer-transformer-workflow-automation.csv,WS-097,,AFDS-176,build night 09-24: trigger flow + parent overwrite (order-items-sync)
+pioneer-transformer-workflow-automation.csv,WS-098,,AFDS-176,mirror snapshot (mirror-health)
+pioneer-transformer-workflow-automation.csv,WS-099,,,Nightly Sync decisions + Punch List (nightly-sync-archive: no ticket yet)
+pioneer-transformer-workflow-automation.csv,WS-100,,,Nightly Sync v005 + archive (nightly-sync-archive: no ticket yet)
+pioneer-transformer-workflow-automation.csv,WS-101,,,archive repair (nightly-sync-archive: no ticket yet)
+pioneer-transformer-workflow-automation.csv,WS-102,,,Archive active go-live + NS v007 (nightly-sync-archive: no ticket yet)
+pioneer-transformer-workflow-automation.csv,WS-103,,AFDS-208,Duke RFP OTD slide - is this AFDS work at all?
+pioneer-transformer-workflow-automation.csv,WS-105,,AFDS-208,Duke RFP OTD v2 + email - same question
+pioneer-transformer-workflow-automation.csv,WS-106,,AFDS-208,Estimated Delivery Date logic (reporting-kpis)
+pioneer-transformer-workflow-automation.csv,WS-107,,AFDS-176,checklist: mirror health + N3 retry + organisation plan (mixed)

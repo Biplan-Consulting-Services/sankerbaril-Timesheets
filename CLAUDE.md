@@ -81,3 +81,9 @@ range breakdown, an invoice figure) has to do the same merge, or it will overcou
 
 **Open it:** `file:///C:/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets/console/index.html`
 (the retired artifact, `41688985-…` / `95ThSwkwxQBowAno3XwtVG`, is no longer maintained).
+
+## Jira AFDS push (every ~2 weeks)
+Pioneer hours go to the Biplan Consulting Jira (project AFDS) as worklogs. The whole cycle
+(pull -> `tools/jira_reconcile.py` -> review -> dry run -> push on the user's OK) is in
+**`jira/README.md`**. Never push without an explicit OK in chat. Pushed worklogs carry a
+`[WS-xxx <csv-stem>]` marker, which is what keeps a row from being pushed twice.

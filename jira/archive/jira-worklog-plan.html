@@ -1,0 +1,455 @@
+<title>Feuille de temps AFDS</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #EFF2F1;
+    --surface: #FFFFFF;
+    --surface-2: #E6EBE9;
+    --ink: #17262E;
+    --muted: #5C7280;
+    --rule: #D2DAD8;
+    --rule-strong: #B4C0BD;
+    --accent: #0E6B68;
+    --accent-soft: #D8E8E6;
+    --flag: #9C4A18;
+    --flag-soft: #F2E1D5;
+    --ok: #2F6B3D;
+    --over: #8C3A3A;
+
+    --display: "Zilla Slab", Georgia, serif;
+    --body: "Public Sans", system-ui, -apple-system, sans-serif;
+    --data: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #111819;
+      --surface: #192224;
+      --surface-2: #212D2F;
+      --ink: #E2EAE8;
+      --muted: #91A5AC;
+      --rule: #2B3A3C;
+      --rule-strong: #3C5053;
+      --accent: #46AEA6;
+      --accent-soft: #1D3836;
+      --flag: #D98D55;
+      --flag-soft: #382519;
+      --ok: #6FB47E;
+      --over: #D97C7C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #111819;
+    --surface: #192224;
+    --surface-2: #212D2F;
+    --ink: #E2EAE8;
+    --muted: #91A5AC;
+    --rule: #2B3A3C;
+    --rule-strong: #3C5053;
+    --accent: #46AEA6;
+    --accent-soft: #1D3836;
+    --flag: #D98D55;
+    --flag-soft: #382519;
+    --ok: #6FB47E;
+    --over: #D97C7C;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.55;
+    padding-inline: 20px;
+    padding-block: 0 64px;
+  }
+  .wrap { max-width: 1040px; margin-inline: auto; }
+
+  header.masthead {
+    padding-block: 40px 28px;
+    border-bottom: 2px solid var(--rule-strong);
+  }
+  .eyebrow {
+    font-family: var(--data);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(30px, 6vw, 44px);
+    line-height: 1.08;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .lede { margin: 0; max-width: 62ch; color: var(--muted); }
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    margin-top: 22px;
+    font-family: var(--data);
+    font-size: 12.5px;
+  }
+  .facts div { display: flex; gap: 8px; }
+  .facts dt { color: var(--muted); }
+  .facts dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 48px 0 16px;
+  }
+
+  /* ---- week summary rail ---- */
+  .rail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .rail-cell { background: var(--surface); padding: 16px 18px; }
+  .rail-cell .wk {
+    font-family: var(--data);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .rail-cell .range { font-size: 13px; margin: 3px 0 10px; }
+  .rail-cell .sum {
+    font-family: var(--display);
+    font-size: 30px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .rail-cell .delta {
+    font-family: var(--data);
+    font-size: 11.5px;
+    margin-top: 7px;
+    color: var(--muted);
+  }
+  .delta b { font-weight: 600; }
+  .delta .up { color: var(--over); }
+  .delta .down { color: var(--ok); }
+
+  /* ---- ticket legend ---- */
+  .tickets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .tk { background: var(--surface); padding: 11px 14px; display: flex; gap: 12px; align-items: baseline; }
+  .tk code {
+    font-family: var(--data);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .tk span { font-size: 13px; color: var(--muted); }
+
+  /* ---- week tables ---- */
+  .week { margin-top: 44px; }
+  .week-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--rule-strong);
+  }
+  .week-head h3 {
+    font-family: var(--display);
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .week-head .tot {
+    font-family: var(--data);
+    font-size: 13px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .week-note {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 10px 0 0;
+    max-width: 68ch;
+  }
+
+  .scroller { overflow-x: auto; margin-top: 14px; }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; }
+  th {
+    font-family: var(--data);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    text-align: left;
+    padding: 0 12px 7px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  th.num, td.num { text-align: right; padding-right: 0; }
+  td {
+    padding: 9px 12px 9px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: baseline;
+    font-size: 14px;
+  }
+  tr.daystart td { border-top: 1px solid var(--rule-strong); }
+  td.date {
+    font-family: var(--data);
+    font-size: 12.5px;
+    white-space: nowrap;
+    color: var(--muted);
+  }
+  td.date b { color: var(--ink); font-weight: 600; }
+  td.key {
+    font-family: var(--data);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  td.time {
+    font-family: var(--data);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  td.comment { color: var(--ink); }
+  td.sub {
+    font-family: var(--data);
+    font-size: 12px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .chip {
+    display: inline-block;
+    font-family: var(--data);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 1px 6px;
+    margin-left: 8px;
+    border-radius: 2px;
+    vertical-align: 1px;
+    white-space: nowrap;
+  }
+  .chip.est { background: var(--flag-soft); color: var(--flag); }
+  .chip.trv { background: var(--accent-soft); color: var(--accent); }
+
+  footer.notes { margin-top: 56px; padding-top: 22px; border-top: 2px solid var(--rule-strong); }
+  footer.notes p { font-size: 13.5px; color: var(--muted); max-width: 70ch; }
+  footer.notes strong { color: var(--ink); }
+
+  @media (max-width: 520px) {
+    body { padding-inline: 16px; }
+    .rail-cell .sum { font-size: 26px; }
+  }
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">Pioneer Transformer · Projet AFDS</p>
+  <h1>Feuille de temps AFDS</h1>
+  <p class="lede">Rattrapage des quatre semaines non saisies, du dimanche 23 août au samedi 19 septembre 2026. Dernière saisie existante&nbsp;: vendredi 21 août.</p>
+  <dl class="facts">
+    <div><dt>Période</dt><dd>23 août – 19 sept</dd></div>
+    <div><dt>Total</dt><dd>160h 00m</dd></div>
+    <div><dt>Entrées</dt><dd>49</dd></div>
+    <div><dt>Tickets</dt><dd>12</dd></div>
+    <div><dt>Plafond</dt><dd>40h / semaine</dd></div>
+  </dl>
+</header>
+
+<h2>Sommaire par semaine</h2>
+<div class="rail">
+  <div class="rail-cell">
+    <div class="wk">Semaine 1</div>
+    <div class="range">23 – 29 août</div>
+    <div class="sum">40h 00</div>
+    <div class="delta">réel enregistré <b>21h 17</b> · <span class="down">+18h 45 comblé</span></div>
+  </div>
+  <div class="rail-cell">
+    <div class="wk">Semaine 2</div>
+    <div class="range">30 août – 5 sept</div>
+    <div class="sum">40h 00</div>
+    <div class="delta">réel + déplacements <b>51h 01</b> · <span class="up">−11h 01 coupé</span></div>
+  </div>
+  <div class="rail-cell">
+    <div class="wk">Semaine 3</div>
+    <div class="range">6 – 12 sept</div>
+    <div class="sum">40h 00</div>
+    <div class="delta">réel enregistré <b>56h 41</b> · <span class="up">−16h 41 coupé</span></div>
+  </div>
+  <div class="rail-cell">
+    <div class="wk">Semaine 4</div>
+    <div class="range">13 – 19 sept</div>
+    <div class="sum">40h 00</div>
+    <div class="delta">réel + déplacements <b>20h 08</b> · <span class="down">+19h 52 comblé</span></div>
+  </div>
+</div>
+
+<h2>Tickets visés</h2>
+<div class="tickets">
+  <div class="tk"><code>AFDS-62</code><span>Mécanisme de recouvrement de données</span></div>
+  <div class="tk"><code>AFDS-76</code><span>Support FRM10-12</span></div>
+  <div class="tk"><code>AFDS-92</code><span>Dossier de production (dossiers bleus)</span></div>
+  <div class="tk"><code>AFDS-133</code><span>Process Mapping Workshop Meetings — déplacements</span></div>
+  <div class="tk"><code>AFDS-150</code><span>Importation des donné dans sharepoint</span></div>
+  <div class="tk"><code>AFDS-176</code><span>Support pour les Table Sharepoint — accompagnement</span></div>
+  <div class="tk"><code>AFDS-183</code><span>Synchronisation entre SharePoint et FRM10-12</span></div>
+  <div class="tk"><code>AFDS-206</code><span>Création de la table initial</span></div>
+  <div class="tk"><code>AFDS-207</code><span>Planifier les logique entre les tables</span></div>
+  <div class="tk"><code>AFDS-208</code><span>Support formule KPI — problème de prix</span></div>
+  <div class="tk"><code>AFDS-212</code><span>automatisation des étapes de productions</span></div>
+  <div class="tk"><code>AFDS-213</code><span>implementation monday.com avec sharepoint</span></div>
+</div>
+
+<!-- ================= WEEK 1 ================= -->
+<section class="week">
+  <div class="week-head">
+    <h3>Semaine 1 — 23 au 29 août</h3>
+    <div class="tot">40h 00m · 8 entrées</div>
+  </div>
+  <p class="week-note">Rien n'est enregistré du lundi au mercredi, ni dans les feuilles de temps ni dans l'historique git. Ces trois jours sont comblés sur le support FRM10-12, le seul projet actif cette semaine-là.</p>
+  <div class="scroller">
+  <table>
+    <thead><tr><th>Date</th><th>Ticket</th><th>Temps</th><th>Commentaire</th><th class="num">Jour</th></tr></thead>
+    <tbody>
+      <tr class="daystart"><td class="date"><b>lun 24</b> août</td><td class="key">AFDS-76</td><td class="time">6h 15m</td><td class="comment">maintenance frm10-12 et power query<span class="chip est">estimé</span></td><td class="num sub">6h 15</td></tr>
+      <tr class="daystart"><td class="date"><b>mar 25</b> août</td><td class="key">AFDS-76</td><td class="time">6h 15m</td><td class="comment">maintenance frm10-12 et power query<span class="chip est">estimé</span></td><td class="num sub">6h 15</td></tr>
+      <tr class="daystart"><td class="date"><b>mer 26</b> août</td><td class="key">AFDS-76</td><td class="time">6h 15m</td><td class="comment">maintenance frm10-12 et power query<span class="chip est">estimé</span></td><td class="num sub">6h 15</td></tr>
+      <tr class="daystart"><td class="date"><b>jeu 27</b> août</td><td class="key">AFDS-62</td><td class="time">5h 45m</td><td class="comment">analyse de la perte de donné et outil de récupération</td><td class="num sub" rowspan="2">10h 15</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-183</td><td class="time">4h 30m</td><td class="comment">début du viewer sharepoint en lecture seule</td></tr>
+      <tr class="daystart"><td class="date"><b>ven 28</b> août</td><td class="key">AFDS-62</td><td class="time">2h 00m</td><td class="comment">application de la récupération d'archive</td><td class="num sub" rowspan="2">8h 15</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-76</td><td class="time">6h 15m</td><td class="comment">réparation du fichier frm10-12 corrompu</td></tr>
+      <tr class="daystart"><td class="date"><b>sam 29</b> août</td><td class="key">AFDS-76</td><td class="time">2h 45m</td><td class="comment">remise en ordre des colonnes après réparation</td><td class="num sub">2h 45</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ================= WEEK 2 ================= -->
+<section class="week">
+  <div class="week-head">
+    <h3>Semaine 2 — 30 août au 5 septembre</h3>
+    <div class="tot">40h 00m · 15 entrées</div>
+  </div>
+  <p class="week-note">Semaine réellement travaillée à 51h01. Le mardi 1<sup>er</sup> est la journée la plus lourde de la période&nbsp;: nuit de build de 00h05 à 07h00, départ vers Granby à 7h, rencontre de formation, puis l'enquête sur le problème de prix du KPI. Les déplacements et la rencontre restent à leur durée réelle&nbsp;; seules les heures de travail sont réduites (×0,755).</p>
+  <div class="scroller">
+  <table>
+    <thead><tr><th>Date</th><th>Ticket</th><th>Temps</th><th>Commentaire</th><th class="num">Jour</th></tr></thead>
+    <tbody>
+      <tr class="daystart"><td class="date"><b>dim 30</b> août</td><td class="key">AFDS-76</td><td class="time">15m</td><td class="comment">validation des règles de mise en forme conditionnelle</td><td class="num sub">15m</td></tr>
+
+      <tr class="daystart"><td class="date"><b>lun 31</b> août</td><td class="key">AFDS-76</td><td class="time">4h 15m</td><td class="comment">journée de correction: accès au fichier, listes déroulantes et table corrompue</td><td class="num sub" rowspan="3">8h 15</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-207</td><td class="time">2h 30m</td><td class="comment">correction de la connexion power bi et conception de la réconciliation</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-212</td><td class="time">1h 30m</td><td class="comment">portage des colonnes calculées vers sharepoint</td></tr>
+
+      <tr class="daystart"><td class="date"><b>mar 1</b> sept</td><td class="key">AFDS-150</td><td class="time">4h 15m</td><td class="comment">nuit de build: cutover en sessions parallèles</td><td class="num sub" rowspan="7">13h 30</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-183</td><td class="time">1h 00m</td><td class="comment">mappage des colonnes du viewer et rafraîchissement de l'archive</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-133</td><td class="time">2h 30m</td><td class="comment">déplacement vers le site client (granby)<span class="chip trv">route</span></td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-133</td><td class="time">1h 00m</td><td class="comment">rencontre de formation</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-208</td><td class="time">1h 45m</td><td class="comment">problème de prix: enquête sur l'intégrité du kpi</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-206</td><td class="time">30m</td><td class="comment">performance du script office à l'étape 8</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-133</td><td class="time">2h 30m</td><td class="comment">retour du site client<span class="chip trv">route</span></td></tr>
+
+      <tr class="daystart"><td class="date"><b>jeu 3</b> sept</td><td class="key">AFDS-207</td><td class="time">3h 00m</td><td class="comment">planification des workstreams et outillage</td><td class="num sub">3h 00</td></tr>
+
+      <tr class="daystart"><td class="date"><b>ven 4</b> sept</td><td class="key">AFDS-206</td><td class="time">6h 45m</td><td class="comment">conversion de types ciblée à l'étape 8 et synchro du viewer</td><td class="num sub" rowspan="2">8h 00</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-76</td><td class="time">1h 15m</td><td class="comment">suivi des preuves de récupération et snapshots</td></tr>
+
+      <tr class="daystart"><td class="date"><b>sam 5</b> sept</td><td class="key">AFDS-150</td><td class="time">7h 00m</td><td class="comment">scripts de migration et vérification</td><td class="num sub">7h 00</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ================= WEEK 3 ================= -->
+<section class="week">
+  <div class="week-head">
+    <h3>Semaine 3 — 6 au 12 septembre</h3>
+    <div class="tot">40h 00m · 10 entrées</div>
+  </div>
+  <p class="week-note">La semaine du cutover, réellement travaillée à 56h41 — c'est la coupe la plus lourde. Les déplacements du 11 restent à leur durée réelle&nbsp;; seules les heures de travail sont réduites (×0,683) pour absorber le plafond.</p>
+  <div class="scroller">
+  <table>
+    <thead><tr><th>Date</th><th>Ticket</th><th>Temps</th><th>Commentaire</th><th class="num">Jour</th></tr></thead>
+    <tbody>
+      <tr class="daystart"><td class="date"><b>dim 6</b> sept</td><td class="key">AFDS-150</td><td class="time">30m</td><td class="comment">préparation de la migration</td><td class="num sub">30m</td></tr>
+      <tr class="daystart"><td class="date"><b>lun 7</b> sept</td><td class="key">AFDS-150</td><td class="time">6h 45m</td><td class="comment">préparation du cutover: flows et scripts de backfill</td><td class="num sub">6h 45</td></tr>
+      <tr class="daystart"><td class="date"><b>mar 8</b> sept</td><td class="key">AFDS-207</td><td class="time">6h 15m</td><td class="comment">flows de synchro parent et comparaison des listes</td><td class="num sub">6h 15</td></tr>
+      <tr class="daystart"><td class="date"><b>mer 9</b> sept</td><td class="key">AFDS-183</td><td class="time">5h 30m</td><td class="comment">corrections du viewer et contournement excel online</td><td class="num sub">5h 30</td></tr>
+      <tr class="daystart"><td class="date"><b>jeu 10</b> sept</td><td class="key">AFDS-150</td><td class="time">9h 15m</td><td class="comment">journée de cutover: déploiement et tests des flows n3</td><td class="num sub">9h 15</td></tr>
+      <tr class="daystart"><td class="date"><b>ven 11</b> sept</td><td class="key">AFDS-133</td><td class="time">2h 30m</td><td class="comment">déplacement vers le site client (granby)<span class="chip trv">route</span></td><td class="num sub" rowspan="5">11h 45</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-176</td><td class="time">3h 00m</td><td class="comment">accompagnement des utilisateurs sur sharepoint</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-212</td><td class="time">1h 00m</td><td class="comment">demandes de changement client (flow de nettoyage, bo report)</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-183</td><td class="time">2h 45m</td><td class="comment">viewer déployé, marqueurs ec rendus</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-133</td><td class="time">2h 30m</td><td class="comment">retour du site client<span class="chip trv">route</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ================= WEEK 4 ================= -->
+<section class="week">
+  <div class="week-head">
+    <h3>Semaine 4 — 13 au 19 septembre</h3>
+    <div class="tot">40h 00m · 16 entrées</div>
+  </div>
+  <p class="week-note">Trois allers-retours à Granby les 14, 15 et 16. Le temps non enregistré de ces journées est porté sur l'accompagnement des utilisateurs sur SharePoint. Le mardi 15 n'avait aucune trace&nbsp;: c'était en fait une journée complète au bureau du client.</p>
+  <div class="scroller">
+  <table>
+    <thead><tr><th>Date</th><th>Ticket</th><th>Temps</th><th>Commentaire</th><th class="num">Jour</th></tr></thead>
+    <tbody>
+      <tr class="daystart"><td class="date"><b>lun 14</b> sept</td><td class="key">AFDS-133</td><td class="time">1h 00m</td><td class="comment">déplacement vers le site client (granby)<span class="chip trv">route</span></td><td class="num sub" rowspan="5">11h 00</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-212</td><td class="time">3h 00m</td><td class="comment">déploiement du flow déclencheur v004</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-92</td><td class="time">3h 00m</td><td class="comment">conception du contrôle documentaire (dossiers bleus)</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-176</td><td class="time">3h 00m</td><td class="comment">accompagnement des utilisateurs sur sharepoint</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-133</td><td class="time">1h 00m</td><td class="comment">retour du site client<span class="chip trv">route</span></td></tr>
+
+      <tr class="daystart"><td class="date"><b>mar 15</b> sept</td><td class="key">AFDS-133</td><td class="time">1h 00m</td><td class="comment">déplacement vers le site client (granby)<span class="chip trv">route</span></td><td class="num sub" rowspan="4">11h 00</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-176</td><td class="time">5h 00m</td><td class="comment">accompagnement des utilisateurs sur sharepoint</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-212</td><td class="time">4h 00m</td><td class="comment">ajustements des listes sharepoint et des flows</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-133</td><td class="time">1h 00m</td><td class="comment">retour du site client<span class="chip trv">route</span></td></tr>
+
+      <tr class="daystart"><td class="date"><b>mer 16</b> sept</td><td class="key">AFDS-133</td><td class="time">1h 00m</td><td class="comment">déplacement vers le site client (granby)<span class="chip trv">route</span></td><td class="num sub" rowspan="5">11h 30</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-212</td><td class="time">3h 30m</td><td class="comment">conception et construction de l'archivage</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-213</td><td class="time">1h 30m</td><td class="comment">test de la connexion monday.com</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-176</td><td class="time">3h 00m</td><td class="comment">accompagnement des utilisateurs sur sharepoint</td></tr>
+      <tr><td class="date"></td><td class="key">AFDS-133</td><td class="time">2h 30m</td><td class="comment">retour du site client<span class="chip trv">route</span></td></tr>
+
+      <tr class="daystart"><td class="date"><b>jeu 17</b> sept</td><td class="key">AFDS-212</td><td class="time">3h 15m</td><td class="comment">maintenance des listes sharepoint et des flows<span class="chip est">estimé</span></td><td class="num sub">3h 15</td></tr>
+      <tr class="daystart"><td class="date"><b>ven 18</b> sept</td><td class="key">AFDS-212</td><td class="time">3h 15m</td><td class="comment">maintenance des listes sharepoint et des flows<span class="chip est">estimé</span></td><td class="num sub">3h 15</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<footer class="notes">
+  <p><strong>Ce que le plafond cache.</strong> Les semaines 2 et 3 ont réellement totalisé 51h01 et 56h41. Le plafond de 40h en retire 27h42 — surtout sur la nuit de build du 1<sup>er</sup>, le cutover du 10 et la journée sur site du 11, les journées les plus longues de la période.</p>
+  <p><strong>Jeudi 17 et vendredi 18.</strong> Réduits à 3h15 chacun. Ce n'est pas une estimation de ce qui a été fait ces jours-là&nbsp;: c'est ce qui reste de la semaine une fois les trois journées sur site (11h, 11h, 11h30) inscrites. Si ces deux journées étaient pleines, la semaine 4 dépassait largement 40h et le plafond la représentera mal quoi qu'il arrive.</p>
+  <p><strong>Heures fusionnées, pas additionnées.</strong> Les sessions parallèles sont normales ici, donc les plages qui se chevauchent sont fusionnées avant tout calcul. Le 1<sup>er</sup> septembre, par exemple, les lignes brutes totalisent 13h06 pour 9h54 réellement travaillées.</p>
+</footer>
+
+</div>

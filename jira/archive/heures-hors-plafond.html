@@ -1,0 +1,303 @@
+<title>Heures hors plafond</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper:      #F3F5F7;
+    --surface:    #FFFFFF;
+    --surface-2:  #E8ECF1;
+    --ink:        #18202C;
+    --muted:      #596676;
+    --rule:       #D6DCE4;
+    --rule-firm:  #B3BDCA;
+    --accent:     #2B4C7E;
+    --accent-bg:  #E1E9F4;
+    --alert:      #9B3B2F;
+    --alert-bg:   #F4E2DE;
+
+    --display: "Spectral", Georgia, serif;
+    --body:    "Public Sans", system-ui, -apple-system, sans-serif;
+    --data:    "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:     #13171D;
+      --surface:   #1B212A;
+      --surface-2: #232B36;
+      --ink:       #E4E9F0;
+      --muted:     #909CAB;
+      --rule:      #2C333E;
+      --rule-firm: #414C5A;
+      --accent:    #7BA6DD;
+      --accent-bg: #1C2A3C;
+      --alert:     #DB8878;
+      --alert-bg:  #33201C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:     #13171D;
+    --surface:   #1B212A;
+    --surface-2: #232B36;
+    --ink:       #E4E9F0;
+    --muted:     #909CAB;
+    --rule:      #2C333E;
+    --rule-firm: #414C5A;
+    --accent:    #7BA6DD;
+    --accent-bg: #1C2A3C;
+    --alert:     #DB8878;
+    --alert-bg:  #33201C;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.6;
+    padding-inline: 20px;
+    padding-block: 0 72px;
+  }
+  .wrap { max-width: 900px; margin-inline: auto; }
+  .prose { max-width: 66ch; }
+
+  header.top { padding-block: 44px 26px; border-bottom: 3px double var(--rule-firm); }
+  .kicker {
+    font-family: var(--data);
+    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 12px;
+  }
+  h1 {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(30px, 6vw, 46px); line-height: 1.06;
+    margin: 0 0 14px; text-wrap: balance;
+  }
+  .standfirst { margin: 0; color: var(--muted); font-size: 16.5px; max-width: 60ch; }
+
+  /* headline figure */
+  .figure-block {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+    margin-top: 30px;
+  }
+  .fig { background: var(--surface); padding: 15px 18px; }
+  .fig .lab {
+    font-family: var(--data); font-size: 10.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .fig .val {
+    font-family: var(--display); font-weight: 700; font-size: 31px;
+    line-height: 1.1; margin-top: 5px; font-variant-numeric: tabular-nums;
+  }
+  .fig.hot { background: var(--alert-bg); }
+  .fig.hot .val, .fig.hot .lab { color: var(--alert); }
+
+  h2 {
+    font-family: var(--display); font-weight: 600; font-size: 25px;
+    margin: 52px 0 6px; text-wrap: balance;
+  }
+  h2 + .sub { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+  p { margin: 0 0 14px; }
+
+  .scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 480px; margin-top: 6px; }
+  caption {
+    text-align: left; font-family: var(--data); font-size: 11px;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+    padding-bottom: 8px;
+  }
+  th {
+    font-family: var(--data); font-size: 10.5px; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--muted); font-weight: 500;
+    text-align: right; padding: 0 0 7px 14px; border-bottom: 1px solid var(--rule-firm);
+  }
+  th:first-child { text-align: left; padding-left: 0; }
+  td {
+    padding: 8px 0 8px 14px; border-bottom: 1px solid var(--rule);
+    text-align: right; font-family: var(--data); font-size: 13.5px;
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  td:first-child {
+    text-align: left; padding-left: 0; font-family: var(--body); font-size: 14px;
+  }
+  td.gap { color: var(--alert); font-weight: 500; }
+  tr.total td {
+    border-top: 2px solid var(--rule-firm); border-bottom: none;
+    font-weight: 600; padding-top: 10px;
+  }
+  tr.total td:first-child { font-weight: 600; }
+
+  /* day cases */
+  .day {
+    background: var(--surface); border: 1px solid var(--rule);
+    border-left: 3px solid var(--alert);
+    padding: 20px 22px; margin-top: 18px;
+  }
+  .day h3 {
+    font-family: var(--display); font-weight: 600; font-size: 20px;
+    margin: 0 0 4px;
+  }
+  .day .hours {
+    font-family: var(--data); font-size: 12.5px; color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .day .hours b { color: var(--ink); }
+  .timeline { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 5px; }
+  .timeline li { display: flex; gap: 14px; font-size: 14px; }
+  .timeline .t {
+    font-family: var(--data); font-size: 12.5px; color: var(--accent);
+    white-space: nowrap; min-width: 108px; font-variant-numeric: tabular-nums;
+  }
+  .evidence {
+    background: var(--surface-2); border-radius: 2px;
+    padding: 10px 13px; font-size: 13px; color: var(--muted);
+  }
+  .evidence b { color: var(--ink); font-family: var(--data); font-size: 12.5px; }
+
+  .ask { margin-top: 18px; display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .ask > div { background: var(--surface); padding: 14px 18px; }
+  .ask h4 {
+    margin: 0 0 4px; font-family: var(--display); font-size: 17px; font-weight: 600;
+  }
+  .ask p { margin: 0; font-size: 14px; color: var(--muted); }
+
+  .caveat {
+    margin-top: 44px; padding: 18px 20px;
+    background: var(--accent-bg); border-left: 3px solid var(--accent);
+  }
+  .caveat h4 { margin: 0 0 6px; font-family: var(--display); font-size: 17px; font-weight: 600; }
+  .caveat p { margin: 0 0 10px; font-size: 14px; }
+  .caveat p:last-child { margin-bottom: 0; }
+
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--rule); }
+  footer p { font-size: 12.5px; color: var(--muted); font-family: var(--data); }
+
+  @media (max-width: 520px) {
+    body { padding-inline: 16px; }
+    .timeline li { flex-direction: column; gap: 1px; }
+    .timeline .t { min-width: 0; }
+  }
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <p class="kicker">Pioneer Transformer · Projet AFDS · 23 août – 19 septembre 2026</p>
+  <h1>Heures hors plafond</h1>
+  <p class="standfirst">Les semaines du 30 août et du 6 septembre ont dépassé le plafond de 40 heures. Le dépassement n'est pas une dérive graduelle&nbsp;: il provient de trois journées identifiables autour du cutover SharePoint.</p>
+
+  <div class="figure-block">
+    <div class="fig"><div class="lab">Soumis</div><div class="val">160h 00</div></div>
+    <div class="fig"><div class="lab">Travaillé (sem. 2–3)</div><div class="val">107h 42</div></div>
+    <div class="fig"><div class="lab">Plafond (sem. 2–3)</div><div class="val">80h 00</div></div>
+    <div class="fig hot"><div class="lab">Non réclamé</div><div class="val">27h 42</div></div>
+  </div>
+</header>
+
+<h2>Pourquoi le dépassement ne peut pas être reporté</h2>
+<div class="prose">
+<p>Le plafond s'applique par semaine. Un excédent ne peut donc être déplacé que vers une semaine qui n'atteint pas 40&nbsp;heures. Les semaines 1 et 4 sont déjà à 40&nbsp;heures. Il n'existe aucune semaine capable d'absorber l'excédent des semaines 2 et 3, et ces 27h42 disparaissent simplement de la feuille de temps.</p>
+</div>
+
+<h2>Semaine du 30 août au 5 septembre</h2>
+<p class="sub">51h01 travaillées · 40h00 soumises · écart −11h01</p>
+<div class="scroll">
+<table>
+  <thead><tr><th>Jour</th><th>Travaillé</th><th>Soumis</th><th>Écart</th></tr></thead>
+  <tbody>
+    <tr><td>dimanche 30 août</td><td>0h 21</td><td>0h 15</td><td class="gap">−0h 06</td></tr>
+    <tr><td>lundi 31 août</td><td>10h 49</td><td>8h 15</td><td class="gap">−2h 34</td></tr>
+    <tr><td>mardi 1<sup>er</sup> septembre</td><td>15h 54</td><td>13h 30</td><td class="gap">−2h 24</td></tr>
+    <tr><td>jeudi 3 septembre</td><td>3h 55</td><td>3h 00</td><td class="gap">−0h 55</td></tr>
+    <tr><td>vendredi 4 septembre</td><td>10h 48</td><td>8h 00</td><td class="gap">−2h 48</td></tr>
+    <tr><td>samedi 5 septembre</td><td>9h 13</td><td>7h 00</td><td class="gap">−2h 13</td></tr>
+    <tr class="total"><td>Total</td><td>51h 01</td><td>40h 00</td><td class="gap">−11h 01</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Semaine du 6 au 12 septembre</h2>
+<p class="sub">56h41 travaillées · 40h00 soumises · écart −16h41</p>
+<div class="scroll">
+<table>
+  <thead><tr><th>Jour</th><th>Travaillé</th><th>Soumis</th><th>Écart</th></tr></thead>
+  <tbody>
+    <tr><td>dimanche 6 septembre</td><td>0h 34</td><td>0h 30</td><td class="gap">−0h 04</td></tr>
+    <tr><td>lundi 7 septembre</td><td>10h 01</td><td>6h 45</td><td class="gap">−3h 16</td></tr>
+    <tr><td>mardi 8 septembre</td><td>9h 00</td><td>6h 15</td><td class="gap">−2h 45</td></tr>
+    <tr><td>mercredi 9 septembre</td><td>8h 11</td><td>5h 30</td><td class="gap">−2h 41</td></tr>
+    <tr><td>jeudi 10 septembre</td><td>13h 38</td><td>9h 15</td><td class="gap">−4h 23</td></tr>
+    <tr><td>vendredi 11 septembre</td><td>15h 17</td><td>11h 45</td><td class="gap">−3h 32</td></tr>
+    <tr class="total"><td>Total</td><td>56h 41</td><td>40h 00</td><td class="gap">−16h 41</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Les trois journées en cause</h2>
+<p class="sub">44h49 travaillées · 34h30 soumises · 10h19 non réclamées sur ces trois jours seuls</p>
+
+<div class="day">
+  <h3>Mardi 1<sup>er</sup> septembre — nuit de build, puis journée au site client</h3>
+  <p class="hours">Travaillé <b>15h 54</b> · soumis <b>13h 30</b> · non réclamé <b>2h 24</b></p>
+  <ul class="timeline">
+    <li><span class="t">00h05 – 07h00</span><span>Nuit de build du cutover, cinq sessions parallèles (fan-out Power Apps, interface SharePoint, runbook, documentation).</span></li>
+    <li><span class="t">07h00 – 09h30</span><span>Route vers Granby, sans avoir dormi.</span></li>
+    <li><span class="t">09h30</span><span>Rencontre de formation au site client.</span></li>
+    <li><span class="t">13h46 – 16h45</span><span>Enquête sur l'intégrité du KPI de prix (~1,5&nbsp;M$&nbsp;US déclarés en août contre les commandes réelles), puis performance du script Office à l'étape 8.</span></li>
+    <li><span class="t">16h45 – 19h15</span><span>Route de retour.</span></li>
+  </ul>
+  <p class="evidence"><b>26 commits</b> ce jour-là, de 00h29 à 16h33, répartis sur les deux dépôts — dont le runbook du cutover à 00h29 et le banc d'essai de l'étape 8 à 16h33.</p>
+</div>
+
+<div class="day">
+  <h3>Jeudi 10 septembre — journée de cutover</h3>
+  <p class="hours">Travaillé <b>13h 38</b> · soumis <b>9h 15</b> · non réclamé <b>4h 23</b></p>
+  <ul class="timeline">
+    <li><span class="t">00h00 – 03h00</span><span>Suite de la veille sans interruption&nbsp;: script de backfill, validation de la colonne du dossier de commande.</span></li>
+    <li><span class="t">09h52 – 12h30</span><span>Déploiement et tests des trois flux de synchronisation parent N3, colonnes de type Choice.</span></li>
+    <li><span class="t">15h59 – 23h59</span><span>Test C sur le flux Order — l'exécution qui tranchait la question du cutover.</span></li>
+  </ul>
+  <p class="evidence"><b>88 commits</b> ce jour-là, de 01h28 à 23h45 — soit une amplitude de 22 heures, la plus forte de toute la période.</p>
+</div>
+
+<div class="day">
+  <h3>Vendredi 11 septembre — fin du cutover et accompagnement sur site</h3>
+  <p class="hours">Travaillé <b>15h 17</b> · soumis <b>11h 45</b> · non réclamé <b>3h 32</b></p>
+  <ul class="timeline">
+    <li><span class="t">00h00 – 00h20</span><span>Suite de la nuit de cutover&nbsp;: étape 1 terminée, exports de rollback estampillés.</span></li>
+    <li><span class="t">03h41 – 06h45</span><span>Reprise après trois heures de repos pour vérifier l'étape 2 pendant que le transfert s'exécutait.</span></li>
+    <li><span class="t">07h00 – 09h30</span><span>Route vers Granby.</span></li>
+    <li><span class="t">09h30 – 16h00</span><span>Sur site&nbsp;: accompagnement des utilisateurs sur les nouvelles listes SharePoint, et plusieurs demandes de changement client traitées sur place.</span></li>
+    <li><span class="t">16h07 – 19h00</span><span>Route de retour.</span></li>
+  </ul>
+  <p class="evidence"><b>37 commits</b> ce jour-là, de 00h11 à 15h50, en plus des heures sur site qui ne laissent pas de trace dans les dépôts.</p>
+</div>
+
+<h2>La demande</h2>
+<div class="prose">
+<p>Les 27h42 ont été travaillées et sont documentées. La question n'est pas de savoir si elles ont eu lieu, mais sous quelle forme elles sont reconnues.</p>
+</div>
+<div class="ask">
+  <div>
+    <h4>Heures supplémentaires</h4>
+    <p>Les 27h42 sont payées en sus, en dehors du plafond hebdomadaire.</p>
+  </div>
+  <div>
+    <h4>Banque de temps</h4>
+    <p>Les heures sont portées en banque et reprises en congé — environ trois jours et demi.</p>
+  </div>
+  <div>
+    <h4>Non facturé</h4>
+    <p>Les heures sont absorbées. C'est le résultat par défaut si rien n'est fait&nbsp;: elles disparaissent de la feuille de temps.</p>
+  </div>
+</div>
+
+<div class="caveat">
+  <h4>Ce que ce document ne démontre pas</h4>
+  <p>Les semaines 1 (23–29 août) et 4 (13–19 septembre) sont également soumises à 40&nbsp;heures, mais leurs relevés détaillés sont incomplets&nbsp;: 21h17 et 20h08 seulement y sont documentés à la minute près. Le reste repose sur une reconstitution, et n'est pas invoqué ici.</p>
+  <p>Le chiffre de 27h42 ne porte que sur les semaines 2 et 3, dont chaque heure est appuyée par des relevés horodatés et l'historique des dépôts. C'est délibérément la lecture la plus conservatrice.</p>
+</div>
+
+<footer>
+  <p>Heures fusionnées avant tout calcul&nbsp;: les sessions parallèles se chevauchent et ne sont comptées qu'une fois. Sources&nbsp;: relevés de temps horodatés + historique git des dépôts FRM10-12 et Workflow-Automation.</p>
+</footer>
+
+</div>

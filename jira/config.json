@@ -1,0 +1,10 @@
+{
+  "site": "https://biplan-consulting.atlassian.net",
+  "project": "AFDS",
+  "client": "Pioneer Transformer",
+  "coveredThrough": "2026-09-18",
+  "coveredNote": "Everything up to this date is already in Jira through the 2026-09 catch-up (40 h/week cap, reconstructed, no [WS-xxx] markers). Rows on or before it are never planned. Moved forward by jira_reconcile.py after a verified push.",
+  "weeklyCapHours": 40,
+  "offset": "-0400",
+  "offsetNote": "EDT. Switch to -0500 on 2026-11-01 (EST). jira_reconcile.py computes it per date, this is only the default."
+}
