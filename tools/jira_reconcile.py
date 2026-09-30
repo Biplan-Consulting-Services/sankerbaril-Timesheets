@@ -15,20 +15,44 @@ Rules:
 - Hours are a union: on one day, a row that starts inside an earlier row is trimmed to
   begin where that row ends, and dropped if it is fully inside it. The row that keeps the
   time is the one that started first.
-- Ticket: jira/overrides.csv (file,id,ticket) > ticket-map.csv project line (rows of the
-  FRM buckets) > ticket-map.csv epic line (Workflow-Automation rows by their epic column).
+- Ticket: jira/overrides.csv (file,id,ticket) > the task the row names ("PT-109: ..." at the
+  start of the workstream; the Pioneer task file's `jira` field, first named task that has one)
+  > ticket-map.csv project line (rows of the FRM buckets) > ticket-map.csv epic line
+  (Workflow-Automation rows by their epic column).
   A row with no ticket is listed as BLOCKED and left out of the plan.
 """
 import argparse
 import csv
 import datetime as dt
 import json
+import re
 from collections import defaultdict
 from pathlib import Path
 
 TS = Path(__file__).resolve().parent.parent
 JIRA = TS / "jira"
+PIONEER_TASKS = TS.parent / "Clients" / "Pioneer Transformer" / "projects" / "workflow-automation" / "tasks"
 COMMENT_MAX = 280
+
+
+def task_tickets():
+    """{PT-###: AFDS-###} from the Pioneer task files' front matter (only tasks with a jira value)."""
+    out = {}
+    for p in PIONEER_TASKS.glob("PT-*.md") if PIONEER_TASKS.is_dir() else []:
+        head = p.read_text(encoding="utf-8").replace("\r\n", "\n").split("\n---\n", 1)[0]
+        m = re.search(r"^jira:\s*(AFDS-\d+)\s*$", head, re.M)
+        if m:
+            out[p.stem] = m.group(1)
+    return out
+
+
+def named_ticket(workstream, tickets):
+    """The ticket of the first task named at the start of a workstream ("PT-013, PT-040: ...")."""
+    lead = workstream.split(":", 1)[0] if ":" in workstream[:40] else ""
+    for pt in re.findall(r"PT-\d{3,}", lead):
+        if pt in tickets:
+            return tickets[pt]
+    return None
 
 
 def read_csv(path):
@@ -91,6 +115,7 @@ def main():
                      for o in csv.DictReader(open(JIRA / "overrides.csv", encoding="utf-8-sig"))}
 
     rows = load_rows(projects, epic_keys)
+    tickets = task_tickets()
     skipped, blocked, plan = defaultdict(list), [], []
 
     # Union per day across all Pioneer files: first-started row keeps overlapping time.
@@ -118,6 +143,7 @@ def main():
             s2 = max(s, reach)
             reach = max(reach, e)
             ticket = (overrides.get((r["file"], r["id"]))
+                      or named_ticket(r["workstream"], tickets)
                       or (tmap.get(("project", r["project"])) if r["project"] != "Workflow-Automation" else None)
                       or tmap.get(("epic", r["epic"])))
             r = dict(r, pushStart="%02d:%02d" % divmod(s2, 60), seconds=(e - s2) * 60, ticket=ticket or "")

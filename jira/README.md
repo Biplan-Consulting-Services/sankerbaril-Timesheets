@@ -16,9 +16,12 @@ token ever goes through chat.
 2. **Reconcile (local).** `python tools/jira_reconcile.py` → `jira/plans/<pull>.md` (report)
    and `jira/plans/<pull>.json` (entries). Review the report: blocked rows, trimmed
    overlaps, weeks over the 40 h cap.
-3. **Map.** Blocked rows need a ticket: fill the epic's line in `ticket-map.csv`, or the
-   row's `ticket` in `overrides.csv` (the `suggested` column is only a proposal, it is not
-   used). Rerun step 2 until nothing is blocked that should be billed.
+3. **Map.** Blocked rows need a ticket. Best: the row names its Pioneer task
+   (`"PT-109: ..."`, the timesheet-logging rule since 2026-09-29) and that task has a `jira`
+   value (`python tools/work.py set PT-109 jira=AFDS-176` in the Pioneer repo). Otherwise fill
+   the epic's line in `ticket-map.csv`, or the row's `ticket` in `overrides.csv` (the
+   `suggested` column is only a proposal, it is not used). Order: overrides > the named task's
+   jira > project line > epic line. Rerun step 2 until nothing is blocked that should be billed.
 4. **Dry run.** In the Jira tab: `window.JIRA_PLAN = <entries>; window.JIRA_APPLY = false;`
    then `tools/jira_push.js`. It re-reads each target issue and reports `would push` /
    `already there` per entry.
