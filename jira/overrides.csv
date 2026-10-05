@@ -1,12 +1,16 @@
 file,id,ticket,suggested,note
-pioneer-transformer-workflow-automation.csv,WS-096,,AFDS-176,Order Items missing parent data (order-items-sync)
-pioneer-transformer-workflow-automation.csv,WS-097,,AFDS-176,build night 09-24: trigger flow + parent overwrite (order-items-sync)
-pioneer-transformer-workflow-automation.csv,WS-098,,AFDS-176,mirror snapshot (mirror-health)
-pioneer-transformer-workflow-automation.csv,WS-099,,,Nightly Sync decisions + Punch List (nightly-sync-archive: no ticket yet)
-pioneer-transformer-workflow-automation.csv,WS-100,,,Nightly Sync v005 + archive (nightly-sync-archive: no ticket yet)
-pioneer-transformer-workflow-automation.csv,WS-101,,,archive repair (nightly-sync-archive: no ticket yet)
-pioneer-transformer-workflow-automation.csv,WS-102,,,Archive active go-live + NS v007 (nightly-sync-archive: no ticket yet)
-pioneer-transformer-workflow-automation.csv,WS-103,,AFDS-208,Duke RFP OTD slide - is this AFDS work at all?
-pioneer-transformer-workflow-automation.csv,WS-105,,AFDS-208,Duke RFP OTD v2 + email - same question
-pioneer-transformer-workflow-automation.csv,WS-106,,AFDS-208,Estimated Delivery Date logic (reporting-kpis)
-pioneer-transformer-workflow-automation.csv,WS-107,,AFDS-176,checklist: mirror health + N3 retry + organisation plan (mixed)
+pioneer-transformer-workflow-automation.csv,WS-096,AFDS-176,AFDS-176,Order Items missing parent data (order-items-sync)
+pioneer-transformer-workflow-automation.csv,WS-097,AFDS-176,AFDS-176,build night 09-24: trigger flow + parent overwrite (order-items-sync)
+pioneer-transformer-workflow-automation.csv,WS-098,skip,AFDS-176,mirror snapshot (mirror-health)
+pioneer-transformer-workflow-automation.csv,WS-099,AFDS-214,,Nightly Sync decisions + Punch List (nightly-sync-archive)
+pioneer-transformer-workflow-automation.csv,WS-100,AFDS-214,,Nightly Sync v005 + archive (nightly-sync-archive)
+pioneer-transformer-workflow-automation.csv,WS-101,AFDS-214,,archive repair (nightly-sync-archive)
+pioneer-transformer-workflow-automation.csv,WS-102,AFDS-214,,Archive active go-live + NS v007 (nightly-sync-archive)
+pioneer-transformer-workflow-automation.csv,WS-103,AFDS-208,AFDS-208,Duke RFP OTD slide (BI / KPI support, user 2026-10-04)
+pioneer-transformer-workflow-automation.csv,WS-105,AFDS-208,AFDS-208,Duke RFP OTD v2 + email (BI / KPI support)
+pioneer-transformer-workflow-automation.csv,WS-106,AFDS-208,AFDS-208,Estimated Delivery Date logic (reporting-kpis)
+pioneer-transformer-workflow-automation.csv,WS-107,AFDS-176,AFDS-176,checklist: mirror health + N3 retry + organisation plan (mixed)
+pioneer-transformer-workflow-automation.csv,WS-118,skip,,2 min: merged into the 10-02 fill for the report (user 2026-10-05)
+pioneer-transformer-workflow-automation.csv,WS-109,skip,AFDS-215,merged with WS-110 into FILL-013 (entries >= 30 min, user 2026-10-05)
+pioneer-transformer-workflow-automation.csv,WS-110,skip,AFDS-215,15 min: merged into FILL-013 (entries >= 30 min)
+pioneer-transformer-workflow-automation.csv,WS-113,skip,AFDS-176,21 min: rounded up to 30 min as FILL-014, the 9 min taken off FILL-012

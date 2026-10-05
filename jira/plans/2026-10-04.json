@@ -1,0 +1,309 @@
+{
+ "generatedAt": "2026-10-05T00:01:37",
+ "pull": "2026-10-04.json",
+ "coveredThrough": "2026-09-18",
+ "entries": [
+  {
+   "marker": "[WS-096 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-176",
+   "date": "2026-09-21",
+   "started": "2026-09-21T01:01:00.000-0400",
+   "timeSpentSeconds": 9240,
+   "comment": "Analyse des lignes de commande sans données parent et script de correction",
+   "trimmed": false
+  },
+  {
+   "marker": "[FILL-001 jira-fill]",
+   "ticket": "AFDS-156",
+   "date": "2026-09-21",
+   "started": "2026-09-21T09:00:00.000-0400",
+   "timeSpentSeconds": 10800,
+   "comment": "Correction de la révision de modèle à la création de commande",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-002 jira-fill]",
+   "ticket": "AFDS-156",
+   "date": "2026-09-21",
+   "started": "2026-09-21T13:00:00.000-0400",
+   "timeSpentSeconds": 18000,
+   "comment": "Révision de l'enregistrement des unités dans l'application de création de commande",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-003 jira-fill]",
+   "ticket": "AFDS-176",
+   "date": "2026-09-22",
+   "started": "2026-09-22T09:00:00.000-0400",
+   "timeSpentSeconds": 10800,
+   "comment": "Flow déclencheur des lignes de commande : complétion à la livraison",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-004 jira-fill]",
+   "ticket": "AFDS-176",
+   "date": "2026-09-22",
+   "started": "2026-09-22T13:00:00.000-0400",
+   "timeSpentSeconds": 18000,
+   "comment": "Flow déclencheur des lignes de commande : emplacement et date de statut",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-005 jira-fill]",
+   "ticket": "AFDS-214",
+   "date": "2026-09-23",
+   "started": "2026-09-23T09:00:00.000-0400",
+   "timeSpentSeconds": 10800,
+   "comment": "Conception du flow de synchronisation nocturne",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-006 jira-fill]",
+   "ticket": "AFDS-214",
+   "date": "2026-09-23",
+   "started": "2026-09-23T13:00:00.000-0400",
+   "timeSpentSeconds": 18000,
+   "comment": "Construction et mise en service du flow de synchronisation nocturne",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-007 jira-fill]",
+   "ticket": "AFDS-176",
+   "date": "2026-09-24",
+   "started": "2026-09-24T09:00:00.000-0400",
+   "timeSpentSeconds": 10800,
+   "comment": "Reconnexion des flows après la réinitialisation du mot de passe",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-008 jira-fill]",
+   "ticket": "AFDS-176",
+   "date": "2026-09-24",
+   "started": "2026-09-24T13:00:00.000-0400",
+   "timeSpentSeconds": 7200,
+   "comment": "Vérification des flows de synchronisation et correction de la commande E21007",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[WS-097 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-176",
+   "date": "2026-09-24",
+   "started": "2026-09-24T19:59:00.000-0400",
+   "timeSpentSeconds": 12660,
+   "comment": "Flow déclencheur des lignes de commande, délais de livraison clients et copie de contrôle des listes",
+   "trimmed": false
+  },
+  {
+   "marker": "[FILL-009 jira-fill]",
+   "ticket": "AFDS-214",
+   "date": "2026-09-25",
+   "started": "2026-09-25T09:00:00.000-0400",
+   "timeSpentSeconds": 4260,
+   "comment": "Révision du flow de synchronisation nocturne : coût et sécurité",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-010 jira-fill]",
+   "ticket": "AFDS-214",
+   "date": "2026-09-25",
+   "started": "2026-09-25T10:11:00.000-0400",
+   "timeSpentSeconds": 6540,
+   "comment": "Synchronisation nocturne : nouvelle version",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-011 jira-fill]",
+   "ticket": "AFDS-214",
+   "date": "2026-09-25",
+   "started": "2026-09-25T13:00:00.000-0400",
+   "timeSpentSeconds": 6900,
+   "comment": "Synchronisation nocturne : rapport de comparaison Excel et liste",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[WS-099 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-214",
+   "date": "2026-09-27",
+   "started": "2026-09-27T17:26:00.000-0400",
+   "timeSpentSeconds": 9240,
+   "comment": "Décisions de conception de la synchronisation nocturne et inventaire des données",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-100 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-214",
+   "date": "2026-09-27",
+   "started": "2026-09-27T21:42:00.000-0400",
+   "timeSpentSeconds": 8220,
+   "comment": "Synchronisation nocturne : correction des connexions et des dates de l'archive",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-101 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-214",
+   "date": "2026-09-28",
+   "started": "2026-09-28T00:00:00.000-0400",
+   "timeSpentSeconds": 4020,
+   "comment": "Validation de la réparation de l'archive et corrections des listes SharePoint",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-102 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-214",
+   "date": "2026-09-28",
+   "started": "2026-09-28T10:31:00.000-0400",
+   "timeSpentSeconds": 13200,
+   "comment": "Reconstruction et mise en service de l'archive active",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-103 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-208",
+   "date": "2026-09-29",
+   "started": "2026-09-29T01:28:00.000-0400",
+   "timeSpentSeconds": 5400,
+   "comment": "Appel d'offres Duke Energy : calcul du taux de livraison à temps 2024-2026",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-105 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-208",
+   "date": "2026-09-29",
+   "started": "2026-09-29T09:11:00.000-0400",
+   "timeSpentSeconds": 6120,
+   "comment": "Appel d'offres Duke Energy : présentation mensuelle et trimestrielle",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-106 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-208",
+   "date": "2026-09-29",
+   "started": "2026-09-29T11:32:00.000-0400",
+   "timeSpentSeconds": 2520,
+   "comment": "Définition des dates de livraison et de la date de livraison estimée",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-107 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-176",
+   "date": "2026-09-29",
+   "started": "2026-09-29T12:14:00.000-0400",
+   "timeSpentSeconds": 23640,
+   "comment": "Contrôle de qualité des listes SharePoint et fiabilisation des flows de synchronisation",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-108 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-215",
+   "date": "2026-09-29",
+   "started": "2026-09-29T18:48:00.000-0400",
+   "timeSpentSeconds": 4620,
+   "comment": "Structuration du projet par volets et suivi des heures",
+   "trimmed": false
+  },
+  {
+   "marker": "[FILL-013 jira-fill]",
+   "ticket": "AFDS-215",
+   "date": "2026-09-29",
+   "started": "2026-09-29T20:05:00.000-0400",
+   "timeSpentSeconds": 8280,
+   "comment": "Regroupement des fichiers et scripts du projet en un dépôt unique et centralisation des requêtes Power Query",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[WS-111 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-215",
+   "date": "2026-09-29",
+   "started": "2026-09-29T22:23:00.000-0400",
+   "timeSpentSeconds": 1800,
+   "comment": "Mise en place du suivi des tâches du projet",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-112 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-215",
+   "date": "2026-09-29",
+   "started": "2026-09-29T22:53:00.000-0400",
+   "timeSpentSeconds": 1920,
+   "comment": "Documentation des volets du projet et des décisions",
+   "trimmed": false
+  },
+  {
+   "marker": "[FILL-014 jira-fill]",
+   "ticket": "AFDS-176",
+   "date": "2026-09-30",
+   "started": "2026-09-30T12:40:00.000-0400",
+   "timeSpentSeconds": 1800,
+   "comment": "Vérification des dates de tanking décalées par le fuseau horaire",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[WS-114 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-214",
+   "date": "2026-09-30",
+   "started": "2026-09-30T13:14:00.000-0400",
+   "timeSpentSeconds": 7500,
+   "comment": "Suivi de la synchronisation nocturne et décisions de conception",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-115 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-208",
+   "date": "2026-09-30",
+   "started": "2026-09-30T16:27:00.000-0400",
+   "timeSpentSeconds": 7440,
+   "comment": "Mise à jour du flow des commandes et formule de date de livraison estimée",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-116 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-148",
+   "date": "2026-10-01",
+   "started": "2026-10-01T00:34:00.000-0400",
+   "timeSpentSeconds": 7320,
+   "comment": "Conception de la phase 1 des tâches de workflow",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-117 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-148",
+   "date": "2026-10-01",
+   "started": "2026-10-01T11:09:00.000-0400",
+   "timeSpentSeconds": 8460,
+   "comment": "Préparation de l'environnement de test des tâches de workflow",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-119 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-148",
+   "date": "2026-10-01",
+   "started": "2026-10-01T15:59:00.000-0400",
+   "timeSpentSeconds": 18060,
+   "comment": "Déploiement des flows des tâches de workflow et premiers tests",
+   "trimmed": false
+  },
+  {
+   "marker": "[FILL-012 jira-fill]",
+   "ticket": "AFDS-148",
+   "date": "2026-10-02",
+   "started": "2026-10-02T09:00:00.000-0400",
+   "timeSpentSeconds": 4440,
+   "comment": "Tests des tâches de workflow (phase 1)",
+   "trimmed": false,
+   "fill": true
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+file,id,comment
+pioneer-transformer-workflow-automation.csv,WS-096,Analyse des lignes de commande sans données parent et script de correction
+pioneer-transformer-workflow-automation.csv,WS-097,Flow déclencheur des lignes de commande, délais de livraison clients et copie de contrôle des listes
+pioneer-transformer-workflow-automation.csv,WS-098,Contrôle de l'état des listes SharePoint
+pioneer-transformer-workflow-automation.csv,WS-099,Décisions de conception de la synchronisation nocturne et inventaire des données
+pioneer-transformer-workflow-automation.csv,WS-100,Synchronisation nocturne : correction des connexions et des dates de l'archive
+pioneer-transformer-workflow-automation.csv,WS-101,Validation de la réparation de l'archive et corrections des listes SharePoint
+pioneer-transformer-workflow-automation.csv,WS-102,Reconstruction et mise en service de l'archive active
+pioneer-transformer-workflow-automation.csv,WS-103,Appel d'offres Duke Energy : calcul du taux de livraison à temps 2024-2026
+pioneer-transformer-workflow-automation.csv,WS-105,Appel d'offres Duke Energy : présentation mensuelle et trimestrielle
+pioneer-transformer-workflow-automation.csv,WS-106,Définition des dates de livraison et de la date de livraison estimée
+pioneer-transformer-workflow-automation.csv,WS-107,Contrôle de qualité des listes SharePoint et fiabilisation des flows de synchronisation
+pioneer-transformer-workflow-automation.csv,WS-108,Structuration du projet par volets et suivi des heures
+pioneer-transformer-workflow-automation.csv,WS-109,Regroupement des fichiers et scripts du projet en un dépôt unique
+pioneer-transformer-workflow-automation.csv,WS-110,Centralisation des requêtes Power Query partagées entre les classeurs
+pioneer-transformer-workflow-automation.csv,WS-111,Mise en place du suivi des tâches du projet
+pioneer-transformer-workflow-automation.csv,WS-112,Documentation des volets du projet et des décisions
+pioneer-transformer-workflow-automation.csv,WS-113,Vérification des dates de tanking décalées par le fuseau horaire
+pioneer-transformer-workflow-automation.csv,WS-114,Suivi de la synchronisation nocturne et décisions de conception
+pioneer-transformer-workflow-automation.csv,WS-115,Mise à jour du flow des commandes et formule de date de livraison estimée
+pioneer-transformer-workflow-automation.csv,WS-116,Conception de la phase 1 des tâches de workflow
+pioneer-transformer-workflow-automation.csv,WS-117,Préparation de l'environnement de test des tâches de workflow
+pioneer-transformer-workflow-automation.csv,WS-118,Suivi de la logique des commandes dupliquées (FRM13)
+pioneer-transformer-workflow-automation.csv,WS-119,Déploiement des flows des tâches de workflow et premiers tests

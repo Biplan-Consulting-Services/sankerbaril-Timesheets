@@ -1,16 +1,16 @@
 scope,key,ticket,note
-epic,order-items-sync,AFDS-176,Support pour les Table Sharepoint (N3 / trigger flow / lookups) - proposed; confirm
-epic,nightly-sync-archive,,no fitting ticket yet - AFDS-62 (recouvrement de données) is the closest; decide or create one
-epic,data-quality,AFDS-176,proposed; confirm
-epic,mirror-health,AFDS-176,proposed; confirm
-epic,power-app,AFDS-156,Application de Création de commande - proposed; confirm
-epic,workbook-phaseout,AFDS-76,Support FRM10-12 - proposed; confirm
-epic,reporting-kpis,AFDS-208,Support formule KPI - proposed; confirm
+epic,order-items-sync,AFDS-176,Support pour les Table Sharepoint (N3 / trigger flow / lookups) - confirmed 2026-10-04
+epic,nightly-sync-archive,AFDS-214,Synchronisation nocturne et archivage des lignes de commande (created 2026-10-04; AFDS-212 is the monday.com production steps)
+epic,data-quality,AFDS-176,confirmed 2026-10-04
+epic,mirror-health,AFDS-176,confirmed 2026-10-04
+epic,power-app,AFDS-156,Application de Création de commande - confirmed 2026-10-04
+epic,workbook-phaseout,AFDS-76,Support FRM10-12 - confirmed 2026-10-04
+epic,reporting-kpis,AFDS-208,Support formule KPI (BI and KPI support, incl. the Duke RFP OTD) - confirmed 2026-10-04
 epic,monday,AFDS-213,implementation monday.com avec sharepoint
 epic,engineering-docs,AFDS-92,Dossier de production (dossiers bleus)
-epic,workflow-tasks,AFDS-148,Avoir 2 département qui se transfère des tache - proposed; confirm
-epic,staff-enablement,AFDS-133,Process Mapping Workshop Meetings (includes site visits) - proposed; confirm
-epic,workspace-tooling,,billable to AFDS? decide
+epic,workflow-tasks,AFDS-148,Avoir 2 département qui se transfère des tache - confirmed 2026-10-04
+epic,staff-enablement,AFDS-133,Process Mapping Workshop Meetings (includes site visits) - confirmed 2026-10-04
+epic,workspace-tooling,AFDS-215,Structuration et documentation de la solution après la migration SharePoint (created 2026-10-04)
 project,FRM10-12,AFDS-76,rows of the FRM10-12 timesheet
 project,FRM09,AFDS-211,rows of the FRM09 timesheet
-project,FRM11,AFDS-76,rows of the FRM11 timesheet - proposed; confirm
+project,FRM11,AFDS-76,rows of the FRM11 timesheet - confirmed 2026-10-04

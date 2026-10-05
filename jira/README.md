@@ -31,7 +31,12 @@ token ever goes through chat.
 
 ## Why nothing gets pushed twice
 
-- Every pushed worklog's comment starts with `[WS-xxx <csv-stem>]`
+- **The client reads these worklogs in its reports.** The comment is only a concise,
+  professional French description of the work (`comments.csv` / `fill.csv`): no markers,
+  no mention of Claude, agents, breaks or anything internal (user, 2026-10-04).
+- Every pushed worklog carries its marker `[WS-xxx <csv-stem>]` (or `[FILL-xxx jira-fill]`)
+  in a hidden worklog property `biplan.timesheet`, not in the comment. (Before 2026-10-04
+  the plan put it at the start of the comment; nothing was pushed that way.)
   (e.g. `[WS-107 pioneer-transformer-workflow-automation]`).
 - The reconcile skips a row whose marker is in the pull.
 - The push script checks the marker on the live issue again, right before each POST.
@@ -47,6 +52,13 @@ token ever goes through chat.
   fully inside it (e.g. WS-104 inside WS-103 on 09-29).
 - Only `done` rows with an end time. Open rows wait for the next cycle.
 - The 40 h/week cap is flagged (`OVER`), never cut automatically. The user decides.
+- **Minimum entry length: 30 min for work, 15 min for meetings** (user, 2026-10-05). A shorter
+  row is merged into a neighbouring entry or rounded up through `fill.csv` (`skip` in
+  `overrides.csv`), taking the extra minutes off a fill entry in the same week.
+- A billing week runs **Sunday to Saturday**, and weekend work counts toward it (user, 2026-10-04).
+- The user works at least 40 h every week, often without Claude, so the logged rows fall short.
+  Each cycle, ask what the unlogged days were spent on and add `fill.csv` entries
+  (9:00-12:00 and 13:00-18:00, around the logged rows) until every week is exactly 40 h.
 
 ## Files
 
@@ -54,7 +66,9 @@ token ever goes through chat.
 |---|---|
 | `config.json` | site, project, client, `coveredThrough`, weekly cap |
 | `ticket-map.csv` | epic → ticket and FRM project → ticket (`proposed; confirm` = not confirmed yet) |
-| `overrides.csv` | one row → ticket, for rows without an epic or with an exception |
+| `overrides.csv` | one row → ticket, for rows without an epic or with an exception; `skip` leaves a few-minute row out because its time was merged into a neighbouring `fill.csv` entry |
+| `comments.csv` | one row → the worklog text Jira shows (short, French, client-facing) instead of the internal workstream note; runs to the end of the line |
+| `fill.csv` | time worked without a timesheet row, agreed with the user to bring a week to the cap (`id,date,start,end,ticket,comment`, marker `[FILL-### jira-fill]`). Jira only: the CSVs keep the real logged times |
 | `pulls/<date>.json` | what Jira had on that date (days, markers, issues) |
 | `plans/<date>.md/.json` | the reconcile output for that pull |
 | `archive/` | the September catch-up tools (one-off, superseded by this cycle) |

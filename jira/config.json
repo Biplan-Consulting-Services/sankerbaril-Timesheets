@@ -2,8 +2,8 @@
   "site": "https://biplan-consulting.atlassian.net",
   "project": "AFDS",
   "client": "Pioneer Transformer",
-  "coveredThrough": "2026-09-18",
-  "coveredNote": "Everything up to this date is already in Jira through the 2026-09 catch-up (40 h/week cap, reconstructed, no [WS-xxx] markers). Rows on or before it are never planned. Moved forward by jira_reconcile.py after a verified push.",
+  "coveredThrough": "2026-10-03",
+  "coveredNote": "Through 2026-09-18: the 2026-09 catch-up (no markers). 2026-09-19 -> 2026-10-03: pushed 2026-10-05 (32 worklogs, 40 h per Sunday-Saturday week, timesheet rows + fill.csv, markers in the biplan.timesheet property). Rows on or before this date are never planned.",
   "weeklyCapHours": 40,
   "offset": "-0400",
   "offsetNote": "EDT. Switch to -0500 on 2026-11-01 (EST). jira_reconcile.py computes it per date, this is only the default."

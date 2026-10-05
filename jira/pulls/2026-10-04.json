@@ -1,0 +1,14 @@
+{
+ "pulledAt": "2026-10-05T04:05:00Z",
+ "project": "AFDS",
+ "since": "2026-09-19",
+ "me": "Soleil Anker-Baril",
+ "tz": "America/New_York",
+ "worklogs": 0,
+ "first": null,
+ "last": null,
+ "days": {},
+ "markers": [],
+ "issues": {"AFDS-214": "Synchronisation nocturne et archivage des lignes de commande", "AFDS-215": "Structuration et documentation de la solution après la migration SharePoint"},
+ "note": "Pull since 2026-09-19 before the 09-20 -> 10-03 cycle: no worklogs of mine (or anyone's) on AFDS since the catch-up. AFDS-214 (subtask of AFDS-205) and AFDS-215 (story under AFDS-132) created 2026-10-04 for this cycle."
+}

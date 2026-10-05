@@ -114,6 +114,13 @@ def main():
         overrides = {(o["file"], o["id"]): o["ticket"].strip()
                      for o in csv.DictReader(open(JIRA / "overrides.csv", encoding="utf-8-sig"))}
 
+    # jira/comments.csv: the worklog text Jira shows for a row (short, French, client-facing)
+    # instead of the internal workstream note. The comment runs to the end of the line.
+    comments = {}
+    if (JIRA / "comments.csv").exists():
+        comments = {(c[0], c[1]): ",".join(c[2:]).strip()
+                    for c in read_csv(JIRA / "comments.csv")[1:] if len(c) >= 3}
+
     rows = load_rows(projects, epic_keys)
     tickets = task_tickets()
     skipped, blocked, plan = defaultdict(list), [], []
@@ -146,21 +153,40 @@ def main():
                       or named_ticket(r["workstream"], tickets)
                       or (tmap.get(("project", r["project"])) if r["project"] != "Workflow-Automation" else None)
                       or tmap.get(("epic", r["epic"])))
+            if ticket == "skip":   # overrides.csv: a sliver merged into a fill entry for the report
+                skipped["skip in overrides.csv (merged into a neighbouring entry)"].append(r)
+                continue
             r = dict(r, pushStart="%02d:%02d" % divmod(s2, 60), seconds=(e - s2) * 60, ticket=ticket or "")
             if not ticket:
                 blocked.append(r)
                 continue
             marker = f"[{r['id']} {r['stem']}]"
-            text = r["workstream"]
+            text = comments.get((r["file"], r["id"])) or r["workstream"]
             if len(text) > COMMENT_MAX:
                 text = text[:COMMENT_MAX - 3].rstrip() + "..."
             plan.append({"marker": marker, "ticket": ticket, "date": day,
                          "started": f"{day}T{r['pushStart']}:00.000{edt_offset(dt.date.fromisoformat(day))}",
-                         "timeSpentSeconds": r["seconds"], "comment": f"{marker} {text}",
+                         "timeSpentSeconds": r["seconds"], "comment": text,
                          "trimmed": r["pushStart"] != r["start"]})
 
+    # Fill entries (jira/fill.csv): time worked without a timesheet row, agreed with the user to
+    # bring a week up to the cap. Jira only - the CSVs keep the real logged times.
+    fills = []
+    if (JIRA / "fill.csv").exists():
+        for f in csv.DictReader(open(JIRA / "fill.csv", encoding="utf-8-sig")):
+            marker = f"[{f['id']} jira-fill]"
+            if f["date"] <= covered or f"{f['id']} jira-fill" in pushed:
+                continue
+            fills.append(f)
+            plan.append({"marker": marker, "ticket": f["ticket"], "date": f["date"],
+                         "started": f"{f['date']}T{f['start']}:00.000{edt_offset(dt.date.fromisoformat(f['date']))}",
+                         "timeSpentSeconds": (minutes(f["end"]) - minutes(f["start"])) * 60,
+                         "comment": f["comment"][:COMMENT_MAX], "trimmed": False, "fill": True})
+    plan.sort(key=lambda p: p["started"])
+
     # Weekly totals: what Jira already has + what the plan adds, against the cap.
-    week = lambda d: dt.date.fromisoformat(d) - dt.timedelta(days=dt.date.fromisoformat(d).weekday())
+    # Weeks run Sunday to Saturday (the user's billing week).
+    week = lambda d: dt.date.fromisoformat(d) - dt.timedelta(days=(dt.date.fromisoformat(d).weekday() + 1) % 7)
     wk = defaultdict(lambda: [0.0, 0.0])
     for d, h in pull.get("days", {}).items():
         wk[week(d)][0] += h
@@ -181,14 +207,14 @@ def main():
          "| marker | ticket | started | hours | note |", "|---|---|---|---:|---|"]
     for p in plan:
         L.append(f"| {p['marker']} | {p['ticket']} | {p['started'][:16].replace('T', ' ')} | "
-                 f"{p['timeSpentSeconds'] / 3600:.2f} | {'trimmed (overlap)' if p['trimmed'] else ''} |")
+                 f"{p['timeSpentSeconds'] / 3600:.2f} | {'fill' if p.get('fill') else 'trimmed (overlap)' if p['trimmed'] else ''} |")
     L += ["", f"## Blocked - no ticket: {len(blocked)} rows, {sum(r['seconds'] for r in blocked) / 3600:.2f} h", ""]
     if blocked:
         L += ["Fix: fill the epic's ticket in `jira/ticket-map.csv` or add a line to `jira/overrides.csv`.", "",
               "| row | date | hours | epic | workstream |", "|---|---|---:|---|---|"]
         L += [f"| {r['id']} {r['stem']} | {r['date']} | {r['seconds'] / 3600:.2f} | {r['epic'] or '(none)'} | "
               f"{r['workstream'][:90].replace('|', '/')} |" for r in blocked]
-    L += ["", "## Weeks (Monday)", "", f"| week | in Jira | plan adds | total | cap {cfg['weeklyCapHours']} h |",
+    L += ["", "## Weeks (Sunday to Saturday)", "", f"| week | in Jira | plan adds | total | cap {cfg['weeklyCapHours']} h |",
           "|---|---:|---:|---:|---|"]
     for w, (j, add) in sorted(wk.items()):
         if add or w >= week(covered):

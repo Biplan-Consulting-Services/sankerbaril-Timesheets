@@ -87,4 +87,5 @@ range breakdown, an invoice figure) has to do the same merge, or it will overcou
 Pioneer hours go to the Biplan Consulting Jira (project AFDS) as worklogs. The whole cycle
 (pull -> `tools/jira_reconcile.py` -> review -> dry run -> push on the user's OK) is in
 **`jira/README.md`**. Never push without an explicit OK in chat. Pushed worklogs carry a
-`[WS-xxx <csv-stem>]` marker, which is what keeps a row from being pushed twice.
+`[WS-xxx <csv-stem>]` marker in a hidden worklog property, which is what keeps a row from
+being pushed twice. The client reads the worklog comments: concise professional French only.

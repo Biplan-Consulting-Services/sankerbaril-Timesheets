@@ -33,10 +33,12 @@
   for (const is of issues) {
     let at = 0, total = 1;
     while (at < total) {
-      const j = await get(`/rest/api/3/issue/${is.key}/worklog?startAt=${at}&maxResults=100&startedAfter=${startedAfter}`);
+      const j = await get(`/rest/api/3/issue/${is.key}/worklog?startAt=${at}&maxResults=100&startedAfter=${startedAfter}&expand=properties`);
       total = j.total; const page = j.worklogs || []; at += page.length; if (!page.length) break;
+      // marker: the hidden biplan.timesheet property jira_push.js writes (since 2026-10-04)
       page.forEach(w => logs.push({ key: is.key, id: w.id, mine: !!(w.author && w.author.accountId === me.accountId),
-        started: w.started, seconds: w.timeSpentSeconds, comment: flat(w.comment).slice(0, 300) }));
+        started: w.started, seconds: w.timeSpentSeconds, comment: flat(w.comment).slice(0, 300),
+        marker: (((w.properties || []).find(p => p.key === "biplan.timesheet") || {}).value || {}).marker || "" }));
     }
   }
   const data = { pulledAt: new Date().toISOString(), project: PROJECT, since: SINCE, me: me.displayName, tz: me.timeZone,
@@ -48,8 +50,8 @@
       const by = {}; mine.forEach(l => { const d = l.started.slice(0, 10); by[d] = (by[d] || 0) + l.seconds / 3600; });
       return Object.keys(by).sort().map(d => d + "=" + by[d].toFixed(2)).join(" ");
     }
-    if (part === "markers") {   // tags written by jira_push.js: "[WS-107 pioneer-transformer-workflow-automation]"
-      const m = []; mine.forEach(l => (l.comment.match(/\[WS-\d+ [a-z0-9_.-]+\]/g) || []).forEach(t => m.push(t.slice(1, -1) + "@" + l.key)));
+    if (part === "markers") {   // tags written by jira_push.js: "[WS-107 pioneer-transformer-workflow-automation]" (property, or comment before 2026-10-04)
+      const m = []; mine.forEach(l => ((l.marker + " " + l.comment).match(/\[(?:WS|FILL)-\d+ [a-z0-9_.-]+\]/g) || []).forEach(t => m.push(t.slice(1, -1) + "@" + l.key)));
       return m.join(" ") || "(none)";
     }
     if (part === "issues") return data.issues.slice(n * 20, n * 20 + 20).map(i => i.key + "|" + (i.summary || "").slice(0, 38)).join("\n");
