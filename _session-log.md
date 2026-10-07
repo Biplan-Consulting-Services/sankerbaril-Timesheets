@@ -148,3 +148,7 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-10-01 15:57:35 | e129693b-4027-4158-ba9a-986970e55324 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
 2026-10-02 14:51:31 | e129693b-4027-4158-ba9a-986970e55324 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
 2026-10-04 22:23:22 | 5d105b09-4940-4d61-9459-2202d69cdbd4 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-10-05 00:07:50 | 5d105b09-4940-4d61-9459-2202d69cdbd4 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-10-05 12:57:56 | d5d422fd-b33c-4d84-b2b9-1e6ec6bfea13 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-10-05 23:57:11 | d5d422fd-b33c-4d84-b2b9-1e6ec6bfea13 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-10-06 10:07:01 | ccef4ffa-8668-4264-be4b-eb742d2a19a4 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
