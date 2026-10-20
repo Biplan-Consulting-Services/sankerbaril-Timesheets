@@ -14,3 +14,10 @@ pioneer-transformer-workflow-automation.csv,WS-118,skip,,2 min: merged into the 
 pioneer-transformer-workflow-automation.csv,WS-109,skip,AFDS-215,merged with WS-110 into FILL-013 (entries >= 30 min, user 2026-10-05)
 pioneer-transformer-workflow-automation.csv,WS-110,skip,AFDS-215,15 min: merged into FILL-013 (entries >= 30 min)
 pioneer-transformer-workflow-automation.csv,WS-113,skip,AFDS-176,21 min: rounded up to 30 min as FILL-014, the 9 min taken off FILL-012
+pioneer-transformer-workflow-automation.csv,WS-122,skip,AFDS-76,16 min: merged with WS-123 into FILL-015 (entries >= 30 min, user 2026-10-20)
+pioneer-transformer-workflow-automation.csv,WS-123,skip,AFDS-76,replaced by FILL-015 (WS-122 + WS-123 as one entry)
+pioneer-transformer-workflow-automation.csv,WS-124,skip,AFDS-214,6 min: dropped to keep the 10-04 week at 40 h (user 2026-10-20)
+pioneer-transformer-workflow-automation.csv,WS-128,skip,AFDS-148,14 min: dropped to keep the 10-04 week at 40 h (user 2026-10-20)
+pioneer-transformer-workflow-automation.csv,WS-133,skip,AFDS-148,trimmed 20 min (22:00-23:39) as FILL-016 to land the 10-04 week on 40 h (user 2026-10-20)
+pioneer-transformer-workflow-automation.csv,WS-138,skip,AFDS-148,14 min: dropped to keep the 10-04 week at 40 h (user 2026-10-20)
+pioneer-transformer-workflow-automation.csv,WS-143,skip,AFDS-208,15 min: rounded up to 30 min as FILL-017 (user 2026-10-20)

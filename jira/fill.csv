@@ -13,3 +13,7 @@ FILL-011,2026-09-25,13:00,14:55,AFDS-214,Synchronisation nocturne : rapport de c
 FILL-012,2026-10-02,09:00,10:14,AFDS-148,Tests des tâches de workflow (phase 1)
 FILL-013,2026-09-29,20:05,22:23,AFDS-215,Regroupement des fichiers et scripts du projet en un dépôt unique et centralisation des requêtes Power Query
 FILL-014,2026-09-30,12:40,13:10,AFDS-176,Vérification des dates de tanking décalées par le fuseau horaire
+FILL-015,2026-10-06,13:44,16:45,AFDS-76,Ajout de la colonne d'origine de l'acier (US / Canada) dans FRM11 et les rapports fournisseurs Metelec et Cadorette
+FILL-016,2026-10-08,22:00,23:39,AFDS-148,Revue des nouveaux tests des tâches de workflow et rétablissement de la configuration de production
+FILL-017,2026-10-15,00:41,01:11,AFDS-208,Application des indicateurs KPI v2 aux pages du rapport Monthly Unit Shipment
+FILL-018,2026-10-15,13:00,16:30,AFDS-76,Correction d'erreurs dans FRM11 et les rapports fournisseurs

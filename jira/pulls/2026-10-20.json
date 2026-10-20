@@ -1,0 +1,21 @@
+{
+ "pulledAt": "2026-10-20T13:55:59Z",
+ "project": "AFDS",
+ "since": "2026-10-01",
+ "me": "Soleil Anker-Baril",
+ "tz": "America/New_York",
+ "worklogs": 4,
+ "first": "2026-10-01",
+ "last": "2026-10-02",
+ "days": {
+  "2026-10-01": 9.4,
+  "2026-10-02": 1.23
+ },
+ "markers": [
+  "WS-116 pioneer-transformer-workflow-automation@AFDS-148",
+  "WS-117 pioneer-transformer-workflow-automation@AFDS-148",
+  "WS-119 pioneer-transformer-workflow-automation@AFDS-148",
+  "FILL-012 jira-fill@AFDS-148"
+ ],
+ "note": "Pull before the 10-04 -> 10-17 push: nothing in Jira after 2026-10-02. Pushed right after: 21 worklogs (ids 18565-18585), read back 21/21 with markers, weeks 10-04 = 40.0 h, 10-11 = 8.5 h."
+}
