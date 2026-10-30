@@ -199,3 +199,52 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-10-19 16:37:32 | e024797a-ba06-4a1d-bf1f-e31fa66817d7 | C:\Programming\Claude | session-start
 2026-10-19 23:20:39 | e024797a-ba06-4a1d-bf1f-e31fa66817d7 | /c/Programming/Claude | session-end
 2026-10-20 09:44:14 | 44242f45-e95f-44be-b66a-574a81905715 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-10-20 10:01:04 | 44242f45-e95f-44be-b66a-574a81905715 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-10-20 15:02:51 | 060ea9f9-bf20-4695-8397-28b98fb7aee2 | C:\Programming\Claude | session-start
+2026-10-21 11:51:53 | 060ea9f9-bf20-4695-8397-28b98fb7aee2 | /c/Programming/Claude | session-end
+2026-10-21 11:52:20 | 80124015-d4d9-4c29-9b19-f05de3d95259 | C:\Programming\Claude | session-start
+2026-10-21 15:33:02 | 80124015-d4d9-4c29-9b19-f05de3d95259 | /c/Programming/Claude/Timesheets | session-end
+2026-10-23 13:40:32 | 629dd883-1502-4c4c-9637-bfbb72f38cdb | C:\Programming\Claude | session-start
+2026-10-23 14:48:19 | 629dd883-1502-4c4c-9637-bfbb72f38cdb | C:\Programming\Claude | session-start
+2026-10-23 23:21:55 | da92bcd7-9f9d-46ca-b3aa-810c132e3d57 | C:\Programming\Claude | session-start
+2026-10-24 00:50:24 | 629dd883-1502-4c4c-9637-bfbb72f38cdb | /c/Programming/Claude/d-lightfull-atlas/d-lightfull-atlas | session-end
+2026-10-25 04:14:54 | 32ba4fcd-8194-4eaa-8511-06ca2cbef7fb | C:\Programming\Claude | session-start
+2026-10-25 04:58:18 | 26fc61de-6d51-40c1-b5cb-20343181cc94 | /c/Programming/Claude | session-end
+2026-10-25 05:21:24 | 9d00af5f-356b-425d-9c8e-77ff006462f8 | /c/Programming/Claude/d-lightfull-atlas | session-end
+2026-10-25 05:23:24 | eadcca9a-3ec9-40b3-bcb5-e4a7d1a8e972 | /c/Programming/Claude/d-lightfull-atlas | session-end
+2026-10-25 05:23:48 | 33eec8ac-0959-4730-8e89-f9ff122d011c | /c/Programming/Claude/d-lightfull-atlas | session-end
+2026-10-25 05:24:25 | bb45f1be-da54-4757-bfd6-aabb8c473647 | /c/Programming/Claude/d-lightfull-atlas | session-end
+2026-10-25 06:49:55 | 32ba4fcd-8194-4eaa-8511-06ca2cbef7fb | C:\Programming\Claude\Timesheets | session-start
+2026-10-25 13:39:30 | 32ba4fcd-8194-4eaa-8511-06ca2cbef7fb | C:\Programming\Claude | session-start
+2026-10-25 13:39:42 | 76d2652c-6984-460d-94a0-005f1ea1a5dd | C:\Programming\Claude | session-start
+2026-10-25 14:15:00 | 76d2652c-6984-460d-94a0-005f1ea1a5dd | /c/Programming/Claude | session-end
+2026-10-25 14:30:21 | 157c20d7-b69c-4fd0-bdf9-2da91c79ef43 | /c/Programming/Claude | session-end
+2026-10-25 16:50:19 | 32ba4fcd-8194-4eaa-8511-06ca2cbef7fb | C:\Programming\Claude\d-lightfull-quartermaster | session-start
+2026-10-25 21:29:22 | 32ba4fcd-8194-4eaa-8511-06ca2cbef7fb | /c/Programming/Claude/d-lightfull-atlas | session-end
+2026-10-26 10:48:15 | 2aa0e7f4-ff7a-472b-9ff8-e15f9c61857c | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-10-26 13:14:48 | 2aa0e7f4-ff7a-472b-9ff8-e15f9c61857c | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-10-26 21:41:12 | eb7ac66e-1d53-4d70-b818-cc290d72122d | C:\Programming\Claude | session-start
+2026-10-27 02:20:45 | eb7ac66e-1d53-4d70-b818-cc290d72122d | C:\Programming\Claude\Timesheets | session-start
+2026-10-27 10:18:19 | eb7ac66e-1d53-4d70-b818-cc290d72122d | /c/Programming/Claude | session-end
+2026-10-27 15:28:30 | 2aa0e7f4-ff7a-472b-9ff8-e15f9c61857c | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-10-28 09:24:09 | 5024ec39-174b-4b9c-a002-fa1535cb0c45 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-10-28 10:52:24 | 2aa0e7f4-ff7a-472b-9ff8-e15f9c61857c | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-10-28 13:52:00 | eb7ac66e-1d53-4d70-b818-cc290d72122d | C:\Programming\Claude | session-start
+2026-10-28 13:52:10 | eb7ac66e-1d53-4d70-b818-cc290d72122d | /c/Programming/Claude | session-end
+2026-10-28 13:52:41 | d64569fd-a3d8-4240-b567-9843e1747124 | /c/Programming/Claude | session-end
+2026-10-28 13:53:46 | 5024ec39-174b-4b9c-a002-fa1535cb0c45 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-10-28 13:54:04 | 5024ec39-174b-4b9c-a002-fa1535cb0c45 | /c/Users/solei/OneDrive/Documents/Biplan/claude | session-end
+2026-10-28 13:54:28 | 2aa0e7f4-ff7a-472b-9ff8-e15f9c61857c | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-10-28 14:43:18 | 2aa0e7f4-ff7a-472b-9ff8-e15f9c61857c | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-10-28 14:45:49 | 5024ec39-174b-4b9c-a002-fa1535cb0c45 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-10-28 17:04:40 | f03aa9f4-dffe-43f3-b629-1c558c4d171e | C:\Programming\Claude | session-start
+2026-10-28 18:22:14 | f03aa9f4-dffe-43f3-b629-1c558c4d171e | /c/Programming/Claude/Timesheets | session-end
+2026-10-28 22:52:59 | 5024ec39-174b-4b9c-a002-fa1535cb0c45 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-10-28 22:53:19 | 2aa0e7f4-ff7a-472b-9ff8-e15f9c61857c | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-10-29 00:59:43 | 2aa0e7f4-ff7a-472b-9ff8-e15f9c61857c | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-10-29 01:07:24 | 5024ec39-174b-4b9c-a002-fa1535cb0c45 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-10-29 09:38:03 | 45417554-78b3-49db-a6e6-74119f6f3860 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-10-29 16:53:37 | f03aa9f4-dffe-43f3-b629-1c558c4d171e | C:\Programming\Claude | session-start
+2026-10-29 18:24:10 | 45417554-78b3-49db-a6e6-74119f6f3860 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer\projects\workflow-automation | session-start
+2026-10-29 18:24:31 | f03aa9f4-dffe-43f3-b629-1c558c4d171e | C:\Programming\Claude\d-lightfull-atlas | session-start
+2026-10-30 14:48:02 | 45417554-78b3-49db-a6e6-74119f6f3860 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
