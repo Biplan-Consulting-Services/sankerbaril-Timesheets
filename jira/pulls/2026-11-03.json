@@ -1,0 +1,40 @@
+{
+ "pulledAt": "2026-11-03T15:30:00Z",
+ "project": "AFDS",
+ "since": "2026-10-18",
+ "me": "Soleil Anker-Baril",
+ "tz": "America/New_York",
+ "worklogs": 20,
+ "first": "2026-10-26",
+ "last": "2026-10-30",
+ "days": {
+  "2026-10-26": 6.75,
+  "2026-10-27": 8.5,
+  "2026-10-28": 8.82,
+  "2026-10-29": 8.05,
+  "2026-10-30": 7.88
+ },
+ "markers": [
+  "WS-144 pioneer-transformer-workflow-automation@AFDS-148",
+  "WS-145 pioneer-transformer-workflow-automation@AFDS-148",
+  "WS-149 pioneer-transformer-workflow-automation@AFDS-148",
+  "FILL-019 jira-fill@AFDS-148",
+  "WS-147 pioneer-transformer-workflow-automation@AFDS-148",
+  "WS-148 pioneer-transformer-workflow-automation@AFDS-148",
+  "FILL-022 jira-fill@AFDS-148",
+  "WS-146 pioneer-transformer-workflow-automation@AFDS-133",
+  "WS-150 pioneer-transformer-workflow-automation@AFDS-156",
+  "FILL-020 jira-fill@AFDS-156",
+  "FILL-021 jira-fill@AFDS-176",
+  "WS-154 pioneer-transformer-workflow-automation@AFDS-176",
+  "FILL-024 jira-fill@AFDS-176",
+  "FILL-026 jira-fill@AFDS-176",
+  "FILL-027 jira-fill@AFDS-176",
+  "WS-160 pioneer-transformer-workflow-automation@AFDS-176",
+  "WS-156 pioneer-transformer-workflow-automation@AFDS-92",
+  "FILL-023 jira-fill@AFDS-92",
+  "FILL-025 jira-fill@AFDS-92",
+  "WS-161 pioneer-transformer-workflow-automation@AFDS-214"
+ ],
+ "note": "Pull before the push found nothing in Jira since 2026-10-18 (vacation week 10-18 = 0 h, user 2026-11-03). Pushed 2026-11-03: 20 worklogs (ids 18598-18617), read back 20/20; week 10-25 = 40.0 h. This file is the read-back after the push."
+}

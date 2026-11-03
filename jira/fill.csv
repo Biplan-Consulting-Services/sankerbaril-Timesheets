@@ -17,3 +17,12 @@ FILL-015,2026-10-06,13:44,16:45,AFDS-76,Ajout de la colonne d'origine de l'acier
 FILL-016,2026-10-08,22:00,23:39,AFDS-148,Revue des nouveaux tests des tâches de workflow et rétablissement de la configuration de production
 FILL-017,2026-10-15,00:41,01:11,AFDS-208,Application des indicateurs KPI v2 aux pages du rapport Monthly Unit Shipment
 FILL-018,2026-10-15,13:00,16:30,AFDS-76,Correction d'erreurs dans FRM11 et les rapports fournisseurs
+FILL-019,2026-10-26,17:00,17:30,AFDS-148,Préparation de l'accompagnement des équipes sur les tâches de workflow
+FILL-020,2026-10-28,14:41,17:49,AFDS-156,Écran de changement de quantité dans l'application de création de commande : conception et tests
+FILL-021,2026-10-28,23:29,23:59,AFDS-176,Conception de la mise à jour des champs de modèle copiés lors d'un changement de modèle
+FILL-022,2026-10-29,09:30,10:00,AFDS-148,Vérification matinale des flows et préparation de la rencontre sur la documentation dans JOB
+FILL-023,2026-10-29,11:30,12:00,AFDS-92,Suivi de la rencontre sur la documentation : structure des dossiers de commande
+FILL-024,2026-10-29,13:00,15:20,AFDS-176,Analyse de la reclassification des familles de transformateurs (A/B/C/D) et des kVA
+FILL-025,2026-10-29,15:20,16:52,AFDS-92,Conception des dossiers de commande et de modèle : liens et classement des documents par type
+FILL-026,2026-10-29,16:52,17:27,AFDS-176,Vérification des modifications SharePoint (familles et kVA) et dates promises des commandes 21989 / E21018
+FILL-027,2026-10-30,09:00,12:00,AFDS-176,Famille de transformateur : préparation et analyse des impacts sur les flows et l'application

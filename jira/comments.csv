@@ -39,3 +39,14 @@ pioneer-transformer-workflow-automation.csv,WS-139,FRM11 : colonne d'origine de 
 pioneer-transformer-workflow-automation.csv,WS-140,Guide du personnel (FR / EN), communications de mise en service et canaux des départements
 pioneer-transformer-workflow-automation.csv,WS-141,Mise en service des tâches de workflow : onglets Teams, activation et communications
 pioneer-transformer-workflow-automation.csv,WS-142,Rapport Monthly Unit Shipment : rencontre sur la logique OTD, indicateurs OTD et KPI v2 et rapport de suivi
+pioneer-transformer-workflow-automation.csv,WS-144,Revue des listes SharePoint après les vacances : création des unités 22186 / 22187 et correction du rappel quotidien
+pioneer-transformer-workflow-automation.csv,WS-145,Vérification de l'état des flows depuis le 13 octobre et correction de la notification Teams
+pioneer-transformer-workflow-automation.csv,WS-146,Formation des ventes internes sur l'infrastructure actuelle
+pioneer-transformer-workflow-automation.csv,WS-149,Correction du flow de notification et plan d'accompagnement des équipes sur les tâches de workflow
+pioneer-transformer-workflow-automation.csv,WS-147,Commande de plus de 400 unités répétées : analyse et conception puis mise en service de la version 4 des tâches de workflow
+pioneer-transformer-workflow-automation.csv,WS-148,Revue des listes et rapport hebdomadaire ; conception des changements de quantité après la planification
+pioneer-transformer-workflow-automation.csv,WS-150,Changement de quantité : liste et flow ; création automatique des unités SA jumelles
+pioneer-transformer-workflow-automation.csv,WS-154,Publication de l'écran de changement de quantité et recopie des champs de modèle lors d'un changement de modèle
+pioneer-transformer-workflow-automation.csv,WS-156,Rencontre « Rapatrier la documentation dans JOB » : structure centrale des dossiers de commande
+pioneer-transformer-workflow-automation.csv,WS-160,Famille de transformateur comme champ d'unité : flows et application de création de commande et unités annulées
+pioneer-transformer-workflow-automation.csv,WS-161,Synchronisation nocturne : délai de suppression des unités livrées et rattrapage de l'archivage
