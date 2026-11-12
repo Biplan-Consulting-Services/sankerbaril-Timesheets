@@ -177,3 +177,4 @@ WS-175,2026-11-11,10:31,12:31,done,4ab69749-015a-4b1f-9dfb-1ff88d1f3808,"PT-204:
 WS-176,2026-11-11,14:27,14:53,done,7e7d4a30-aa7b-4563-81ca-07fdc67e1362,"PT-218: grilling the floor-app step table (step kinds, parallel work, oil-test fail, Réparation)",monday
 WS-177,2026-11-11,15:51,15:59,done,7e7d4a30-aa7b-4563-81ca-07fdc67e1362,"PT-218: step table (Location roll-up, BO, inspection, waits, stations, names); spec + decision",monday
 WS-178,2026-11-11,23:24,23:34,done,c6da81e4-d64e-4bd2-b652-2ef5119c5065,"PT-222: operator screens prototype (3 layouts), second question round, spec §5 + D-816, map line, commit 936fc61 (reconstructed from the PT-222 journal; the 16:54-17:03 part left out as negligible, user)",monday
+WS-179,2026-11-12,00:27,00:36,done,faea1c98-9137-4d3f-80e8-24f9685a87c4,"PT-226: wayfinder ticket on PT-215, demo script and seed data grilling (Q1-Q11), spec §10-§11 + D-821, map line, commit 9c775e8 pushed",monday
