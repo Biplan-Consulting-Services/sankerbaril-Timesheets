@@ -278,3 +278,40 @@ not itself a billable record. Don't hand-edit; safe to trim old entries periodic
 2026-11-09 21:59:35 | 55e4bc1a-193f-4003-ad88-0fdf1cec84a2 | /c/Programming/Claude/jody-anker-site | session-end
 2026-11-10 08:27:53 | 4ab69749-015a-4b1f-9dfb-1ff88d1f3808 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
 2026-11-10 10:29:45 | 4ab69749-015a-4b1f-9dfb-1ff88d1f3808 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Timesheets | session-start
+2026-11-11 11:49:54 | 4ab69749-015a-4b1f-9dfb-1ff88d1f3808 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 12:49:04 | e4f2057e-b3b5-455d-83ec-d6a91330274a | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-11-11 13:01:29 | 4ab69749-015a-4b1f-9dfb-1ff88d1f3808 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Claude-Tooling/sessions | session-end
+2026-11-11 13:02:06 | 8c3351de-ffcd-4711-8a00-1fda4cc46788 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 13:02:18 | 8c3351de-ffcd-4711-8a00-1fda4cc46788 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-11-11 13:17:59 | b17ff36a-1096-4dc5-9b18-0035ac225026 | C:\Users\solei\OneDrive\Documents\Biplan\claude | session-start
+2026-11-11 14:19:24 | e4f2057e-b3b5-455d-83ec-d6a91330274a | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 14:19:52 | b17ff36a-1096-4dc5-9b18-0035ac225026 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Timesheets | session-end
+2026-11-11 14:20:03 | e4f2057e-b3b5-455d-83ec-d6a91330274a | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-11-11 14:22:25 | b1eaf8a5-3d6c-4126-8248-f440d2301ae8 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Claude-Tooling | session-start
+2026-11-11 14:23:27 | 89015279-7af6-42f9-8b3a-126b7a1a42b7 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 14:23:29 | 9307a745-3135-4555-b27b-2ef764e60583 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 14:23:30 | bb13f8ef-68c1-4053-9136-97dd292e1a26 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 14:41:13 | 89015279-7af6-42f9-8b3a-126b7a1a42b7 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-11-11 14:46:10 | d47b2ab6-743a-4abe-b791-d3c49ed7a78b | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 14:46:24 | 9307a745-3135-4555-b27b-2ef764e60583 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-11-11 14:46:24 | bb13f8ef-68c1-4053-9136-97dd292e1a26 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-11-11 14:46:37 | 4c358055-74b8-494e-b141-40610929cc27 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 14:46:56 | 7e7d4a30-aa7b-4563-81ca-07fdc67e1362 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 14:49:49 | 55dd0b29-0d4d-415d-8f13-ef7323a22f66 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Claude-Tooling | session-start
+2026-11-11 15:18:13 | e4f2057e-b3b5-455d-83ec-d6a91330274a | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-11-11 15:18:21 | e4f2057e-b3b5-455d-83ec-d6a91330274a | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 15:19:54 | 55dd0b29-0d4d-415d-8f13-ef7323a22f66 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Claude-Tooling | session-end
+2026-11-11 15:20:09 | 55dd0b29-0d4d-415d-8f13-ef7323a22f66 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Claude-Tooling | session-start
+2026-11-11 15:41:56 | a290f0f6-8869-4b79-88b2-cca611ea3738 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 15:42:37 | d47b2ab6-743a-4abe-b791-d3c49ed7a78b | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-11-11 15:47:17 | 4c358055-74b8-494e-b141-40610929cc27 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-11-11 16:00:12 | 55dd0b29-0d4d-415d-8f13-ef7323a22f66 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Claude-Tooling | session-end
+2026-11-11 16:00:48 | 7e7d4a30-aa7b-4563-81ca-07fdc67e1362 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-11-11 16:01:49 | 052f48df-ff91-4f4e-827d-6982186b02ca | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 16:19:50 | a290f0f6-8869-4b79-88b2-cca611ea3738 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-11-11 16:20:19 | b1eaf8a5-3d6c-4126-8248-f440d2301ae8 | /c/Users/solei/OneDrive/Documents/Biplan/claude/Claude-Tooling/sessions | session-end
+2026-11-11 16:28:37 | 052f48df-ff91-4f4e-827d-6982186b02ca | /c/Users/solei/OneDrive/Documents/Biplan/claude/Clients/Pioneer Transformer | session-end
+2026-11-11 16:30:29 | c6da81e4-d64e-4bd2-b652-2ef5119c5065 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 16:30:30 | 47af8cd6-0c8c-4c95-adba-76f95d59e0a3 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 17:25:16 | e4f2057e-b3b5-455d-83ec-d6a91330274a | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
+2026-11-11 23:32:15 | 68dd3be5-a67d-4f91-9f35-ab0ea3bfa453 | C:\Users\solei\OneDrive\Documents\Biplan\claude\Clients\Pioneer Transformer | session-start
