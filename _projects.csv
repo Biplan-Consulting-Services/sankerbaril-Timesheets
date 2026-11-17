@@ -6,3 +6,4 @@ pioneer-transformer-frm11.csv,Pioneer Transformer,FRM11,true,#B0521F,#C4703A
 _internal.csv,Internal,Internal,false,,
 timesheet-logging.csv,Internal,Timesheet-Logging,false,,
 new-project-scaffold.csv,Internal,New-Project-Scaffold,false,,
+pioneer-transformer-folder-reorganisation.csv,Pioneer Transformer,Folder-Reorganisation,true,#A0367F,#C25A9F

@@ -1,0 +1,5 @@
+id,date,start,end,status,session_id,workstream
+WS-001,2026-11-17,08:30,09:00,done,6f086652-b52e-4fc5-8a68-f8387bc8d10c,"Preparation for the folder organisation meeting (times from the user; moved from Workflow-Automation WS-206)"
+WS-002,2026-11-17,09:00,10:00,done,6f086652-b52e-4fc5-8a68-f8387bc8d10c,"Meeting with Marc-André, Josée and Angélique: the new folder organisation and the work to be done (times from the user; moved from Workflow-Automation WS-204)"
+WS-003,2026-11-17,10:00,12:00,done,6f086652-b52e-4fc5-8a68-f8387bc8d10c,"Folder organisation follow-up after the meeting (times from the user)"
+WS-004,2026-11-17,12:30,12:49,done,6f086652-b52e-4fc5-8a68-f8387bc8d10c,"Folder organisation follow-up after lunch (times from the user)"
