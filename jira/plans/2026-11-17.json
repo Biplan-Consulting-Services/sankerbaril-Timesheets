@@ -1,0 +1,340 @@
+{
+ "generatedAt": "2026-11-17T00:38:21",
+ "pull": "2026-11-17.json",
+ "coveredThrough": "2026-10-31",
+ "entries": [
+  {
+   "marker": "[FILL-028 jira-fill]",
+   "ticket": "AFDS-148",
+   "date": "2026-11-02",
+   "started": "2026-11-02T09:00:00.000-0500",
+   "timeSpentSeconds": 10800,
+   "comment": "Tâches de workflow : préparation du formulaire et des vues",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-029 jira-fill]",
+   "ticket": "AFDS-148",
+   "date": "2026-11-02",
+   "started": "2026-11-02T13:00:00.000-0500",
+   "timeSpentSeconds": 8700,
+   "comment": "Tâches de workflow : préparation du déploiement des flows",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[WS-162 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-214",
+   "date": "2026-11-03",
+   "started": "2026-11-03T10:50:00.000-0500",
+   "timeSpentSeconds": 42000,
+   "comment": "Vérification de la synchronisation nocturne, corrections des révisions de modèle, règle de suppression des dates de livraison et formulaire des tâches de workflow",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-163 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-148",
+   "date": "2026-11-04",
+   "started": "2026-11-04T08:35:00.000-0500",
+   "timeSpentSeconds": 30300,
+   "comment": "Tâches de workflow : formulaire, vues, déploiement des flows, tests et guides pour le personnel",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-164 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-05",
+   "started": "2026-11-05T09:00:00.000-0500",
+   "timeSpentSeconds": 3600,
+   "comment": "Recherche de solutions monday.com : synchronisation avec les lignes de commande",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-166 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-05",
+   "started": "2026-11-05T10:15:00.000-0500",
+   "timeSpentSeconds": 2640,
+   "comment": "Comparaison monday.com et SharePoint",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-167 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-92",
+   "date": "2026-11-05",
+   "started": "2026-11-05T10:59:00.000-0500",
+   "timeSpentSeconds": 2280,
+   "comment": "Rencontre « Rapatrier la documentation » : listes de vérification, spécifications et dossiers d'ingénierie",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-168 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-05",
+   "started": "2026-11-05T11:37:00.000-0500",
+   "timeSpentSeconds": 24780,
+   "comment": "Comparaison monday.com, Jira et Dataverse : options et licences par département",
+   "trimmed": false
+  },
+  {
+   "marker": "[FILL-030 jira-fill]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-06",
+   "started": "2026-11-06T09:00:00.000-0500",
+   "timeSpentSeconds": 10800,
+   "comment": "Comparaison monday.com et SharePoint : options et licences",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-031 jira-fill]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-06",
+   "started": "2026-11-06T13:00:00.000-0500",
+   "timeSpentSeconds": 8100,
+   "comment": "Comparaison monday.com et SharePoint : synthèse",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[WS-169 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-09",
+   "started": "2026-11-09T10:00:00.000-0500",
+   "timeSpentSeconds": 26520,
+   "comment": "Vue d'ensemble des initiatives des équipes, demandes du personnel et tableau de bord de production",
+   "trimmed": false
+  },
+  {
+   "marker": "[FILL-034 jira-fill]",
+   "ticket": "AFDS-214",
+   "date": "2026-11-09",
+   "started": "2026-11-09T17:22:00.000-0500",
+   "timeSpentSeconds": 1800,
+   "comment": "Tableau de bord de production : alertes sur les tables d'archive et analyse pour SharePoint et Power BI",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[WS-171 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-176",
+   "date": "2026-11-10",
+   "started": "2026-11-10T08:28:00.000-0500",
+   "timeSpentSeconds": 2160,
+   "comment": "Vérification matinale des listes SharePoint et analyse des unités annulées",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-172 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-214",
+   "date": "2026-11-10",
+   "started": "2026-11-10T09:04:00.000-0500",
+   "timeSpentSeconds": 1860,
+   "comment": "Suppression automatique des unités annulées et date d'emplacement",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-173 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-10",
+   "started": "2026-11-10T11:34:00.000-0500",
+   "timeSpentSeconds": 6360,
+   "comment": "Comparaison monday.com et SharePoint : feuilles de temps de l'atelier et questions pour la démonstration",
+   "trimmed": false
+  },
+  {
+   "marker": "[FILL-032 jira-fill]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-10",
+   "started": "2026-11-10T13:20:00.000-0500",
+   "timeSpentSeconds": 16800,
+   "comment": "Préparation de la démonstration monday.com / SharePoint : feuilles de temps de l'atelier",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[WS-174 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-214",
+   "date": "2026-11-11",
+   "started": "2026-11-11T08:53:00.000-0500",
+   "timeSpentSeconds": 5880,
+   "comment": "Vérification de la synchronisation nocturne, correction de la commande 22202 et suivi des demandes",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-175 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-11",
+   "started": "2026-11-11T10:31:00.000-0500",
+   "timeSpentSeconds": 7200,
+   "comment": "Application de l'atelier : ébauche de spécification et modèle de données",
+   "trimmed": false
+  },
+  {
+   "marker": "[FILL-035 jira-fill]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-11",
+   "started": "2026-11-11T14:27:00.000-0500",
+   "timeSpentSeconds": 1800,
+   "comment": "Application de l'atelier : types d'étapes et travail en parallèle",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[FILL-033 jira-fill]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-11",
+   "started": "2026-11-11T15:51:00.000-0500",
+   "timeSpentSeconds": 16680,
+   "comment": "Application de l'atelier : spécification du tableau des étapes et des écrans opérateur",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[WS-180 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-12",
+   "started": "2026-11-12T00:46:00.000-0500",
+   "timeSpentSeconds": 3000,
+   "comment": "Application de l'atelier : création des listes SharePoint, des flows et du rapport Power BI",
+   "trimmed": false
+  },
+  {
+   "marker": "[FILL-036 jira-fill]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-12",
+   "started": "2026-11-12T10:13:00.000-0500",
+   "timeSpentSeconds": 1800,
+   "comment": "Application de l'atelier : source de l'application et rapport Power BI",
+   "trimmed": false,
+   "fill": true
+  },
+  {
+   "marker": "[WS-182 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-12",
+   "started": "2026-11-12T11:17:00.000-0500",
+   "timeSpentSeconds": 2280,
+   "comment": "Application de l'atelier : décisions de conception, canaux Teams et modifications",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-183 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-12",
+   "started": "2026-11-12T13:30:00.000-0500",
+   "timeSpentSeconds": 3480,
+   "comment": "Application de l'atelier : déploiement des flows et construction de l'application",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-184 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-12",
+   "started": "2026-11-12T15:12:00.000-0500",
+   "timeSpentSeconds": 26280,
+   "comment": "Application de l'atelier : premiers tests et corrections",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-185 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-13",
+   "started": "2026-11-13T10:10:00.000-0500",
+   "timeSpentSeconds": 20100,
+   "comment": "Application de l'atelier : tests (superviseur, travail parallèle, mise en attente, réparation) et publication",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-188 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-213",
+   "date": "2026-11-15",
+   "started": "2026-11-15T11:00:00.000-0500",
+   "timeSpentSeconds": 30600,
+   "comment": "PT-231, PT-230: floor-app hardening tests 2-7 (Sunday part of WS-185; times approximate, from the commits, split confirmed by the user)",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-195 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-92",
+   "date": "2026-11-16",
+   "started": "2026-11-16T13:00:00.000-0500",
+   "timeSpentSeconds": 15480,
+   "comment": "PT-243: call with Philippe Blanchard (engineering modification tracker, workflow automation, duplicate orders), transcript filed; daily mirror refresh + health (5 red) (reconstructed from commits; start 13:00 from the user)",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-196 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-92",
+   "date": "2026-11-16",
+   "started": "2026-11-16T17:18:00.000-0500",
+   "timeSpentSeconds": 7860,
+   "comment": "PT-243: Engineering Change app review + fix-first batches 1-2, one-off repair of drifted data (35 models, 14 ECO), accessibility pass (reconstructed from commits)",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-197 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-92",
+   "date": "2026-11-16",
+   "started": "2026-11-16T19:29:00.000-0500",
+   "timeSpentSeconds": 7800,
+   "comment": "PT-244..PT-249: wayfinder map for the Engineering Change rework, current-state + FRM13 Power BI analysis, questions for Philippe, architecture D-909, Model Code rule (reconstructed from commits; end = session end)",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-189 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-92",
+   "date": "2026-11-16",
+   "started": "2026-11-16T21:42:00.000-0500",
+   "timeSpentSeconds": 5040,
+   "comment": "PT-244, PT-249: wayfinder orchestration; PT-249 Pioneer Model Code grilled and closed (D-910), PT-260 and PT-261 created",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-190 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-92",
+   "date": "2026-11-16",
+   "started": "2026-11-16T23:09:00.000-0500",
+   "timeSpentSeconds": 960,
+   "comment": "PT-244, PT-251: wayfinder, board and statuses grilled and closed (D-911)",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-191 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-92",
+   "date": "2026-11-16",
+   "started": "2026-11-16T23:25:00.000-0500",
+   "timeSpentSeconds": 420,
+   "comment": "PT-244, PT-252: wayfinder, priority from active orders grilled and closed (D-912)",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-192 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-92",
+   "date": "2026-11-16",
+   "started": "2026-11-16T23:33:00.000-0500",
+   "timeSpentSeconds": 240,
+   "comment": "PT-244, PT-253: wayfinder, roles and permissions grilled and closed (D-913)",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-193 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-92",
+   "date": "2026-11-16",
+   "started": "2026-11-16T23:38:00.000-0500",
+   "timeSpentSeconds": 1260,
+   "comment": "PT-244, PT-258: wayfinder, FRM13 drawing work as Workflow Tasks steps grilling (continues in WS-194)",
+   "trimmed": false
+  },
+  {
+   "marker": "[WS-194 pioneer-transformer-workflow-automation]",
+   "ticket": "AFDS-92",
+   "date": "2026-11-17",
+   "started": "2026-11-17T00:00:00.000-0500",
+   "timeSpentSeconds": 1020,
+   "comment": "PT-244, PT-258: FRM13 drawing work grilled and closed (D-914), PT-262 created",
+   "trimmed": false
+  }
+ ]
+}

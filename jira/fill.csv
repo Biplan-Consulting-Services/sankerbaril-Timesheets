@@ -26,3 +26,12 @@ FILL-024,2026-10-29,13:00,15:20,AFDS-176,Analyse de la reclassification des fami
 FILL-025,2026-10-29,15:20,16:52,AFDS-92,Conception des dossiers de commande et de modèle : liens et classement des documents par type
 FILL-026,2026-10-29,16:52,17:27,AFDS-176,Vérification des modifications SharePoint (familles et kVA) et dates promises des commandes 21989 / E21018
 FILL-027,2026-10-30,09:00,12:00,AFDS-176,Famille de transformateur : préparation et analyse des impacts sur les flows et l'application
+FILL-028,2026-11-02,09:00,12:00,AFDS-148,Tâches de workflow : préparation du formulaire et des vues
+FILL-029,2026-11-02,13:00,15:25,AFDS-148,Tâches de workflow : préparation du déploiement des flows
+FILL-030,2026-11-06,09:00,12:00,AFDS-213,Comparaison monday.com et SharePoint : options et licences
+FILL-031,2026-11-06,13:00,15:15,AFDS-213,Comparaison monday.com et SharePoint : synthèse
+FILL-032,2026-11-10,13:20,18:00,AFDS-213,Préparation de la démonstration monday.com / SharePoint : feuilles de temps de l'atelier
+FILL-033,2026-11-11,15:51,20:29,AFDS-213,Application de l'atelier : spécification du tableau des étapes et des écrans opérateur
+FILL-034,2026-11-09,17:22,17:52,AFDS-214,Tableau de bord de production : alertes sur les tables d'archive et analyse pour SharePoint et Power BI
+FILL-035,2026-11-11,14:27,14:57,AFDS-213,Application de l'atelier : types d'étapes et travail en parallèle
+FILL-036,2026-11-12,10:13,10:43,AFDS-213,Application de l'atelier : source de l'application et rapport Power BI

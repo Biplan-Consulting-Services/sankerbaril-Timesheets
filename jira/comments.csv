@@ -50,3 +50,20 @@ pioneer-transformer-workflow-automation.csv,WS-154,Publication de l'écran de ch
 pioneer-transformer-workflow-automation.csv,WS-156,Rencontre « Rapatrier la documentation dans JOB » : structure centrale des dossiers de commande
 pioneer-transformer-workflow-automation.csv,WS-160,Famille de transformateur comme champ d'unité : flows et application de création de commande et unités annulées
 pioneer-transformer-workflow-automation.csv,WS-161,Synchronisation nocturne : délai de suppression des unités livrées et rattrapage de l'archivage
+pioneer-transformer-workflow-automation.csv,WS-162,Vérification de la synchronisation nocturne, corrections des révisions de modèle, règle de suppression des dates de livraison et formulaire des tâches de workflow
+pioneer-transformer-workflow-automation.csv,WS-163,Tâches de workflow : formulaire, vues, déploiement des flows, tests et guides pour le personnel
+pioneer-transformer-workflow-automation.csv,WS-164,Recherche de solutions monday.com : synchronisation avec les lignes de commande
+pioneer-transformer-workflow-automation.csv,WS-166,Comparaison monday.com et SharePoint
+pioneer-transformer-workflow-automation.csv,WS-167,Rencontre « Rapatrier la documentation » : listes de vérification, spécifications et dossiers d'ingénierie
+pioneer-transformer-workflow-automation.csv,WS-168,Comparaison monday.com, Jira et Dataverse : options et licences par département
+pioneer-transformer-workflow-automation.csv,WS-169,Vue d'ensemble des initiatives des équipes, demandes du personnel et tableau de bord de production
+pioneer-transformer-workflow-automation.csv,WS-171,Vérification matinale des listes SharePoint et analyse des unités annulées
+pioneer-transformer-workflow-automation.csv,WS-172,Suppression automatique des unités annulées et date d'emplacement
+pioneer-transformer-workflow-automation.csv,WS-173,Comparaison monday.com et SharePoint : feuilles de temps de l'atelier et questions pour la démonstration
+pioneer-transformer-workflow-automation.csv,WS-174,Vérification de la synchronisation nocturne, correction de la commande 22202 et suivi des demandes
+pioneer-transformer-workflow-automation.csv,WS-175,Application de l'atelier : ébauche de spécification et modèle de données
+pioneer-transformer-workflow-automation.csv,WS-180,Application de l'atelier : création des listes SharePoint, des flows et du rapport Power BI
+pioneer-transformer-workflow-automation.csv,WS-182,Application de l'atelier : décisions de conception, canaux Teams et modifications
+pioneer-transformer-workflow-automation.csv,WS-183,Application de l'atelier : déploiement des flows et construction de l'application
+pioneer-transformer-workflow-automation.csv,WS-184,Application de l'atelier : premiers tests et corrections
+pioneer-transformer-workflow-automation.csv,WS-185,Application de l'atelier : tests (superviseur, travail parallèle, mise en attente, réparation) et publication
